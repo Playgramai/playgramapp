@@ -1,6 +1,6 @@
 # Playgram Platform Analysis
 
-*Analysis conducted: March 2, 2026*  
+*Analysis conducted: March 2, 2026; Managerial functions added March 6, 2026*  
 *Platform: app.playgram.ai*
 
 ---
@@ -113,7 +113,46 @@ Multi-workspace capabilities:
 
 ![Workspace selector](screenshots/workspace-selector.png)
 
-#### G. User Settings & Customization
+#### G. Workspace Settings (Managerial Functions)
+
+Accessed via the gear icon next to the workspace name in the sidebar. URL: `?tab=workspace_settings` with subtabs via `&subtab=`.
+
+**General Tab** (`subtab=general` or default)
+- **Workspace icon/logo**: Editable avatar for the workspace
+- **Admin project view**: Toggle controlling visibility — "See every project in the workspace. When off, you will only see projects that you are part of."
+- **Name**: Editable workspace name
+- **Instructions**: Team-wide custom instructions for LLM responses ("Add instructions to customize LLM responses for your team")
+
+**Members Tab** (`subtab=members`)
+- **Workspace members list**: All members with invitation status (accepted vs pending)
+- **Search members**: Filter members by name/email
+- **Invite members**: Add users by email; subscription plan selector for invited members
+- **Remove member**: Delete member with confirmation popup ("Delete member?")
+- **Delete invitation**: Cancel pending invitations with confirmation ("Delete invitation?")
+- **Pagination**: For workspaces with many members
+
+**Analytics Tab** (`subtab=analytics`)
+- **Members analytics table**: Per-member usage metrics
+- **Sortable columns**: Member email, total messages, total time (hours/minutes/seconds)
+- **Search analytics**: Filter members in the analytics view
+- **Admin analytics view**: Dropdown for admin-level analytics controls
+
+**Subscription Tab** (`subtab=subscription`)
+- **Subscription plans**: Free, Pro, and other tiers
+- **Plan selection**: Choose plan when inviting members
+- **Stripe integration**: Billing via Stripe (subscription payment success/failed/deleted webhooks)
+- **Credits management**: Usage-based credits per plan
+
+**Sidebar (Workspace-Level)**
+- **Add new workspace**: Create additional workspaces
+- **Invitations**: Pending workspace invitations (indicator when invitations exist); accept/decline from login-signup flow
+
+**Project-Level Settings** (Popup per project)
+- **General**: Project name and settings
+- **Admins**: Project admin management
+- **Members**: Project member management (distinct from workspace members)
+
+#### I. User Settings & Customization
 
 **Account Management**
 - Profile information (name, email, password)
@@ -139,7 +178,7 @@ Multi-workspace capabilities:
 
 ![Settings - Archive](screenshots/settings-archive.png)
 
-#### H. Command Palette (⌘K)
+#### J. Command Palette (⌘K)
 
 Extensive keyboard shortcut system for power users:
 
@@ -304,6 +343,18 @@ Workspace (Top Level)
 │   └── Library (generated content)
 │       ├── Images
 │       └── Files
+├── Workspace Settings (Managerial)
+│   ├── General (admin project view, name, LLM instructions)
+│   ├── Members (invite, remove, search, pagination)
+│   ├── Analytics (per-member usage: messages, time)
+│   └── Subscription (plans, billing, credits)
+├── Workspace-Level Actions
+│   ├── Add new workspace
+│   └── Invitations (pending workspace invites)
+├── Project Settings (per project)
+│   ├── General
+│   ├── Admins
+│   └── Members
 ├── Chat Actions
 │   ├── New Chat (Personal/Project/Team)
 │   ├── Search
@@ -354,6 +405,7 @@ Playgram positions itself as a unified AI workspace that combines:
 - Advanced feature toggles (reasoning, web search, image generation)
 - Power-user optimizations (keyboard shortcuts, command palette)
 - Unified library for generated content
+- **Managerial controls**: Workspace settings (members, analytics, subscription), admin project view, per-member usage analytics, invitation management
 
 **Technical Approach**
 - No-code platform (Bubble.io) enabling rapid iteration
@@ -408,4 +460,4 @@ Playgram positions itself as a unified AI workspace that combines:
 
 ---
 
-*This analysis is based on a single exploration session and may not capture all features or technical details of the platform.*
+*This analysis is based on exploration sessions (March 2 and March 6, 2026). Managerial functions were discovered via browser session and Bubble codebase inspection.*
