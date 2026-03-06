@@ -196,21 +196,38 @@ If Playgram grows to serve users globally and latency becomes a concern, Fly.io 
 
 ## Proposed Architecture on Railway
 
+**MVP (single service — no Dockerfile needed, Railway auto-detects Next.js):**
+
+```
+Railway Project
+└── Next.js App (single service)
+    ├── Web routes (SSR, API, SSE streaming)
+    ├── In-app cron jobs (node-cron) -- scheduled deletions, counter resets
+    ├── Inline file processing       -- chunking & vector indexing
+    └── Webhook handlers             -- Stripe, etc.
+```
+
+**Scaled (add when needed — see docs/deployment_infrastructure.md):**
+
 ```
 Railway Project
 +-- Next.js App (web service)     -- handles SSR, API routes, SSE streaming
 +-- Redis                          -- job queue, caching, rate limiting
-+-- Worker Service (optional)      -- Bull queue processor for background jobs
++-- Worker Service                 -- Bull queue processor for background jobs
 |   +-- File chunking & vector indexing
 |   +-- Scheduled deletions
 |   +-- Token resets
-+-- (External services stay as-is)
-    +-- Supabase (database + auth)
-    +-- Weaviate (vector search)
-    +-- Bunny CDN (file storage)
-    +-- LiteLLM on DigitalOcean (LLM proxy)
-    +-- Stripe (payments)
-    +-- Elasticsearch (search)
+```
+
+**External services (unchanged in both phases):**
+
+```
++-- Supabase (database + auth)
++-- Weaviate (vector search)
++-- Bunny CDN (file storage)
++-- LiteLLM on DigitalOcean (LLM proxy)
++-- Stripe (payments)
++-- Elasticsearch (search)
 ```
 
 ---

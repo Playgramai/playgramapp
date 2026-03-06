@@ -16,6 +16,8 @@ bubble/                         # Bubble.io source export
   AGENTS.md                     # Instructions for working with bubble/ files
 
 docs/
+  deployment_research.md        # Platform comparison and Railway recommendation
+  deployment_infrastructure.md  # Infrastructure decisions: no Docker/Terraform, node-cron for jobs
   bubble_app/
     bubble_app_analysis.md      # Feature inventory, tech architecture, UI/UX analysis
     screenshots/                # UI screenshots of the current Bubble app
@@ -58,6 +60,13 @@ Playgram is a multi-model AI chat workspace with:
 - **Payments**: Stripe
 - **Search**: Elasticsearch (Bubble-native)
 - **Analytics**: Microsoft Clarity
+
+## Deployment
+
+- **Platform**: Railway — GitHub push-to-deploy, no Dockerfile needed (auto-detects Next.js)
+- **Architecture**: Single Next.js service at MVP. External services (Supabase, Weaviate, Bunny CDN, LiteLLM, Stripe) stay as-is.
+- **Background tasks**: `node-cron` in-app for scheduled jobs (file cleanup, counter resets). No Redis/Bull at MVP.
+- **When to scale**: Add Redis/Bull only when file processing volume demands it or when running 2+ app instances. See `docs/deployment_infrastructure.md`.
 
 ## Git Conventions
 
