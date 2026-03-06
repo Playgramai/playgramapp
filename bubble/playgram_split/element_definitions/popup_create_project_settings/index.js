@@ -1,4 +1,4 @@
-import { elements } from './elements.js';
+import { elements } from './elements/index.js';
 import { workflows } from './workflows/index.js';
 
 export const Popup_Create_Project_Settings = {

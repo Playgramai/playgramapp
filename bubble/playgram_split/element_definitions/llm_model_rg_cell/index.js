@@ -1,4 +1,4 @@
-import { elements } from './elements.js';
+import { elements } from './elements/index.js';
 
 export const LLM_Model_RG_Cell = {
   "elements": elements,

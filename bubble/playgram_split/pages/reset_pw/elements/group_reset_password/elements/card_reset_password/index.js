@@ -1,0 +1,35 @@
+import { elements } from './elements/index.js';
+
+export const card_reset_password = {
+  "elements": elements,
+  "properties": {
+    "height": 293,
+    "left": 330,
+    "top": 8,
+    "width": 420,
+    "zindex": 11,
+    "background_style": "none",
+    "border_style": "none",
+    "order": 2,
+    "row_gap": 24,
+    "use_gap": true,
+    "fit_height": true,
+    "single_width": false,
+    "max_width_css": "350px",
+    "min_width_css": "0px",
+    "single_height": false,
+    "min_height_css": "0px",
+    "vert_alignment": "flex-start",
+    "horiz_alignment": "center",
+    "container_layout": "column",
+    "collapse_when_hidden": true,
+    "container_vert_alignment": "center"
+  },
+  "type": "Group",
+  "id": "bTGyf0",
+  "current_parent": "bTJfJ1.elements",
+  "default_name": "Group D",
+  "name": "Card Reset Password",
+  "style": "Group_outline_",
+  "order": 4,
+};

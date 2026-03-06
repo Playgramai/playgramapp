@@ -1,522 +1,269 @@
 import { Sidebar } from './sidebar/index.js';
+import { GF_User_Menu } from './gf_user_menu/index.js';
 import { Popup_Create_Project_Settings } from './popup_create_project_settings/index.js';
 import { Memory_Knowledge } from './memory_knowledge/index.js';
+import { Canvas_Menu } from './canvas_menu/index.js';
+import { Date } from './date/index.js';
+import { Chat_User_Icon } from './chat_user_icon/index.js';
+import { Element_Copy_LLM_Message } from './element_copy_llm_message/index.js';
+import { Dropdown_Project_Workspace_Member_Type } from './dropdown_project_workspace_member_type/index.js';
+import { Dropdown_subscription_credits } from './dropdown_subscription_credits/index.js';
 import { GF_Chat_Menu } from './gf_chat_menu/index.js';
 import { Element_Copy_Simple_Text } from './element_copy_simple_text/index.js';
 import { Popup_User_Settings } from './popup_user_settings/index.js';
+import { Popup_Delete_Memory } from './popup_delete_memory/index.js';
 import { GF_RG_Memory_Menu } from './gf_rg_memory_menu/index.js';
 import { LLM_Model_RG_Cell } from './llm_model_rg_cell/index.js';
 import { Workspace_Settings } from './workspace_settings/index.js';
 import { Library } from './library/index.js';
+import { Element_Save_Custom_Instruction } from './element_save_custom_instruction/index.js';
+import { Element_Regenerate } from './element_regenerate/index.js';
+import { Dropdown_admin_analytics } from './dropdown_admin_analytics/index.js';
 import { Subscription_plans } from './subscription_plans/index.js';
-import { GF_User_Menu } from './gf_user_menu.js';
-import { Dropdown_subscription_credits } from './dropdown_subscription_credits.js';
-import { Popup_Delete_Memory } from './popup_delete_memory.js';
-import { Dropdown_Project_Workspace_Member_Type } from './dropdown_project_workspace_member_type.js';
-import { Element_Save_Custom_Instruction } from './element_save_custom_instruction.js';
-import { Dropdown_admin_analytics } from './dropdown_admin_analytics.js';
-import { Element_Copy_LLM_Message } from './element_copy_llm_message.js';
-import { Chat_User_Icon } from './chat_user_icon.js';
-import { Date } from './date.js';
-import { Element_Regenerate } from './element_regenerate.js';
 
 export const element_definitions = {
   "bTHoQ": Sidebar,
+  "bTJKn": GF_User_Menu,
   "bTJjW": Popup_Create_Project_Settings,
   "bTMNU": Memory_Knowledge,
+  "bTNfh": Canvas_Menu,
+  "bTYSM": Date,
+  "bTYWx": Chat_User_Icon,
+  "bTZAm": Element_Copy_LLM_Message,
+  "bTaul": Dropdown_Project_Workspace_Member_Type,
+  "bTwmR": Dropdown_subscription_credits,
   "bTImm0": GF_Chat_Menu,
   "bTKXA0": Element_Copy_Simple_Text,
   "bTKhI0": Popup_User_Settings,
+  "bTOHY0": Popup_Delete_Memory,
   "bTOtF0": GF_RG_Memory_Menu,
   "bTbEn0": LLM_Model_RG_Cell,
   "bTdLl1": Workspace_Settings,
   "bTjPp1": Library,
-  "bTxAr1": Subscription_plans,
-  "bTJKn": GF_User_Menu,
-  "bTwmR": Dropdown_subscription_credits,
-  "bTOHY0": Popup_Delete_Memory,
-  "bTaul": Dropdown_Project_Workspace_Member_Type,
   "bTliP2": Element_Save_Custom_Instruction,
-  "bTrCT1": Dropdown_admin_analytics,
-  "bTZAm": Element_Copy_LLM_Message,
-  "bTYWx": Chat_User_Icon,
-  "bTYSM": Date,
   "bTnSM1": Element_Regenerate,
-  "bTNfh": {
-    "elements": {
-      "bTNfi": {
-        "properties": {
-          "height": 280,
-          "left": -80,
-          "top": -80,
-          "width": 280,
-          "zindex": 14,
-          "vertical_centering": true,
-          "order": 2,
-          "fit_width": false,
-          "fit_height": true,
-          "single_width": false,
-          "single_height": false,
-          "horiz_alignment": "flex-start",
-          "container_layout": "column",
-          "collapse_when_hidden": true
-        },
-        "type": "Group",
-        "id": "bTNct",
-        "default_name": "Group B",
-        "name": "Group Main",
-        "style": "Group_transparent_"
-      },
-      "bTNfo": {
-        "properties": {
-          "height": 4,
-          "left": 67,
-          "top": 13,
-          "width": 4,
-          "zindex": 15,
-          "order": 1,
-          "collapse_when_hidden": true
-        },
-        "type": "1543086664409x454646894723334140-AVv",
-        "id": "bTNfj",
-        "default_name": "PDFModel A"
-      },
-      "bTNgf": {
-        "properties": {
-          "height": 150,
-          "left": 0,
-          "top": 0,
-          "width": 280,
-          "zindex": 16,
-          "html": {
-            "entries": {
-              "0": "<style>\n#gfMenuCanvas {\n  transform: translateX(-160px) !important;\n  width: 250px !important;\n}\n</style>"
-            },
-            "type": "TextExpression"
-          },
-          "vertical_centering": true,
-          "order": 3,
-          "fit_height": true,
-          "single_width": true,
-          "min_width_css": "0px",
-          "single_height": true,
-          "min_height_css": "0px",
-          "horiz_alignment": "flex-start",
-          "collapse_when_hidden": true
-        },
-        "type": "HTML",
-        "id": "bTNgd",
-        "current_parent": "bTNcF",
-        "default_name": "HTML A",
-        "name": "HTML Move GF",
-        "style": "HTML_default_"
-      },
-      "bTInP0": {
-        "properties": {
-          "height": 280,
-          "left": 0,
-          "top": 0,
-          "width": 280,
-          "zindex": 13,
-          "boxshadow_horizontal": 0,
-          "border_roundness": 10,
-          "boxshadow_style": "none",
-          "data_source": {
-            "type": "ElementParent",
-            "is_slidable": false
-          },
-          "group_type": "api.apiconnector2.bTHIF0.bTHmN.body.data.Get.Messages_v3",
-          "vertical_centering": true,
-          "background_style": "none",
-          "bgcolor": "var(--color_bTGzr_default)",
-          "boxshadow_blur": 2,
-          "boxshadow_color": "var(--color_bTHBQ_default)",
-          "order": 2,
-          "reference": "bTNct",
-          "unique_id": {
-            "entries": {
-              "0": "gfMenuCanvas"
-            },
-            "type": "TextExpression"
-          },
-          "fit_height": true,
-          "offset_left": -8,
-          "single_width": false,
-          "max_width_css": "200px",
-          "min_width_css": "60px",
-          "single_height": false,
-          "horiz_alignment": "flex-start",
-          "container_layout": "column",
-          "collapse_when_hidden": true
-        },
-        "type": "GroupFocus",
-        "id": "bTNcK",
-        "current_parent": "bTIml0",
-        "default_name": "GroupFocus A",
-        "elements": {
-          "bTHrd": {
-            "properties": {
-              "height": 280,
-              "left": 101,
-              "top": 39,
-              "width": 280,
-              "zindex": 2,
-              "boxshadow_horizontal": 0,
-              "border_roundness": 10,
-              "boxshadow_style": "outset",
-              "group_type": "api.apiconnector2.bTHIF0.bTHmN.body.data.Get.Messages_v3",
-              "vertical_centering": true,
-              "background_style": "bgcolor",
-              "bgcolor": "var(--color_bTGzr_default)",
-              "boxshadow_blur": 10,
-              "boxshadow_color": "rgba(0,0,0,0.2)",
-              "boxshadow_spread": 0,
-              "order": 1,
-              "row_gap": 8,
-              "use_gap": true,
-              "fit_width": false,
-              "fit_height": true,
-              "margin_top": 6,
-              "margin_left": 6,
-              "padding_top": 8,
-              "margin_right": 6,
-              "padding_left": 8,
-              "single_width": false,
-              "margin_bottom": 6,
-              "padding_right": 8,
-              "single_height": false,
-              "padding_bottom": 8,
-              "horiz_alignment": "flex-start",
-              "container_layout": "column",
-              "collapse_when_hidden": true
-            },
-            "states": {
-              "0": {
-                "condition": {
-                  "next": {
-                    "next": {
-                      "type": "Message",
-                      "name": "is_true",
-                      "is_slidable": false
-                    },
-                    "type": "Message",
-                    "name": "dark_mode_boolean",
-                    "is_slidable": false
-                  },
-                  "type": "CurrentUser",
-                  "is_slidable": false
-                },
-                "properties": {
-                  "bgcolor": "var(--color_bTsrr2_default)"
-                },
-                "type": "State"
-              }
-            },
-            "type": "Group",
-            "id": "bTNcL",
-            "default_name": "Group A",
-            "elements": {
-              "bTIhc": {
-                "properties": {
-                  "height": 0,
-                  "left": 10,
-                  "top": 10,
-                  "width": 0,
-                  "zindex": 4,
-                  "border_roundness": 10,
-                  "vertical_centering": true,
-                  "order": 4,
-                  "use_gap": true,
-                  "fit_width": false,
-                  "unique_id": {
-                    "entries": {
-                      "0": ""
-                    },
-                    "type": "TextExpression"
-                  },
-                  "column_gap": 8,
-                  "fit_height": true,
-                  "padding_top": 8,
-                  "padding_left": 8,
-                  "single_width": false,
-                  "padding_right": 8,
-                  "single_height": false,
-                  "min_height_css": "36px",
-                  "padding_bottom": 8,
-                  "horiz_alignment": "flex-start",
-                  "container_layout": "row",
-                  "collapse_when_hidden": true,
-                  "container_horiz_alignment": "flex-start"
-                },
-                "states": {
-                  "0": {
-                    "condition": {
-                      "next": {
-                        "type": "Message",
-                        "name": "is_hovered",
-                        "is_slidable": false
-                      },
-                      "type": "ThisElement",
-                      "is_slidable": false
-                    },
-                    "properties": {
-                      "background_style": "bgcolor",
-                      "bgcolor": "rgba(var(--color_bTGzv_default_rgb), 0.2)"
-                    },
-                    "type": "State"
-                  }
-                },
-                "type": "Group",
-                "id": "bTNcP",
-                "current_parent": "bTIgr",
-                "default_name": "Group A",
-                "elements": {
-                  "bTHpX": {
-                    "properties": {
-                      "text": {
-                        "entries": {
-                          "0": "Download (.pdf)"
-                        },
-                        "type": "TextExpression"
-                      },
-                      "height": 36,
-                      "left": 0,
-                      "top": 0,
-                      "width": 100,
-                      "zindex": 2,
-                      "order": 4,
-                      "fit_width": false,
-                      "fit_height": true,
-                      "single_width": false,
-                      "min_width_css": "0px",
-                      "single_height": false,
-                      "min_height_css": "0px",
-                      "vert_alignment": "center",
-                      "horiz_alignment": "flex-start",
-                      "collapse_when_hidden": true
-                    },
-                    "type": "Text",
-                    "id": "bTNcQ",
-                    "default_name": "Text A",
-                    "style": "Text_inter___400___14px___white_"
-                  },
-                  "bTIhL": {
-                    "properties": {
-                      "height": 30,
-                      "left": 170,
-                      "top": 22,
-                      "width": 30,
-                      "zindex": 4,
-                      "icon": "feather download",
-                      "icon_color": "var(--color_primary_contrast_default)",
-                      "vertical_centering": true,
-                      "order": 1,
-                      "fit_height": false,
-                      "padding_top": 0,
-                      "padding_left": 0,
-                      "single_width": true,
-                      "min_width_css": "18px",
-                      "padding_right": 0,
-                      "single_height": true,
-                      "min_height_css": "18px",
-                      "padding_bottom": 0,
-                      "horiz_alignment": "flex-start",
-                      "collapse_when_hidden": true
-                    },
-                    "states": {
-                      "0": {
-                        "condition": {
-                          "next": {
-                            "next": {
-                              "type": "Message",
-                              "name": "is_true",
-                              "is_slidable": false
-                            },
-                            "type": "Message",
-                            "name": "dark_mode_boolean",
-                            "is_slidable": false
-                          },
-                          "type": "CurrentUser",
-                          "is_slidable": false
-                        },
-                        "properties": {
-                          "icon_color": "var(--color_bTsrq2_default)"
-                        },
-                        "type": "State"
-                      }
-                    },
-                    "type": "Icon",
-                    "id": "bTNcR",
-                    "default_name": "Icon A"
-                  }
-                },
-                "name": "Group Download pdf",
-                "style": "Group_transparent_",
-                "transitions": {
-                  "background_style": {
-                    "fn": "ease",
-                    "duration": 200
-                  }
-                }
-              }
-            },
-            "name": "Group Canvas Menu Content"
-          }
-        },
-        "name": "GF Canvas Menu"
-      }
-    },
-    "workflows": {
-      "bTInc0": {
-        "properties": {
-          "event_name": "toggle_menu"
-        },
-        "type": "CustomEvent",
-        "id": "bTNeZ",
-        "actions": {
-          "0": {
-            "properties": {
-              "element_id": "bTNcK"
-            },
-            "type": "ToggleElement",
-            "id": "bTNea"
-          }
-        }
-      },
-      "bTIqt0": {
-        "properties": {
-          "element_id": "bTNcP",
-          "breakpoint": false
-        },
-        "type": "ButtonClicked",
-        "id": "bTNel",
-        "actions": {
-          "0": {
-            "properties": {
-              "element_id": "bTNcK"
-            },
-            "type": "ToggleElement",
-            "id": "bTNem"
-          },
-          "1": {
-            "properties": {
-              "element_id": "bTNfj",
-              "ARJ": 50,
-              "ARL": 50,
-              "ARM": 50,
-              "ARN": 50,
-              "ARO": true
-            },
-            "type": "1543086664409x454646894723334140-ARG",
-            "id": "bTNfp"
-          },
-          "2": {
-            "properties": {
-              "element_id": "bTNfj",
-              "AQu": {
-                "entries": {
-                  "0": "body"
-                },
-                "type": "TextExpression"
-              },
-              "AQv": 12,
-              "AQy": "left",
-              "ARA": {
-                "entries": {
-                  "0": "Roboto"
-                },
-                "type": "TextExpression"
-              },
-              "ARB": 1.2
-            },
-            "type": "1543086664409x454646894723334140-AQt",
-            "id": "bTNfu"
-          },
-          "3": {
-            "properties": {
-              "element_id": "bTNfj",
-              "AQS": {
-                "entries": {
-                  "0": {
-                    "next": {
-                      "type": "Message",
-                      "name": "param_bTNgB",
-                      "is_slidable": false
-                    },
-                    "properties": {
-                      "element_id": "bTNcF"
-                    },
-                    "type": "GetElement",
-                    "is_slidable": false
-                  }
-                },
-                "type": "TextExpression"
-              },
-              "AQT": {
-                "entries": {
-                  "0": "body"
-                },
-                "type": "TextExpression"
-              },
-              "AQk": true
-            },
-            "type": "1543086664409x454646894723334140-AQR",
-            "id": "bTNfz"
-          },
-          "4": {
-            "properties": {
-              "element_id": "bTNfj",
-              "AQn": {
-                "entries": {
-                  "0": "frala"
-                },
-                "type": "TextExpression"
-              }
-            },
-            "type": "1543086664409x454646894723334140-AQm",
-            "id": "bTNgF"
-          }
-        }
-      }
-    },
+  "bTrCT1": Dropdown_admin_analytics,
+  "bTxAr1": Subscription_plans,
+  "bTHsk": null,
+  "bTJYH": null,
+  "bTJZU": null,
+  "bTJtq": null,
+  "bTLgC": {
     "properties": {
       "height": 200,
       "width": 200,
       "element_type": "Group",
-      "group_type": "api.apiconnector2.bTHIF0.bTHmN.body.data.Get.Messages_v3",
       "background_style": "none",
       "parameters": {
         "0": {
           "is_list": false,
           "btype_id": "text",
           "optional": true,
-          "param_id": "bTNgB",
-          "param_name": "text",
+          "param_id": "bTUaI",
+          "param_name": "color",
           "editor_type": "DynamicValue"
         }
       },
       "min_width_px": 0,
-      "default_width": 200,
-      "min_height_px": 1,
+      "default_width": 20,
+      "min_height_px": 20,
       "element_version": 5,
       "container_layout": "column",
       "custom_element_platform": "web"
     },
     "type": "CustomDefinition",
-    "id": "bTNcF",
-    "name": "Canvas Menu",
-    "custom_states": {
-      "mode_": {
-        "display": "rename",
-        "value": "boolean",
-        "make_static": true
-      },
-      "visible__": {
-        "display": "visible?",
-        "value": "boolean",
-        "make_static": true
+    "id": "bTLgB",
+    "elements": {
+      "bTLgI": {
+        "properties": {
+          "height": 12,
+          "left": 0,
+          "top": 0,
+          "width": 31,
+          "zindex": 3,
+          "icon": "phosphor regular circle-notch",
+          "border_roundness": 0,
+          "icon_color": {
+            "next": {
+              "type": "Message",
+              "name": "param_bTUaI",
+              "is_slidable": false
+            },
+            "properties": {
+              "element_id": "bTLgB"
+            },
+            "type": "GetElement",
+            "is_slidable": false,
+            "moved_to_top": true
+          },
+          "is_visible": true,
+          "vertical_centering": true,
+          "order": 1,
+          "spin_icon": true,
+          "fit_height": false,
+          "padding_top": 0,
+          "padding_left": 0,
+          "single_width": true,
+          "margin_bottom": 0,
+          "min_width_css": "20px",
+          "padding_right": 0,
+          "single_height": true,
+          "min_height_css": "20px",
+          "padding_bottom": 0,
+          "horiz_alignment": "center",
+          "nonant_alignment": "cc",
+          "collapse_when_hidden": true
+        },
+        "type": "Icon",
+        "id": "bTLgD",
+        "current_parent": "bTLgB",
+        "default_name": "Icon A"
       }
-    }
+    },
+    "name": "Circle Loader"
+  },
+  "bTNuR": null,
+  "bTPBy": {
+    "elements": {
+      "bTHEc": {
+        "properties": {
+          "text": {
+            "entries": {
+              "0": "Offline - you are using cached data."
+            },
+            "type": "TextExpression"
+          },
+          "bold": false,
+          "font_face": "var(--font_default):::regular",
+          "height": 36,
+          "left": 0,
+          "top": 0,
+          "width": 100,
+          "zindex": 3,
+          "font_color": "rgba(255,255,255,1)",
+          "font_size": 12,
+          "line_height": 1.4,
+          "vertical_centering": true,
+          "order": 2,
+          "fit_width": true,
+          "fit_height": true,
+          "font_family": "var(--font_default)",
+          "font_weight": "400",
+          "padding_top": 0,
+          "padding_left": 0,
+          "single_width": false,
+          "min_width_css": "0px",
+          "padding_right": 0,
+          "single_height": false,
+          "min_height_css": "0px",
+          "padding_bottom": 0,
+          "vert_alignment": "center",
+          "horiz_alignment": "flex-start"
+        },
+        "type": "Text",
+        "id": "bTPBs",
+        "current_parent": "bTHDt",
+        "default_name": "Text B"
+      },
+      "bTHEi": {
+        "properties": {
+          "height": 30,
+          "left": 25,
+          "top": 0,
+          "width": 30,
+          "zindex": 2,
+          "icon": "phosphor outline cloud-slash",
+          "icon_color": "rgba(255,255,255,1)",
+          "vertical_centering": true,
+          "order": 1,
+          "fit_height": false,
+          "padding_top": 5,
+          "padding_left": 5,
+          "single_width": true,
+          "min_width_css": "30px",
+          "padding_right": 5,
+          "single_height": true,
+          "min_height_css": "30px",
+          "padding_bottom": 5,
+          "vert_alignment": "center",
+          "horiz_alignment": "flex-start"
+        },
+        "type": "Icon",
+        "id": "bTPBt",
+        "current_parent": "bTHDt",
+        "default_name": "Icon B"
+      }
+    },
+    "properties": {
+      "height": 200,
+      "width": 200,
+      "element_type": "FloatingGroup",
+      "background_style": "bgcolor",
+      "bgcolor": "rgba(82,82,82,1)",
+      "fit_width": true,
+      "padding_top": 8,
+      "padding_left": 16,
+      "single_width": false,
+      "default_width": 393,
+      "min_height_px": 0,
+      "padding_right": 16,
+      "padding_bottom": 8,
+      "element_version": 5,
+      "container_layout": "row",
+      "responsive_version": 1,
+      "custom_element_platform": "mobile",
+      "container_vert_alignment": "center",
+      "container_horiz_alignment": "center"
+    },
+    "type": "CustomDefinition",
+    "id": "bTPBr",
+    "default_name": "offline_banner",
+    "name": "offline_banner"
+  },
+  "bTapm": null,
+  "bToHL": {
+    "elements": {
+      "bToHR": {
+        "properties": {
+          "height": 240,
+          "left": -120,
+          "top": -40,
+          "width": 887.5247524752475,
+          "zindex": 2,
+          "src": "//95f9e0563b2591b21b05569dd7f94a27.cdn.bubble.io/f1770291829648x833100387575216300/Group%2051.png",
+          "order": 1,
+          "fit_height": true,
+          "single_width": false,
+          "min_width_css": "200px",
+          "single_height": false,
+          "min_height_css": "240px",
+          "horiz_alignment": "flex-start",
+          "use_aspect_ratio": true,
+          "aspect_ratio_width": 747,
+          "aspect_ratio_height": 202,
+          "collapse_when_hidden": true
+        },
+        "type": "Image",
+        "id": "bToHP",
+        "default_name": "Image A",
+        "style": "Image_standard_image_"
+      }
+    },
+    "properties": {
+      "height": 200,
+      "width": 200,
+      "element_type": "Group",
+      "background_style": "none",
+      "min_width_px": 0,
+      "default_width": 200,
+      "min_height_px": 0,
+      "element_version": 5,
+      "container_layout": "column",
+      "custom_element_platform": "web"
+    },
+    "type": "CustomDefinition",
+    "id": "bToHK",
+    "name": "Logo"
   },
   "bTqqf": {
     "elements": {
@@ -911,6 +658,8 @@ export const element_definitions = {
       }
     }
   },
+  "bTwlm": null,
+  "bTeDA1": null,
   "bTkEa1": {
     "elements": {
       "bTsaH": {
@@ -1443,103 +1192,6 @@ export const element_definitions = {
     "id": "bTmRl1",
     "name": "GF Save to Memory"
   },
-  "bTPBy": {
-    "elements": {
-      "bTHEc": {
-        "properties": {
-          "text": {
-            "entries": {
-              "0": "Offline - you are using cached data."
-            },
-            "type": "TextExpression"
-          },
-          "bold": false,
-          "font_face": "var(--font_default):::regular",
-          "height": 36,
-          "left": 0,
-          "top": 0,
-          "width": 100,
-          "zindex": 3,
-          "font_color": "rgba(255,255,255,1)",
-          "font_size": 12,
-          "line_height": 1.4,
-          "vertical_centering": true,
-          "order": 2,
-          "fit_width": true,
-          "fit_height": true,
-          "font_family": "var(--font_default)",
-          "font_weight": "400",
-          "padding_top": 0,
-          "padding_left": 0,
-          "single_width": false,
-          "min_width_css": "0px",
-          "padding_right": 0,
-          "single_height": false,
-          "min_height_css": "0px",
-          "padding_bottom": 0,
-          "vert_alignment": "center",
-          "horiz_alignment": "flex-start"
-        },
-        "type": "Text",
-        "id": "bTPBs",
-        "current_parent": "bTHDt",
-        "default_name": "Text B"
-      },
-      "bTHEi": {
-        "properties": {
-          "height": 30,
-          "left": 25,
-          "top": 0,
-          "width": 30,
-          "zindex": 2,
-          "icon": "phosphor outline cloud-slash",
-          "icon_color": "rgba(255,255,255,1)",
-          "vertical_centering": true,
-          "order": 1,
-          "fit_height": false,
-          "padding_top": 5,
-          "padding_left": 5,
-          "single_width": true,
-          "min_width_css": "30px",
-          "padding_right": 5,
-          "single_height": true,
-          "min_height_css": "30px",
-          "padding_bottom": 5,
-          "vert_alignment": "center",
-          "horiz_alignment": "flex-start"
-        },
-        "type": "Icon",
-        "id": "bTPBt",
-        "current_parent": "bTHDt",
-        "default_name": "Icon B"
-      }
-    },
-    "properties": {
-      "height": 200,
-      "width": 200,
-      "element_type": "FloatingGroup",
-      "background_style": "bgcolor",
-      "bgcolor": "rgba(82,82,82,1)",
-      "fit_width": true,
-      "padding_top": 8,
-      "padding_left": 16,
-      "single_width": false,
-      "default_width": 393,
-      "min_height_px": 0,
-      "padding_right": 16,
-      "padding_bottom": 8,
-      "element_version": 5,
-      "container_layout": "row",
-      "responsive_version": 1,
-      "custom_element_platform": "mobile",
-      "container_vert_alignment": "center",
-      "container_horiz_alignment": "center"
-    },
-    "type": "CustomDefinition",
-    "id": "bTPBr",
-    "default_name": "offline_banner",
-    "name": "offline_banner"
-  },
   "bTqYX0": {
     "elements": {
       "bTqYe0": {
@@ -1589,131 +1241,5 @@ export const element_definitions = {
     "id": "bTqYR0",
     "name": "Dot Loader HTML"
   },
-  "bTLgC": {
-    "properties": {
-      "height": 200,
-      "width": 200,
-      "element_type": "Group",
-      "background_style": "none",
-      "parameters": {
-        "0": {
-          "is_list": false,
-          "btype_id": "text",
-          "optional": true,
-          "param_id": "bTUaI",
-          "param_name": "color",
-          "editor_type": "DynamicValue"
-        }
-      },
-      "min_width_px": 0,
-      "default_width": 20,
-      "min_height_px": 20,
-      "element_version": 5,
-      "container_layout": "column",
-      "custom_element_platform": "web"
-    },
-    "type": "CustomDefinition",
-    "id": "bTLgB",
-    "elements": {
-      "bTLgI": {
-        "properties": {
-          "height": 12,
-          "left": 0,
-          "top": 0,
-          "width": 31,
-          "zindex": 3,
-          "icon": "phosphor regular circle-notch",
-          "border_roundness": 0,
-          "icon_color": {
-            "next": {
-              "type": "Message",
-              "name": "param_bTUaI",
-              "is_slidable": false
-            },
-            "properties": {
-              "element_id": "bTLgB"
-            },
-            "type": "GetElement",
-            "is_slidable": false,
-            "moved_to_top": true
-          },
-          "is_visible": true,
-          "vertical_centering": true,
-          "order": 1,
-          "spin_icon": true,
-          "fit_height": false,
-          "padding_top": 0,
-          "padding_left": 0,
-          "single_width": true,
-          "margin_bottom": 0,
-          "min_width_css": "20px",
-          "padding_right": 0,
-          "single_height": true,
-          "min_height_css": "20px",
-          "padding_bottom": 0,
-          "horiz_alignment": "center",
-          "nonant_alignment": "cc",
-          "collapse_when_hidden": true
-        },
-        "type": "Icon",
-        "id": "bTLgD",
-        "current_parent": "bTLgB",
-        "default_name": "Icon A"
-      }
-    },
-    "name": "Circle Loader"
-  },
-  "bToHL": {
-    "elements": {
-      "bToHR": {
-        "properties": {
-          "height": 240,
-          "left": -120,
-          "top": -40,
-          "width": 887.5247524752475,
-          "zindex": 2,
-          "src": "//95f9e0563b2591b21b05569dd7f94a27.cdn.bubble.io/f1770291829648x833100387575216300/Group%2051.png",
-          "order": 1,
-          "fit_height": true,
-          "single_width": false,
-          "min_width_css": "200px",
-          "single_height": false,
-          "min_height_css": "240px",
-          "horiz_alignment": "flex-start",
-          "use_aspect_ratio": true,
-          "aspect_ratio_width": 747,
-          "aspect_ratio_height": 202,
-          "collapse_when_hidden": true
-        },
-        "type": "Image",
-        "id": "bToHP",
-        "default_name": "Image A",
-        "style": "Image_standard_image_"
-      }
-    },
-    "properties": {
-      "height": 200,
-      "width": 200,
-      "element_type": "Group",
-      "background_style": "none",
-      "min_width_px": 0,
-      "default_width": 200,
-      "min_height_px": 0,
-      "element_version": 5,
-      "container_layout": "column",
-      "custom_element_platform": "web"
-    },
-    "type": "CustomDefinition",
-    "id": "bToHK",
-    "name": "Logo"
-  },
-  "bTHsk": null,
-  "bTJYH": null,
-  "bTJZU": null,
-  "bTJtq": null,
-  "bTNuR": null,
-  "bTapm": null,
-  "bTwlm": null,
-  "bTeDA1": null,
   "length": 3,
 };

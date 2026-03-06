@@ -1,4 +1,4 @@
-import { elements } from './elements.js';
+import { elements } from './elements/index.js';
 
 export const GF_RG_Memory_Menu = {
   "elements": elements,
