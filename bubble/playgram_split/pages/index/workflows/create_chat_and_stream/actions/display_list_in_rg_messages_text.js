@@ -1,4 +1,4 @@
-export const displaylistdata = {
+export const display_list_in_rg_messages_text = {
   "properties": {
     "data_source": {
       "next": {

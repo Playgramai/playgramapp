@@ -1,30 +1,5 @@
-export const changething_3 = {
+export const make_changes_to_chat_find_chat = {
   "properties": {
-    "condition": {
-      "next": {
-        "type": "Message",
-        "name": "is_not_empty",
-        "is_slidable": false
-      },
-      "properties": {
-        "action_id": "bTnYM0"
-      },
-      "type": "PreviousStep",
-      "is_slidable": false
-    },
-    "changes": {
-      "0": {
-        "key": "files_list_custom_file",
-        "value": {
-          "properties": {
-            "action_id": "bTnYM0"
-          },
-          "type": "PreviousStep",
-          "is_slidable": false
-        },
-        "action": "add"
-      }
-    },
     "to_change": {
       "next": {
         "next": {
@@ -58,7 +33,7 @@ export const changething_3 = {
                   },
                   "properties": {
                     "btype_id": "text",
-                    "event_id": "bTnYF0",
+                    "event_id": "bTthY0",
                     "optional": false,
                     "param_id": "bTkdL0",
                     "param_name": "data"
@@ -87,5 +62,6 @@ export const changething_3 = {
     }
   },
   "type": "ChangeThing",
-  "id": "bTnYN0"
+  "id": "bTthZ0",
+  "name": "Make changes to Chat... (find chat)"
 };

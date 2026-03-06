@@ -159,8 +159,13 @@ def is_actions_dict(d):
 # ---------------------------------------------------------------------------
 
 def action_type_slug(action):
-    """Derive a filename slug from an action's type field."""
-    t = action.get('type', '') if isinstance(action, dict) else ''
+    """Derive a filename slug from an action's name (preferred) or type field."""
+    if not isinstance(action, dict):
+        return 'action'
+    name = action.get('name', '')
+    if name:
+        return file_slug(name)
+    t = action.get('type', '')
     return file_slug(t) if t else 'action'
 
 

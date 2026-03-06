@@ -1,22 +1,14 @@
-export const changepage_2 = {
+export const go_to_page_index_1 = {
   "properties": {
     "condition": {
       "next": {
         "next": {
-          "args": {
-            "properties": {
-              "option_set": "option.chat_type__os_",
-              "option_value": "temporary"
-            },
-            "type": "OneOptionValue",
-            "is_slidable": false
-          },
           "type": "Message",
-          "name": "equals",
+          "name": "is_not_empty",
           "is_slidable": false
         },
         "type": "Message",
-        "name": "type_option_chat_type__os_",
+        "name": "project_custom_project",
         "is_slidable": false
       },
       "properties": {
@@ -49,16 +41,35 @@ export const changepage_2 = {
         }
       },
       "1": {
-        "key": "temp",
+        "key": "project",
         "value": {
           "entries": {
-            "0": "yes"
+            "0": {
+              "next": {
+                "next": {
+                  "type": "Message",
+                  "name": "_id",
+                  "is_slidable": false
+                },
+                "type": "Message",
+                "name": "project_custom_project",
+                "is_slidable": false
+              },
+              "properties": {
+                "action_id": "bTtgv0"
+              },
+              "type": "PreviousStep",
+              "said": "a2Vsdm8tMzE4ODQ=",
+              "is_slidable": false
+            }
           },
           "type": "TextExpression"
         }
       }
-    }
+    },
+    "keep_current_page_params": false
   },
   "type": "ChangePage",
-  "id": "bTthM0"
+  "id": "bTthL0",
+  "name": "Go to page index"
 };

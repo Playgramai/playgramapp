@@ -3,67 +3,55 @@ export const changething_4 = {
     "condition": {
       "next": {
         "next": {
-          "next": {
-            "type": "Message",
-            "name": "is_not_empty",
-            "is_slidable": false
-          },
           "type": "Message",
-          "name": "first_element",
+          "name": "is_false",
           "is_slidable": false
         },
-        "properties": {
-          "regex": {
-            "entries": {
-              "0": "(?<=file_id: \")[\\s\\S]*?(?=\"<#NANI\\?>)"
-            },
-            "type": "TextExpression"
-          }
-        },
         "type": "Message",
-        "name": "extract_regex",
-        "is_slidable": true
+        "name": "_api_c2_returned_an_error",
+        "is_slidable": false
       },
       "properties": {
-        "btype_id": "text",
-        "event_id": "bTthY0",
-        "optional": false,
-        "param_id": "bTkdL0",
-        "param_name": "data"
+        "action_id": "bTthq0"
       },
-      "type": "CurrentWorkflowItem",
+      "type": "PreviousStep",
       "is_slidable": false
     },
     "changes": {
       "0": {
-        "key": "message_id_text",
+        "key": "string_for_update_number",
         "value": {
-          "entries": {
-            "0": {
-              "next": {
+          "next": {
+            "next": {
+              "args": {
                 "next": {
-                  "next": {
-                    "type": "Message",
-                    "name": "_api_c2__additional.id",
-                    "is_slidable": false
-                  },
                   "type": "Message",
-                  "name": "first_element",
+                  "name": "convert_to_number",
                   "is_slidable": false
                 },
-                "type": "Message",
-                "name": "_api_c2_body.data.Get.Messages_v3",
-                "is_slidable": false
+                "properties": {
+                  "length": 2,
+                  "numbers": true,
+                  "formula_type": "RandomString"
+                },
+                "type": "Formulas"
               },
-              "properties": {
-                "action_id": "bTthp0"
-              },
-              "type": "PreviousStep",
-              "said": "a2Vsdm8tMzE4ODQ=",
+              "type": "Message",
+              "name": "plus",
               "is_slidable": false
-            }
+            },
+            "properties": {
+              "component_to_extract": "UNIX"
+            },
+            "type": "Message",
+            "name": "extract_from_date",
+            "is_slidable": true
           },
-          "type": "TextExpression"
+          "properties": {
+            "name": "Current Date/Time"
+          },
+          "type": "PageData",
+          "is_slidable": false
         },
         "action": {
           "type": "Empty"
@@ -71,59 +59,6 @@ export const changething_4 = {
       }
     },
     "to_change": {
-      "next": {
-        "next": {
-          "next": {
-            "type": "Message",
-            "name": "first_element",
-            "is_slidable": false
-          },
-          "properties": {
-            "constraints": {
-              "0": {
-                "key": "_id",
-                "value": {
-                  "next": {
-                    "next": {
-                      "type": "Message",
-                      "name": "first_element",
-                      "is_slidable": false
-                    },
-                    "properties": {
-                      "regex": {
-                        "entries": {
-                          "0": "(?<=file_id: \")[\\s\\S]*?(?=\"<#NANI\\?>)"
-                        },
-                        "type": "TextExpression"
-                      }
-                    },
-                    "type": "Message",
-                    "name": "extract_regex",
-                    "is_slidable": true
-                  },
-                  "properties": {
-                    "btype_id": "text",
-                    "event_id": "bTthY0",
-                    "optional": false,
-                    "param_id": "bTkdL0",
-                    "param_name": "data"
-                  },
-                  "type": "CurrentWorkflowItem",
-                  "said": "a2Vsdm8tMzE4ODQ=",
-                  "is_slidable": false
-                },
-                "constraint_type": "equals"
-              }
-            }
-          },
-          "type": "Message",
-          "name": "filtered",
-          "is_slidable": true
-        },
-        "type": "Message",
-        "name": "files_list_custom_file",
-        "is_slidable": false
-      },
       "properties": {
         "action_id": "bTthZ0"
       },
@@ -132,5 +67,5 @@ export const changething_4 = {
     }
   },
   "type": "ChangeThing",
-  "id": "bTwJd0"
+  "id": "bTthr0"
 };

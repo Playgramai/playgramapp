@@ -7,7 +7,7 @@ import { cancelscheduledapievent } from './cancelscheduledapievent.js';
 import { cancelscheduledapievent_1 } from './cancelscheduledapievent_1.js';
 import { scheduleapievent } from './scheduleapievent.js';
 import { scheduleapievent_1 } from './scheduleapievent_1.js';
-import { triggercustomeventfromreusable } from './triggercustomeventfromreusable.js';
+import { trigger_stream_title_from_element_sidebar_a } from './trigger_stream_title_from_element_sidebar_a.js';
 import { setcustomstate } from './setcustomstate.js';
 import { scheduleapievent_2 } from './scheduleapievent_2.js';
 import { terminateworkflow_1 } from './terminateworkflow_1.js';
@@ -22,7 +22,7 @@ export const actions = {
   "6": cancelscheduledapievent_1,
   "7": scheduleapievent,
   "8": scheduleapievent_1,
-  "9": triggercustomeventfromreusable,
+  "9": trigger_stream_title_from_element_sidebar_a,
   "10": setcustomstate,
   "11": scheduleapievent_2,
   "12": terminateworkflow_1,

@@ -1,4 +1,4 @@
-export const scheduleapieventonlist = {
+export const schedule_api_workflow_save_chunks_to_weaviate_on_a_list = {
   "properties": {
     "condition": {
       "next": {

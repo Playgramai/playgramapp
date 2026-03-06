@@ -1,20 +1,20 @@
 import { newthing } from './newthing.js';
+import { go_to_page_index } from './go_to_page_index.js';
+import { go_to_page_index_1 } from './go_to_page_index_1.js';
 import { changepage } from './changepage.js';
-import { changepage_1 } from './changepage_1.js';
-import { changepage_2 } from './changepage_2.js';
 import { setcustomstate } from './setcustomstate.js';
-import { displaylistdata } from './displaylistdata.js';
+import { display_list_in_rg_messages_text } from './display_list_in_rg_messages_text.js';
 import { scheduleapievent } from './scheduleapievent.js';
 import { schedulecustom } from './schedulecustom.js';
 import { changething } from './changething.js';
 
 export const actions = {
   "0": newthing,
-  "1": changepage,
-  "2": changepage_1,
-  "3": changepage_2,
+  "1": go_to_page_index,
+  "2": go_to_page_index_1,
+  "3": changepage,
   "4": setcustomstate,
-  "5": displaylistdata,
+  "5": display_list_in_rg_messages_text,
   "6": scheduleapievent,
   "7": schedulecustom,
   "8": changething,

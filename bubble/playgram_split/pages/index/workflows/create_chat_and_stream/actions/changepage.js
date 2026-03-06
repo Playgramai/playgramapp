@@ -3,12 +3,20 @@ export const changepage = {
     "condition": {
       "next": {
         "next": {
+          "args": {
+            "properties": {
+              "option_set": "option.chat_type__os_",
+              "option_value": "temporary"
+            },
+            "type": "OneOptionValue",
+            "is_slidable": false
+          },
           "type": "Message",
-          "name": "is_empty",
+          "name": "equals",
           "is_slidable": false
         },
         "type": "Message",
-        "name": "project_custom_project",
+        "name": "type_option_chat_type__os_",
         "is_slidable": false
       },
       "properties": {
@@ -39,11 +47,18 @@ export const changepage = {
           },
           "type": "TextExpression"
         }
+      },
+      "1": {
+        "key": "temp",
+        "value": {
+          "entries": {
+            "0": "yes"
+          },
+          "type": "TextExpression"
+        }
       }
-    },
-    "keep_current_page_params": false
+    }
   },
   "type": "ChangePage",
-  "id": "bTthH0",
-  "name": "Go to page index"
+  "id": "bTthM0"
 };

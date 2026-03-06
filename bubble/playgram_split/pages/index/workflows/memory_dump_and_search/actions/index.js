@@ -1,17 +1,17 @@
 import { apiconnector2_bthdh0_bthdr0 } from './apiconnector2_bthdh0_bthdr0.js';
-import { apiconnector2_bthif0_btoyj0 } from './apiconnector2_bthif0_btoyj0.js';
+import { weaviate_get_memory_dump_objects_count_tokens } from './weaviate_get_memory_dump_objects_count_tokens.js';
 import { apiconnector2_btmbs0_btmbt0 } from './apiconnector2_btmbs0_btmbt0.js';
-import { apiconnector2_bthif0_btljz } from './apiconnector2_bthif0_btljz.js';
-import { apiconnector2_bthif0_btubr0 } from './apiconnector2_bthif0_btubr0.js';
-import { apiconnector2_bthif0_btubr0_1 } from './apiconnector2_bthif0_btubr0_1.js';
+import { weaviate_search_messages_action } from './weaviate_search_messages_action.js';
+import { weaviate_search_documents_chunks } from './weaviate_search_documents_chunks.js';
+import { weaviate_search_project_documents_chunks } from './weaviate_search_project_documents_chunks.js';
 import { terminateworkflow } from './terminateworkflow.js';
 
 export const actions = {
   "0": apiconnector2_bthdh0_bthdr0,
-  "1": apiconnector2_bthif0_btoyj0,
+  "1": weaviate_get_memory_dump_objects_count_tokens,
   "2": apiconnector2_btmbs0_btmbt0,
-  "3": apiconnector2_bthif0_btljz,
-  "4": apiconnector2_bthif0_btubr0,
-  "5": apiconnector2_bthif0_btubr0_1,
+  "3": weaviate_search_messages_action,
+  "4": weaviate_search_documents_chunks,
+  "5": weaviate_search_project_documents_chunks,
   "6": terminateworkflow,
 };

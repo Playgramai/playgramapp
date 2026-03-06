@@ -15,7 +15,7 @@ export const changething_1 = {
         "properties": {
           "regex": {
             "entries": {
-              "0": "(?<=open_ai_container_id: \")[\\s\\S]*?(?=\"<#NANI\\?>)"
+              "0": "(?<=claude_container_id: \")[\\s\\S]*?(?=\"<#NANI\\?>)"
             },
             "type": "TextExpression"
           }
@@ -36,7 +36,7 @@ export const changething_1 = {
     },
     "changes": {
       "0": {
-        "key": "openai_last_container_id_text",
+        "key": "claude_last_container_id_text",
         "value": {
           "entries": {
             "0": {
@@ -49,7 +49,7 @@ export const changething_1 = {
                 "properties": {
                   "regex": {
                     "entries": {
-                      "0": "(?<=open_ai_container_id: \")[\\s\\S]*?(?=\"<#NANI\\?>)"
+                      "0": "(?<=claude_container_id: \")[\\s\\S]*?(?=\"<#NANI\\?>)"
                     },
                     "type": "TextExpression"
                   }
@@ -77,7 +77,7 @@ export const changething_1 = {
         }
       },
       "1": {
-        "key": "openai_last_container_date_date",
+        "key": "claude_last_container_date_date",
         "value": {
           "next": {
             "type": "Message",
@@ -88,6 +88,7 @@ export const changething_1 = {
             "element_id": "bTVPN"
           },
           "type": "GetElement",
+          "said": "a2Vsdm8tMzE4ODQ=",
           "is_slidable": false
         },
         "action": {
@@ -157,5 +158,5 @@ export const changething_1 = {
     }
   },
   "type": "ChangeThing",
-  "id": "bTnYH0"
+  "id": "bTnYL0"
 };

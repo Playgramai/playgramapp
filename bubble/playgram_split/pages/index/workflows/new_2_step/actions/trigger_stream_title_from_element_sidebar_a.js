@@ -1,4 +1,4 @@
-export const triggercustomeventfromreusable = {
+export const trigger_stream_title_from_element_sidebar_a = {
   "properties": {
     "condition": {
       "next": {

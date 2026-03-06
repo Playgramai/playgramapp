@@ -3,23 +3,45 @@ export const changething_5 = {
     "condition": {
       "next": {
         "next": {
+          "next": {
+            "args": {
+              "next": {
+                "next": {
+                  "type": "Message",
+                  "name": "is_false",
+                  "is_slidable": false
+                },
+                "type": "Message",
+                "name": "_api_c2_returned_an_error",
+                "is_slidable": false
+              },
+              "properties": {
+                "action_id": "bTthq0"
+              },
+              "type": "PreviousStep",
+              "is_slidable": false
+            },
+            "type": "Message",
+            "name": "and_",
+            "is_slidable": false
+          },
           "type": "Message",
-          "name": "is_false",
+          "name": "is_not_empty",
           "is_slidable": false
         },
         "type": "Message",
-        "name": "_api_c2_returned_an_error",
+        "name": "_api_c2_body.response.file_url",
         "is_slidable": false
       },
       "properties": {
-        "action_id": "bTthq0"
+        "action_id": "bTthe0"
       },
       "type": "PreviousStep",
       "is_slidable": false
     },
     "changes": {
       "0": {
-        "key": "string_for_update_number",
+        "key": "string_for_library_update_number",
         "value": {
           "next": {
             "next": {
@@ -30,7 +52,7 @@ export const changething_5 = {
                   "is_slidable": false
                 },
                 "properties": {
-                  "length": 2,
+                  "length": 5,
                   "numbers": true,
                   "formula_type": "RandomString"
                 },
@@ -59,13 +81,18 @@ export const changething_5 = {
       }
     },
     "to_change": {
+      "next": {
+        "type": "Message",
+        "name": "organization_custom_organization",
+        "is_slidable": false
+      },
       "properties": {
-        "action_id": "bTthZ0"
+        "action_id": "bTthr0"
       },
       "type": "PreviousStep",
       "is_slidable": false
     }
   },
   "type": "ChangeThing",
-  "id": "bTthr0"
+  "id": "bTtiC0"
 };

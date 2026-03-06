@@ -1,4 +1,4 @@
-export const apiconnector2_bthif0_btoyj0 = {
+export const weaviate_get_memory_dump_objects_count_tokens = {
   "properties": {
     "body_params_query": {
       "entries": {

@@ -1,4 +1,4 @@
-export const apiconnector2_bthif0_btubr0_1 = {
+export const weaviate_search_project_documents_chunks = {
   "properties": {
     "condition": {
       "next": {

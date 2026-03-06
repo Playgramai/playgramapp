@@ -1,4 +1,4 @@
-export const triggercustomonchange = {
+export const trigger_new_upload_job_finished_when_a_upload_job_s_count_changes = {
   "properties": {
     "condition": {
       "next": {

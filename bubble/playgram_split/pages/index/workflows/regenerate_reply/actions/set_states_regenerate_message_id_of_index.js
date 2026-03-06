@@ -1,4 +1,4 @@
-export const setcustomstate = {
+export const set_states_regenerate_message_id_of_index = {
   "properties": {
     "value": {
       "properties": {

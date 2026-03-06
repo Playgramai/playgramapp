@@ -1,10 +1,10 @@
-export const changepage_1 = {
+export const go_to_page_index = {
   "properties": {
     "condition": {
       "next": {
         "next": {
           "type": "Message",
-          "name": "is_not_empty",
+          "name": "is_empty",
           "is_slidable": false
         },
         "type": "Message",
@@ -39,37 +39,11 @@ export const changepage_1 = {
           },
           "type": "TextExpression"
         }
-      },
-      "1": {
-        "key": "project",
-        "value": {
-          "entries": {
-            "0": {
-              "next": {
-                "next": {
-                  "type": "Message",
-                  "name": "_id",
-                  "is_slidable": false
-                },
-                "type": "Message",
-                "name": "project_custom_project",
-                "is_slidable": false
-              },
-              "properties": {
-                "action_id": "bTtgv0"
-              },
-              "type": "PreviousStep",
-              "said": "a2Vsdm8tMzE4ODQ=",
-              "is_slidable": false
-            }
-          },
-          "type": "TextExpression"
-        }
       }
     },
     "keep_current_page_params": false
   },
   "type": "ChangePage",
-  "id": "bTthL0",
+  "id": "bTthH0",
   "name": "Go to page index"
 };

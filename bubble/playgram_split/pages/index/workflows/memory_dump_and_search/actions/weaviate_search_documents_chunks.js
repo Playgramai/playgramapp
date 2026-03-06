@@ -1,4 +1,4 @@
-export const apiconnector2_bthif0_btljz = {
+export const weaviate_search_documents_chunks = {
   "properties": {
     "condition": {
       "next": {
@@ -71,7 +71,7 @@ export const apiconnector2_bthif0_btljz = {
                       "properties": {
                         "formatting_for_true": {
                           "entries": {
-                            "0": "{\"query\": \"{ Get { Messages_v3(tenant: \\\"",
+                            "0": "{\"query\": \"{ Get { Chunks (tenant:\\\"",
                             "1": {
                               "next": {
                                 "next": {
@@ -93,7 +93,7 @@ export const apiconnector2_bthif0_btljz = {
                               "type": "CurrentWorkflowItem",
                               "is_slidable": false
                             },
-                            "2": "\\\",hybrid: {query: \\\"",
+                            "2": "\\\",hybrid:{query:\\\"",
                             "3": {
                               "properties": {
                                 "arbitrary_text": {
@@ -118,7 +118,7 @@ export const apiconnector2_bthif0_btljz = {
                               "type": "ArbitraryText",
                               "said": "a2Vsdm8tMzE4ODQ="
                             },
-                            "4": "\\\",vector: [",
+                            "4": "\\\",vector:[",
                             "5": {
                               "next": {
                                 "next": {
@@ -142,7 +142,7 @@ export const apiconnector2_bthif0_btljz = {
                               "said": "a2Vsdm8tMzE4ODQ=",
                               "is_slidable": false
                             },
-                            "6": "],alpha: 0.5,properties: [\\\"user_message^3\\\"],fusionType: relativeScoreFusion},autocut: 1,where: {operator: Or,operands: [",
+                            "6": "],alpha:0.5,properties:[\\\"vectorized_content\\\"],fusionType:relativeScoreFusion},autocut:1,where:{operator: Or, operands: [",
                             "7": {
                               "next": {
                                 "next": {
@@ -153,7 +153,7 @@ export const apiconnector2_bthif0_btljz = {
                                         "properties": {
                                           "formatting_for_true": {
                                             "entries": {
-                                              "0": "{operator: And,operands: [{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
+                                              "0": "{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
                                               "1": {
                                                 "next": {
                                                   "next": {
@@ -175,17 +175,7 @@ export const apiconnector2_bthif0_btljz = {
                                                 "type": "CurrentWorkflowItem",
                                                 "is_slidable": false
                                               },
-                                              "2": "\\\" },{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                              "3": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "4": "\\\", \\\"team\\\"]}]},"
+                                              "2": "\\\" },"
                                             },
                                             "type": "TextExpression"
                                           },
@@ -254,23 +244,13 @@ export const apiconnector2_bthif0_btljz = {
                                         "properties": {
                                           "formatting_for_true": {
                                             "entries": {
-                                              "0": "{operator: Or,operands: [{operator: And,operands: [{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
+                                              "0": "{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
                                               "1": {
                                                 "next": {
                                                   "type": "Message",
                                                   "name": "_id",
                                                   "is_slidable": false
                                                 },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "2": "\\\" },{ path: [\\\"workspace_id\\\"], operator: Equal, valueText: \\\"",
-                                              "3": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
                                                 "properties": {
                                                   "btype_id": "custom.workspace",
                                                   "event_id": "bTVAf0",
@@ -281,49 +261,7 @@ export const apiconnector2_bthif0_btljz = {
                                                 "type": "CurrentWorkflowItem",
                                                 "is_slidable": false
                                               },
-                                              "4": "\\\" },{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: IsNull, valueBoolean: true }]},{operator: And,operands: [{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
-                                              "5": {
-                                                "next": {
-                                                  "next": {
-                                                    "type": "Message",
-                                                    "name": "_id",
-                                                    "is_slidable": false
-                                                  },
-                                                  "type": "Message",
-                                                  "name": "organization_workspace_custom_organization",
-                                                  "is_slidable": false
-                                                },
-                                                "properties": {
-                                                  "btype_id": "custom.workspace",
-                                                  "event_id": "bTVAf0",
-                                                  "optional": false,
-                                                  "param_id": "bTVAr0",
-                                                  "param_name": "workspace_user"
-                                                },
-                                                "type": "CurrentWorkflowItem",
-                                                "is_slidable": false
-                                              },
-                                              "6": "\\\" }]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                              "7": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "8": "\\\", \\\"personal\\\"]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                              "9": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "10": "\\\", \\\"team\\\"]}]},"
+                                              "2": "\\\" },"
                                             },
                                             "type": "TextExpression"
                                           },
@@ -340,23 +278,13 @@ export const apiconnector2_bthif0_btljz = {
                                                           "properties": {
                                                             "formatting_for_true": {
                                                               "entries": {
-                                                                "0": "{operator: Or,operands: [{operator: And,operands: [{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
+                                                                "0": "{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
                                                                 "1": {
                                                                   "next": {
                                                                     "type": "Message",
                                                                     "name": "_id",
                                                                     "is_slidable": false
                                                                   },
-                                                                  "type": "CurrentUser",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "2": "\\\" },{ path: [\\\"workspace_id\\\"], operator: Equal, valueText: \\\"",
-                                                                "3": {
-                                                                  "next": {
-                                                                    "type": "Message",
-                                                                    "name": "_id",
-                                                                    "is_slidable": false
-                                                                  },
                                                                   "properties": {
                                                                     "btype_id": "custom.workspace",
                                                                     "event_id": "bTVAf0",
@@ -367,52 +295,9 @@ export const apiconnector2_bthif0_btljz = {
                                                                   "type": "CurrentWorkflowItem",
                                                                   "is_slidable": false
                                                                 },
-                                                                "4": "\\\" },{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: IsNull, valueBoolean: true }]},{operator: And,operands: [{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
-                                                                "5": {
-                                                                  "next": {
-                                                                    "next": {
-                                                                      "type": "Message",
-                                                                      "name": "_id",
-                                                                      "is_slidable": false
-                                                                    },
-                                                                    "type": "Message",
-                                                                    "name": "organization_workspace_custom_organization",
-                                                                    "is_slidable": false
-                                                                  },
-                                                                  "properties": {
-                                                                    "btype_id": "custom.workspace",
-                                                                    "event_id": "bTVAf0",
-                                                                    "optional": false,
-                                                                    "param_id": "bTVAr0",
-                                                                    "param_name": "workspace_user"
-                                                                  },
-                                                                  "type": "CurrentWorkflowItem",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "6": "\\\" }]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                                                "7": {
-                                                                  "next": {
-                                                                    "type": "Message",
-                                                                    "name": "_id",
-                                                                    "is_slidable": false
-                                                                  },
-                                                                  "type": "CurrentUser",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "8": "\\\", \\\"personal\\\"]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                                                "9": {
-                                                                  "next": {
-                                                                    "type": "Message",
-                                                                    "name": "_id",
-                                                                    "is_slidable": false
-                                                                  },
-                                                                  "type": "CurrentUser",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "10": "\\\", \\\"team\\\"]}]},"
+                                                                "2": "\\\" },"
                                                               },
-                                                              "type": "TextExpression",
-                                                              "said": "a2Vsdm8tMzE4ODQ="
+                                                              "type": "TextExpression"
                                                             },
                                                             "formatting_for_false": {
                                                               "entries": {
@@ -531,7 +416,7 @@ export const apiconnector2_bthif0_btljz = {
                                         "properties": {
                                           "formatting_for_true": {
                                             "entries": {
-                                              "0": "{ operator: And, operands: [ { path: [\"project_id\"], operator: Equal, valueText: \\\"",
+                                              "0": "{ path: [\\\"project_id\\\"], operator: Equal, valueText: \\\"",
                                               "1": {
                                                 "next": {
                                                   "type": "Message",
@@ -548,24 +433,7 @@ export const apiconnector2_bthif0_btljz = {
                                                 "type": "CurrentWorkflowItem",
                                                 "is_slidable": false
                                               },
-                                              "2": "\\\" }, { path: [\\\"memory_level_with_id\\\"], operator: ContainsAll, valueString: [\\\"project\\\", \\\"",
-                                              "3": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "properties": {
-                                                  "btype_id": "custom.project",
-                                                  "event_id": "bTVAf0",
-                                                  "optional": false,
-                                                  "param_id": "bTVAv0",
-                                                  "param_name": "project"
-                                                },
-                                                "type": "CurrentWorkflowItem",
-                                                "is_slidable": false
-                                              },
-                                              "4": "\\\"] } ] } "
+                                              "2": "\\\" }"
                                             },
                                             "type": "TextExpression"
                                           },
@@ -623,13 +491,13 @@ export const apiconnector2_bthif0_btljz = {
                               "said": "a2Vsdm8tMzE4ODQ=",
                               "is_slidable": false
                             },
-                            "12": "] }, limit: 10 ) { vectorized_content file_id saved_manually sort _additional { id distance } } } }\"}"
+                            "12": "]}, limit: 5  ) {  vectorized_content  content        _additional { id   distance  }}}}\"}"
                           },
                           "type": "TextExpression"
                         },
                         "formatting_for_false": {
                           "entries": {
-                            "0": "{\"query\": \"{ Get { Messages_v3(tenant: \\\"",
+                            "0": "{\"query\": \"{ Get { Chunks (tenant:\\\"",
                             "1": {
                               "next": {
                                 "next": {
@@ -651,7 +519,7 @@ export const apiconnector2_bthif0_btljz = {
                               "type": "CurrentWorkflowItem",
                               "is_slidable": false
                             },
-                            "2": "\\\",hybrid: {query: \\\"",
+                            "2": "\\\",hybrid:{query:\\\"",
                             "3": {
                               "properties": {
                                 "arbitrary_text": {
@@ -676,7 +544,7 @@ export const apiconnector2_bthif0_btljz = {
                               "type": "ArbitraryText",
                               "said": "a2Vsdm8tMzE4ODQ="
                             },
-                            "4": "\\\",vector: [",
+                            "4": "\\\",vector:[",
                             "5": {
                               "next": {
                                 "next": {
@@ -700,7 +568,7 @@ export const apiconnector2_bthif0_btljz = {
                               "said": "a2Vsdm8tMzE4ODQ=",
                               "is_slidable": false
                             },
-                            "6": "],alpha: 0.5,properties: [\\\"user_message^3\\\"],fusionType: relativeScoreFusion},autocut: 1,where: ",
+                            "6": "],alpha:0.5,properties:[\\\"vectorized_content\\\"],fusionType:relativeScoreFusion},autocut:1,where:",
                             "7": {
                               "next": {
                                 "next": {
@@ -711,7 +579,7 @@ export const apiconnector2_bthif0_btljz = {
                                         "properties": {
                                           "formatting_for_true": {
                                             "entries": {
-                                              "0": "{operator: And,operands: [{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
+                                              "0": "{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
                                               "1": {
                                                 "next": {
                                                   "next": {
@@ -733,17 +601,7 @@ export const apiconnector2_bthif0_btljz = {
                                                 "type": "CurrentWorkflowItem",
                                                 "is_slidable": false
                                               },
-                                              "2": "\\\" },{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                              "3": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "4": "\\\", \\\"team\\\"]}]},"
+                                              "2": "\\\" }"
                                             },
                                             "type": "TextExpression"
                                           },
@@ -812,23 +670,13 @@ export const apiconnector2_bthif0_btljz = {
                                         "properties": {
                                           "formatting_for_true": {
                                             "entries": {
-                                              "0": "{operator: Or,operands: [{operator: And,operands: [{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
+                                              "0": "{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
                                               "1": {
                                                 "next": {
                                                   "type": "Message",
                                                   "name": "_id",
                                                   "is_slidable": false
                                                 },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "2": "\\\" },{ path: [\\\"workspace_id\\\"], operator: Equal, valueText: \\\"",
-                                              "3": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
                                                 "properties": {
                                                   "btype_id": "custom.workspace",
                                                   "event_id": "bTVAf0",
@@ -839,49 +687,7 @@ export const apiconnector2_bthif0_btljz = {
                                                 "type": "CurrentWorkflowItem",
                                                 "is_slidable": false
                                               },
-                                              "4": "\\\" },{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: IsNull, valueBoolean: true }]},{operator: And,operands: [{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
-                                              "5": {
-                                                "next": {
-                                                  "next": {
-                                                    "type": "Message",
-                                                    "name": "_id",
-                                                    "is_slidable": false
-                                                  },
-                                                  "type": "Message",
-                                                  "name": "organization_workspace_custom_organization",
-                                                  "is_slidable": false
-                                                },
-                                                "properties": {
-                                                  "btype_id": "custom.workspace",
-                                                  "event_id": "bTVAf0",
-                                                  "optional": false,
-                                                  "param_id": "bTVAr0",
-                                                  "param_name": "workspace_user"
-                                                },
-                                                "type": "CurrentWorkflowItem",
-                                                "is_slidable": false
-                                              },
-                                              "6": "\\\" }]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                              "7": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "8": "\\\", \\\"personal\\\"]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                              "9": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "type": "CurrentUser",
-                                                "is_slidable": false
-                                              },
-                                              "10": "\\\", \\\"team\\\"]}]},"
+                                              "2": "\\\" }"
                                             },
                                             "type": "TextExpression"
                                           },
@@ -898,23 +704,13 @@ export const apiconnector2_bthif0_btljz = {
                                                           "properties": {
                                                             "formatting_for_true": {
                                                               "entries": {
-                                                                "0": "{operator: Or,operands: [{operator: And,operands: [{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
+                                                                "0": "{ path: [\\\"user_id\\\"], operator: Equal, valueText: \\\"",
                                                                 "1": {
                                                                   "next": {
                                                                     "type": "Message",
                                                                     "name": "_id",
                                                                     "is_slidable": false
                                                                   },
-                                                                  "type": "CurrentUser",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "2": "\\\" },{ path: [\\\"workspace_id\\\"], operator: Equal, valueText: \\\"",
-                                                                "3": {
-                                                                  "next": {
-                                                                    "type": "Message",
-                                                                    "name": "_id",
-                                                                    "is_slidable": false
-                                                                  },
                                                                   "properties": {
                                                                     "btype_id": "custom.workspace",
                                                                     "event_id": "bTVAf0",
@@ -925,49 +721,7 @@ export const apiconnector2_bthif0_btljz = {
                                                                   "type": "CurrentWorkflowItem",
                                                                   "is_slidable": false
                                                                 },
-                                                                "4": "\\\" },{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: IsNull, valueBoolean: true }]},{operator: And,operands: [{ path: [\\\"project_id\\\"], operator: IsNull, valueBoolean: true },{ path: [\\\"organization_id\\\"], operator: Equal, valueText: \\\"",
-                                                                "5": {
-                                                                  "next": {
-                                                                    "next": {
-                                                                      "type": "Message",
-                                                                      "name": "_id",
-                                                                      "is_slidable": false
-                                                                    },
-                                                                    "type": "Message",
-                                                                    "name": "organization_workspace_custom_organization",
-                                                                    "is_slidable": false
-                                                                  },
-                                                                  "properties": {
-                                                                    "btype_id": "custom.workspace",
-                                                                    "event_id": "bTVAf0",
-                                                                    "optional": false,
-                                                                    "param_id": "bTVAr0",
-                                                                    "param_name": "workspace_user"
-                                                                  },
-                                                                  "type": "CurrentWorkflowItem",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "6": "\\\" }]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                                                "7": {
-                                                                  "next": {
-                                                                    "type": "Message",
-                                                                    "name": "_id",
-                                                                    "is_slidable": false
-                                                                  },
-                                                                  "type": "CurrentUser",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "8": "\\\", \\\"personal\\\"]},{path: [\\\"memory_level_with_id\\\"],operator: ContainsAll,valueString: [\\\"",
-                                                                "9": {
-                                                                  "next": {
-                                                                    "type": "Message",
-                                                                    "name": "_id",
-                                                                    "is_slidable": false
-                                                                  },
-                                                                  "type": "CurrentUser",
-                                                                  "is_slidable": false
-                                                                },
-                                                                "10": "\\\", \\\"team\\\"]}]},"
+                                                                "2": "\\\" }"
                                                               },
                                                               "type": "TextExpression",
                                                               "said": "a2Vsdm8tMzE4ODQ="
@@ -1089,7 +843,7 @@ export const apiconnector2_bthif0_btljz = {
                                         "properties": {
                                           "formatting_for_true": {
                                             "entries": {
-                                              "0": "{ operator: And, operands: [ { path: [\"project_id\"], operator: Equal, valueText: \\\"",
+                                              "0": "{ path: [\\\"project_id\\\"], operator: Equal, valueText: \\\"",
                                               "1": {
                                                 "next": {
                                                   "type": "Message",
@@ -1106,24 +860,7 @@ export const apiconnector2_bthif0_btljz = {
                                                 "type": "CurrentWorkflowItem",
                                                 "is_slidable": false
                                               },
-                                              "2": "\\\" }, { path: [\\\"memory_level_with_id\\\"], operator: ContainsAll, valueString: [\\\"project\\\", \\\"",
-                                              "3": {
-                                                "next": {
-                                                  "type": "Message",
-                                                  "name": "_id",
-                                                  "is_slidable": false
-                                                },
-                                                "properties": {
-                                                  "btype_id": "custom.project",
-                                                  "event_id": "bTVAf0",
-                                                  "optional": false,
-                                                  "param_id": "bTVAv0",
-                                                  "param_name": "project"
-                                                },
-                                                "type": "CurrentWorkflowItem",
-                                                "is_slidable": false
-                                              },
-                                              "4": "\\\"]}]},"
+                                              "2": "\\\" }"
                                             },
                                             "type": "TextExpression"
                                           },
@@ -1181,7 +918,7 @@ export const apiconnector2_bthif0_btljz = {
                               "said": "a2Vsdm8tMzE4ODQ=",
                               "is_slidable": false
                             },
-                            "12": "limit: 10 ) { vectorized_content file_id saved_manually sort _additional { id distance } } } }\"}"
+                            "12": ",limit:5){vectorized_content content _additional{id distance}} }}\"}"
                           },
                           "type": "TextExpression"
                         }
@@ -1234,6 +971,7 @@ export const apiconnector2_bthif0_btljz = {
             "param_name": "normalization"
           },
           "type": "CurrentWorkflowItem",
+          "said": "a2Vsdm8tMzE4ODQ=",
           "is_slidable": false
         },
         "2": ""
@@ -1278,7 +1016,7 @@ export const apiconnector2_bthif0_btljz = {
       "type": "TextExpression"
     }
   },
-  "type": "apiconnector2-bTHIF0.bTLJz",
-  "id": "bTVBN0",
-  "name": "Weaviate - Search Messages (Action)"
+  "type": "apiconnector2-bTHIF0.bTUbR0",
+  "id": "bTjxB",
+  "name": "Weaviate - Search Documents (Chunks)"
 };

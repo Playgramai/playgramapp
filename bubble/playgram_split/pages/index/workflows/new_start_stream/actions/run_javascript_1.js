@@ -1,4 +1,4 @@
-export const _1488796042609x768734193128308700_aag_1 = {
+export const run_javascript_1 = {
   "properties": {
     "AAh": {
       "entries": {
