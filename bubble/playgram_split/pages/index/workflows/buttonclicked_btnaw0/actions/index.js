@@ -2,7 +2,7 @@ import { setfocustoelement } from './setfocustoelement.js';
 import { _1488796042609x768734193128308700_aag } from './_1488796042609x768734193128308700_aag.js';
 import { setcustomstate } from './setcustomstate.js';
 import { resetgroup } from './resetgroup.js';
-import { schedule_trigger_stream_existing_chat_after_0_seconds } from './schedule_trigger_stream_existing_chat_after_0_seconds.js';
+import { schedule_trigger_stream_existing_chat_after_0_seconds } from './schedule_trigger_stream_existing_chat_after_0_seconds/index.js';
 import { displaylistdata } from './displaylistdata.js';
 import { schedulecustom } from './schedulecustom.js';
 

@@ -4,7 +4,7 @@ import { changething } from './changething.js';
 import { changething_1 } from './changething_1.js';
 import { newthing } from './newthing.js';
 import { changething_2 } from './changething_2.js';
-import { scheduleapievent } from './scheduleapievent.js';
+import { scheduleapievent } from './scheduleapievent/index.js';
 import { scheduleapievent_1 } from './scheduleapievent_1.js';
 import { setcustomstate } from './setcustomstate.js';
 

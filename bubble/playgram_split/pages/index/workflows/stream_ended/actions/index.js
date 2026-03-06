@@ -3,14 +3,14 @@ import { make_changes_to_chat_find_chat } from './make_changes_to_chat_find_chat
 import { triggercustomevent } from './triggercustomevent.js';
 import { triggercustomevent_1 } from './triggercustomevent_1.js';
 import { setcustomstate } from './setcustomstate.js';
-import { apiconnector2_btmbs0_btrsm0 } from './apiconnector2_btmbs0_btrsm0.js';
+import { apiconnector2_btmbs0_btrsm0 } from './apiconnector2_btmbs0_btrsm0/index.js';
 import { scheduleapievent } from './scheduleapievent.js';
 import { changething } from './changething.js';
 import { changething_1 } from './changething_1.js';
-import { newthing } from './newthing.js';
+import { newthing } from './newthing/index.js';
 import { changething_2 } from './changething_2.js';
 import { apiconnector2_bthif0_btljz } from './apiconnector2_bthif0_btljz.js';
-import { apiconnector2_bthif0_btlrl } from './apiconnector2_bthif0_btlrl.js';
+import { apiconnector2_bthif0_btlrl } from './apiconnector2_bthif0_btlrl/index.js';
 import { changething_3 } from './changething_3.js';
 import { changething_4 } from './changething_4.js';
 import { makechangecurrentuser } from './makechangecurrentuser.js';

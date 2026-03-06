@@ -2,7 +2,7 @@ import { displaylistdata } from './displaylistdata.js';
 import { set_states_regenerate_message_id_of_index } from './set_states_regenerate_message_id_of_index.js';
 import { scheduleapievent } from './scheduleapievent.js';
 import { apiconnector2_bthif0_btagn } from './apiconnector2_bthif0_btagn.js';
-import { schedulecustom } from './schedulecustom.js';
+import { schedulecustom } from './schedulecustom/index.js';
 
 export const actions = {
   "0": displaylistdata,

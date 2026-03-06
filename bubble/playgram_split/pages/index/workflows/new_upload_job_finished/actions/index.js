@@ -1,4 +1,4 @@
-import { triggercustomevent } from './triggercustomevent.js';
+import { triggercustomevent } from './triggercustomevent/index.js';
 import { deletething } from './deletething.js';
 
 export const actions = {

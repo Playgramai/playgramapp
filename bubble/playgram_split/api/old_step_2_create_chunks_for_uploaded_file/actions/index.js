@@ -1,8 +1,8 @@
 import { apiconnector2_bthff0_btgfk } from './apiconnector2_bthff0_btgfk.js';
 import { apiconnector2_bthff0_btggf } from './apiconnector2_bthff0_btggf.js';
-import { apiconnector2_bthff0_btggr } from './apiconnector2_bthff0_btggr.js';
+import { apiconnector2_bthff0_btggr } from './apiconnector2_bthff0_btggr/index.js';
 import { apiconnector2_bthff0_btggf_1 } from './apiconnector2_bthff0_btggf_1.js';
-import { apiconnector2_bthff0_btggr_1 } from './apiconnector2_bthff0_btggr_1.js';
+import { apiconnector2_bthff0_btggr_1 } from './apiconnector2_bthff0_btggr_1/index.js';
 import { apiconnector2_bthff0_btggz } from './apiconnector2_bthff0_btggz.js';
 import { schedule_api_workflow_save_chunks_to_weaviate_on_a_list } from './schedule_api_workflow_save_chunks_to_weaviate_on_a_list.js';
 import { apiconnector2_bthff0_btghf } from './apiconnector2_bthff0_btghf.js';

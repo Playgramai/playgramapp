@@ -1,8 +1,8 @@
 import { apiconnector2_btplj_btswd } from './apiconnector2_btplj_btswd.js';
 import { triggercustomevent } from './triggercustomevent.js';
-import { triggercustomevent_1 } from './triggercustomevent_1.js';
+import { triggercustomevent_1 } from './triggercustomevent_1/index.js';
 import { terminateworkflow } from './terminateworkflow.js';
-import { triggercustomevent_2 } from './triggercustomevent_2.js';
+import { triggercustomevent_2 } from './triggercustomevent_2/index.js';
 import { cancelscheduledapievent } from './cancelscheduledapievent.js';
 import { cancelscheduledapievent_1 } from './cancelscheduledapievent_1.js';
 import { scheduleapievent } from './scheduleapievent.js';
