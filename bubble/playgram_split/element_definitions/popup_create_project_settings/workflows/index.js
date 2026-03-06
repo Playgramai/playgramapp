@@ -10,7 +10,7 @@ import { set_popup_state } from './set_popup_state.js';
 import { PopupOpened_bTaxS } from './popupopened_btaxs.js';
 import { ButtonClicked_bTYKB1 } from './buttonclicked_btykb1.js';
 import { ButtonClicked_bTYKJ1 } from './buttonclicked_btykj1.js';
-import { ButtonClicked_bTYKa1 } from './buttonclicked_btyka1.js';
+import { ButtonClicked_bTYKa1 } from './buttonclicked_btyka1/index.js';
 import { ButtonClicked_bTYKh1 } from './buttonclicked_btykh1.js';
 import { ButtonClicked_bTYKr1 } from './buttonclicked_btykr1.js';
 import { ButtonClicked_bTYLL1 } from './buttonclicked_btyll1.js';

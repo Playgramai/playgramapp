@@ -5,7 +5,7 @@ import { PageLoaded_bTKTE } from './pageloaded_btkte.js';
 import { ButtonClicked_bTKUL } from './buttonclicked_btkul.js';
 import { ButtonClicked_bTKUT } from './buttonclicked_btkut.js';
 import { ButtonClicked_bTKUj } from './buttonclicked_btkuj.js';
-import { ButtonClicked_bTPWa } from './buttonclicked_btpwa.js';
+import { ButtonClicked_bTPWa } from './buttonclicked_btpwa/index.js';
 import { ButtonClicked_bTPZP } from './buttonclicked_btpzp.js';
 import { ButtonClicked_bTPZt } from './buttonclicked_btpzt.js';
 import { ButtonClicked_bTPaE } from './buttonclicked_btpae.js';
@@ -16,13 +16,13 @@ import { PageLoaded_bTPrl } from './pageloaded_btprl.js';
 import { PageLoaded_bTPrz } from './pageloaded_btprz.js';
 import { ButtonClicked_bTPtM } from './buttonclicked_btptm.js';
 import { ButtonClicked_bTQFZ } from './buttonclicked_btqfz.js';
-import { ButtonClicked_bTwyV } from './buttonclicked_btwyv.js';
+import { ButtonClicked_bTwyV } from './buttonclicked_btwyv/index.js';
 import { ConditionTrue_bTwyn } from './conditiontrue_btwyn.js';
 import { ButtonClicked_bTxRA } from './buttonclicked_btxra.js';
 import { ConditionTrue_bTxTd } from './conditiontrue_btxtd.js';
 import { ConditionTrue_bTxbn } from './conditiontrue_btxbn.js';
 import { ButtonClicked_bTxbz } from './buttonclicked_btxbz.js';
-import { create_stripe_session } from './create_stripe_session.js';
+import { create_stripe_session } from './create_stripe_session/index.js';
 import { _1488796042609x768734193128308700_AAX_bTxxt } from './_1488796042609x768734193128308700_aax_btxxt.js';
 import { PageLoaded_bTymt } from './pageloaded_btymt.js';
 import { PageLoaded_bTynF } from './pageloaded_btynf.js';
@@ -43,7 +43,7 @@ import { ButtonClicked_bTYWB0 } from './buttonclicked_btywb0.js';
 import { OnPageError_bTnej2 } from './onpageerror_btnej2.js';
 import { OnPageError_bTngn2 } from './onpageerror_btngn2.js';
 import { InputChanged_bTtMN1 } from './inputchanged_bttmn1.js';
-import { PageLoaded_bTxUx0 } from './pageloaded_btxux0.js';
+import { PageLoaded_bTxUx0 } from './pageloaded_btxux0/index.js';
 
 export const workflows = {
   "bTKRZ": ButtonClicked_bTKRZ,

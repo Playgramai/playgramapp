@@ -1,4 +1,5 @@
-import { arbitrarytext } from './arbitrarytext.js';
+import { currentworkflowitem } from './currentworkflowitem.js';
+import { arbitrarytext } from './arbitrarytext/index.js';
 import { arbitrarytext_1 } from './arbitrarytext_1/index.js';
 
 export const entries = {
@@ -21,56 +22,7 @@ export const entries = {
     "is_slidable": false
   },
   "2": "\";\n  const prompt    = ",
-  "3": {
-    "next": {
-      "next": {
-        "properties": {
-          "find": {
-            "entries": {
-              "0": "${"
-            },
-            "type": "TextExpression"
-          },
-          "replace": {
-            "entries": {
-              "0": "\\${"
-            },
-            "type": "TextExpression"
-          }
-        },
-        "type": "Message",
-        "name": "find_replace",
-        "is_slidable": true
-      },
-      "properties": {
-        "find": {
-          "entries": {
-            "0": "`"
-          },
-          "type": "TextExpression"
-        },
-        "replace": {
-          "entries": {
-            "0": "\\`"
-          },
-          "type": "TextExpression"
-        }
-      },
-      "type": "Message",
-      "name": "find_replace",
-      "is_slidable": true
-    },
-    "properties": {
-      "btype_id": "text",
-      "event_id": "bTnWy0",
-      "optional": false,
-      "param_id": "bTHfh",
-      "param_name": "input"
-    },
-    "type": "CurrentWorkflowItem",
-    "said": "a2Vsdm8tMzE4ODQ=",
-    "is_slidable": false
-  },
+  "3": currentworkflowitem,
   "4": ";\n\n  const LITELLM_URL = \"https://zq-lite-llm-k6qjf.ondigitalocean.app/v1/responses\";\n  const LITELLM_KEY = \"",
   "5": {
     "next": {

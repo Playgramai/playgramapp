@@ -1,6 +1,6 @@
-import { newthing } from './newthing.js';
+import { newthing } from './newthing/index.js';
 import { apiconnector2_btmbs0_btrig1 } from './apiconnector2_btmbs0_btrig1.js';
-import { triggercustomevent } from './triggercustomevent.js';
+import { triggercustomevent } from './triggercustomevent/index.js';
 import { trigger_new_upload_job_finished_when_a_upload_job_s_count_changes } from './trigger_new_upload_job_finished_when_a_upload_job_s_count_changes.js';
 import { triggercustomevent_1 } from './triggercustomevent_1.js';
 import { terminateworkflow } from './terminateworkflow.js';

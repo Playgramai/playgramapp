@@ -1,4 +1,4 @@
-import { Group_HTML_Image_holder } from './group_html_image_holder.js';
+import { Group_HTML_Image_holder } from './group_html_image_holder/index.js';
 
 export const elements = {
   "bTtjV0": Group_HTML_Image_holder,

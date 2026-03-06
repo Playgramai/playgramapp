@@ -1,4 +1,4 @@
-import { elements } from './elements.js';
+import { elements } from './elements/index.js';
 
 export const Group_User_Message_Container = {
   "elements": elements,

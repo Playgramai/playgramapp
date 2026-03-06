@@ -1,4 +1,4 @@
-import { displaylistdata } from './displaylistdata.js';
+import { displaylistdata } from './displaylistdata/index.js';
 import { schedulecustom } from './schedulecustom.js';
 import { scheduleapievent } from './scheduleapievent.js';
 

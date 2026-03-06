@@ -229,12 +229,8 @@ def numeric_entry_slug(key, value):
 
 
 def has_large_entries(d):
-    """True if numeric-keyed dict d has any item exceeding ENTRIES_LINES_THRESHOLD."""
-    return any(
-        jstr(v).count('\n') > ENTRIES_LINES_THRESHOLD
-        for v in d.values()
-        if v is not None and not isinstance(v, str)
-    )
+    """True if numeric-keyed dict d as a whole exceeds ENTRIES_LINES_THRESHOLD."""
+    return jstr(d).count('\n') > ENTRIES_LINES_THRESHOLD
 
 
 def _has_nested_large_numeric_dict(obj):
@@ -253,10 +249,12 @@ def _has_nested_large_numeric_dict(obj):
 
 
 def split_numeric_keyed_dict(d, out_dir, export_name):
-    """Split a numeric-keyed dict, extracting items > ENTRIES_LINES_THRESHOLD lines.
+    """Split a numeric-keyed dict whose total size exceeds ENTRIES_LINES_THRESHOLD.
 
-    Small items stay inlined in the index.js. Large items get their own file.
+    Trivial items (strings, small values) stay inlined. Non-trivial items get
+    their own file or subfolder.
     """
+    INLINE_MAX = 20  # lines; items smaller than this stay inline
     import_lines = []
     key_to_var = {}
     inline = {}
@@ -265,7 +263,7 @@ def split_numeric_keyed_dict(d, out_dir, export_name):
     for k in sorted(d.keys(), key=lambda x: int(x)):
         v = d[k]
         lines = jstr(v).count('\n')
-        if lines <= ENTRIES_LINES_THRESHOLD:
+        if isinstance(v, str) or lines <= INLINE_MAX:
             inline[k] = v
             continue
         slug = unique_slug(numeric_entry_slug(k, v), seen_slugs)
@@ -328,7 +326,7 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             slug = unique_slug(name, seen_slugs)
             var  = ident(name)
             sub_dir = os.path.join(out_dir, slug)
-            if needs_subfolder(v) and can_recurse(sub_dir, depth):
+            if (needs_subfolder(v) or _has_nested_large_numeric_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
                 import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
             else:
@@ -342,7 +340,7 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
     for k, v in d.items():
         size = len(jstr(v))
 
-        if size < THRESHOLD:
+        if size < THRESHOLD and not (isinstance(v, dict) and _has_nested_large_numeric_dict(v)):
             inline[k] = v
             continue
 
@@ -371,7 +369,7 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
                 # Flatten: write slug.js in current dir, children go here too.
                 split_dict(v, out_dir, var, depth + 1, out_file=f'{slug}.js')
                 import_lines.append(f"import {{ {var} }} from './{slug}.js';")
-            elif (needs_subfolder(v) or is_workflows_dict(v)) and can_recurse(sub_dir, depth):
+            elif (needs_subfolder(v) or is_workflows_dict(v) or _has_nested_large_numeric_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
                 import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
             else:
@@ -421,7 +419,7 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             elif isinstance(v, dict) and is_numeric_keyed_dict(v) and has_large_entries(v):
                 split_numeric_keyed_dict(v, sub_dir, var)
                 import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
-            elif isinstance(v, dict) and (needs_subfolder(v) or is_workflows_dict(v)) and can_recurse(sub_dir, depth):
+            elif isinstance(v, dict) and (needs_subfolder(v) or is_workflows_dict(v) or _has_nested_large_numeric_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
                 import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
             else:

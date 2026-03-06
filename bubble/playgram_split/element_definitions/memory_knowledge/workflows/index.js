@@ -1,7 +1,7 @@
 import { ButtonClicked_bTJvt } from './buttonclicked_btjvt.js';
 import { reset_add_memory_group } from './reset_add_memory_group.js';
 import { PageLoaded_bTOBp } from './pageloaded_btobp.js';
-import { ButtonClicked_bTaEL } from './buttonclicked_btael.js';
+import { ButtonClicked_bTaEL } from './buttonclicked_btael/index.js';
 import { ButtonClicked_bTcit } from './buttonclicked_btcit.js';
 import { ButtonClicked_bTcjB } from './buttonclicked_btcjb.js';
 import { ButtonClicked_bTcjM } from './buttonclicked_btcjm.js';
@@ -9,7 +9,7 @@ import { _1648049058728x629621556620034000_AAR_bTcjX } from './_1648049058728x62
 import { _1648049058728x629621556620034000_AAp_bTcje } from './_1648049058728x629621556620034000_aap_btcje.js';
 import { ButtonClicked_bTckH } from './buttonclicked_btckh.js';
 import { ButtonClicked_bTckP } from './buttonclicked_btckp.js';
-import { schedule_generate_chunks } from './schedule_generate_chunks.js';
+import { schedule_generate_chunks } from './schedule_generate_chunks/index.js';
 import { _1631898919530x371869522674581500_AAO_bTcqT } from './_1631898919530x371869522674581500_aao_btcqt.js';
 import { speech_to_text } from './speech_to_text.js';
 import { ButtonClicked_bTOXb0 } from './buttonclicked_btoxb0.js';

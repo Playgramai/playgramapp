@@ -1,5 +1,8 @@
+import { currentworkflowitem } from './currentworkflowitem.js';
 import { arbitrarytext } from './arbitrarytext.js';
+import { currentworkflowitem_1 } from './currentworkflowitem_1.js';
 import { arbitrarytext_1 } from './arbitrarytext_1/index.js';
+import { arbitrarytext_2 } from './arbitrarytext_2/index.js';
 
 export const entries = {
   "0": "\nwindow.liteMux = window.liteMux || { sessions: {} };\n\n(function startGeminiStream() {\n  const sessionId = \"",
@@ -21,56 +24,7 @@ export const entries = {
     "is_slidable": false
   },
   "2": "\";\n  const prompt = ",
-  "3": {
-    "next": {
-      "next": {
-        "properties": {
-          "find": {
-            "entries": {
-              "0": "${"
-            },
-            "type": "TextExpression"
-          },
-          "replace": {
-            "entries": {
-              "0": "\\${"
-            },
-            "type": "TextExpression"
-          }
-        },
-        "type": "Message",
-        "name": "find_replace",
-        "is_slidable": true
-      },
-      "properties": {
-        "find": {
-          "entries": {
-            "0": "`"
-          },
-          "type": "TextExpression"
-        },
-        "replace": {
-          "entries": {
-            "0": "\\`"
-          },
-          "type": "TextExpression"
-        }
-      },
-      "type": "Message",
-      "name": "find_replace",
-      "is_slidable": true
-    },
-    "properties": {
-      "btype_id": "text",
-      "event_id": "bTnWy0",
-      "optional": false,
-      "param_id": "bTHfh",
-      "param_name": "input"
-    },
-    "type": "CurrentWorkflowItem",
-    "said": "a2Vsdm8tMzE4ODQ=",
-    "is_slidable": false
-  },
+  "3": currentworkflowitem,
   "4": ";\n  const toolsValue = \"",
   "5": {
     "next": {
@@ -106,158 +60,14 @@ export const entries = {
     "is_slidable": false
   },
   "8": "\";\n  const LITELLM_URL =\n    \"https://zq-lite-llm-k6qjf.ondigitalocean.app/v1beta/models/",
-  "9": {
-    "properties": {
-      "arbitrary_text": {
-        "entries": {
-          "0": "",
-          "1": {
-            "next": {
-              "args": {
-                "properties": {
-                  "option_set": "option.llm_tool__os_",
-                  "option_value": "image_generation"
-                },
-                "type": "OneOptionValue",
-                "is_slidable": false
-              },
-              "next": {
-                "args": {
-                  "next": {
-                    "type": "Message",
-                    "name": "is_true",
-                    "is_slidable": false
-                  },
-                  "properties": {
-                    "btype_id": "boolean",
-                    "event_id": "bTnWy0",
-                    "optional": false,
-                    "param_id": "bTpbc1",
-                    "param_name": "image_gen_needed"
-                  },
-                  "type": "CurrentWorkflowItem",
-                  "is_slidable": false
-                },
-                "next": {
-                  "properties": {
-                    "formatting_for_true": {
-                      "entries": {
-                        "0": "",
-                        "1": {
-                          "next": {
-                            "type": "Message",
-                            "name": "image_gen_model",
-                            "is_slidable": false
-                          },
-                          "properties": {
-                            "btype_id": "option.llm_models__os_",
-                            "event_id": "bTnWy0",
-                            "optional": false,
-                            "param_id": "bTPyv",
-                            "param_name": "streaming_model"
-                          },
-                          "type": "CurrentWorkflowItem",
-                          "is_slidable": false
-                        },
-                        "2": ""
-                      },
-                      "type": "TextExpression"
-                    },
-                    "formatting_for_false": {
-                      "entries": {
-                        "0": "",
-                        "1": {
-                          "next": {
-                            "type": "Message",
-                            "name": "id0",
-                            "is_slidable": false
-                          },
-                          "properties": {
-                            "btype_id": "option.llm_models__os_",
-                            "event_id": "bTnWy0",
-                            "optional": false,
-                            "param_id": "bTPyv",
-                            "param_name": "streaming_model"
-                          },
-                          "type": "CurrentWorkflowItem",
-                          "is_slidable": false
-                        },
-                        "2": ""
-                      },
-                      "type": "TextExpression"
-                    }
-                  },
-                  "type": "Message",
-                  "name": "format_boolean",
-                  "is_slidable": true
-                },
-                "type": "Message",
-                "name": "or_",
-                "is_slidable": false
-              },
-              "type": "Message",
-              "name": "contains",
-              "is_slidable": false
-            },
-            "properties": {
-              "btype_id": "list.option.llm_tool__os_",
-              "event_id": "bTnWy0",
-              "optional": true,
-              "param_id": "bTPGl0",
-              "param_name": "enabled_tools"
-            },
-            "type": "CurrentWorkflowItem",
-            "is_slidable": false
-          },
-          "2": ""
-        },
-        "type": "TextExpression"
-      }
-    },
-    "type": "ArbitraryText",
-    "said": "a2Vsdm8tMzE4ODQ="
-  },
+  "9": arbitrarytext,
   "10": ":streamGenerateContent?alt=sse\";\n\n  const code_exec = ",
-  "11": {
-    "next": {
-      "next": {
-        "properties": {
-          "formatting_for_true": {
-            "entries": {
-              "0": "true"
-            },
-            "type": "TextExpression"
-          },
-          "formatting_for_false": {
-            "entries": {
-              "0": "false"
-            },
-            "type": "TextExpression"
-          }
-        },
-        "type": "Message",
-        "name": "format_boolean",
-        "is_slidable": true
-      },
-      "type": "Message",
-      "name": "is_true",
-      "is_slidable": false
-    },
-    "properties": {
-      "btype_id": "boolean",
-      "event_id": "bTnWy0",
-      "optional": false,
-      "param_id": "bTkhX",
-      "param_name": "code_interpreter_needed"
-    },
-    "type": "CurrentWorkflowItem",
-    "is_slidable": false
-  },
+  "11": currentworkflowitem_1,
   "12": ";\n\n  let toolsStr = toolsValue;\n  try {\n    if (typeof toolsStr !== \"string\") toolsStr = JSON.stringify(toolsStr);\n  } catch {\n    toolsStr = \"\";\n  }\n  toolsStr = (toolsStr || \"\").toLowerCase();\n  const isImageGen = toolsStr.includes(\"image\");\n\n  const ctrl = new AbortController();\n  window.liteMux.sessions[sessionId] = {\n    controller: ctrl,\n    id: sessionId,\n    text: \"\",\n    thinking: \"\",\n    latestImageBase64: null,\n    latestFileBase64: null,\n    latestFileMime: \"\",\n    imageGenTriggered: isImageGen,\n    finished: false,\n    code_exec: code_exec\n  };\n\n  function buildPayloadString(\n    s,\n    { includeStreamEnded = false, includeError = false, includeFinishExtras = false } = {}\n  ) {\n    const esc = (v) => String(v || \"\").replace(/\"/g, '\\\\\"');\n    const isTerminal = includeStreamEnded || includeError || includeFinishExtras;\n\n    const parts = [\n      `{session_id: \"${s.id}\"`,\n      `<#NANI?>thinking: \"${esc(s.thinking)}\"`,\n      `<#NANI?>text: \"${esc(s.text)}\"`,\n",
   "14": "\n      `<#NANI?>image_base64: \"${\n        s.code_exec ? \"\" : (s.latestImageBase64 || \"\")\n      }\"`,\n      `<#NANI?>file_base64: \"${\n        s.code_exec ? (s.latestFileBase64 || \"\") : \"\"\n      }\"`,\n      `<#NANI?>file_mime: \"${s.latestFileMime || \"\"}\"`,\n      `<#NANI?>image_gen_triggered: \"${\n        s.imageGenTriggered ? \"true\" : \"false\"\n      }\"}`\n    ];\n\n    // EXTRA FIELDS ONLY FOR TERMINAL PAYLOAD (finish / stop / error)\n    parts.push(\n      ...(isTerminal ? [\n        `<#NANI?>finish_extras: \"true\"`,\n       ",
-  "15": arbitrarytext,
+  "15": arbitrarytext_1,
   "16": "\n      ] : [])\n    );\n\n    if (includeError) parts.push(\"<#NANI?>error\");\n    else if (includeStreamEnded) parts.push(\"<#NANI?>stream_ended\");\n    return parts.join(\"\");\n  }\n\n  window.liteMux.buildPayloadString = buildPayloadString;\n  const s0 = window.liteMux.sessions[sessionId];\n  s0.payload = (opts) => buildPayloadString(s0, opts);\n\n  if (typeof bubble_fn_on_token === \"function\") {\n    let p0 = s0.payload();\n    bubble_fn_on_token(p0);\n    p0 = null;\n  }\n\n  // --- THROTTLE (per session): 150ms + local payload release ---\n  const THROTTLE_MS = 150;\n  s0._pushScheduled = false;\n  s0._lastPushAt = 0;\n  s0._pendingPush = false;\n  s0._pushTimer = null;\n\n  function scheduleTokenPush() {\n    const s = window.liteMux.sessions[sessionId];\n    if (!s) return;\n\n    s._pendingPush = true;\n\n    if (s._pushScheduled) return;\n\n    const now = Date.now();\n    const wait = Math.max(0, THROTTLE_MS - (now - (s._lastPushAt || 0)));\n\n    s._pushScheduled = true;\n    s._pushTimer = setTimeout(() => {\n      const s2 = window.liteMux.sessions[sessionId];\n      if (!s2) return;\n\n      s2._pushScheduled = false;\n\n      if (!s2._pendingPush) return;\n      s2._pendingPush = false;\n\n      s2._lastPushAt = Date.now();\n\n      if (typeof bubble_fn_on_token === \"function\") {\n        let p = buildPayloadString(s2, { includeFinishExtras: false });\n        bubble_fn_on_token(p);\n        p = null;\n      }\n    }, wait);\n  }\n  // --- /THROTTLE ---\n\n  // \u0434\u0435\u0442\u0435\u043a\u0442\u043e\u0440 base64 (stdout + HTML <code>...</code>)\n  function tryExtractBase64(str) {\n    if (!str) return null;\n\n    // \u0441\u043f\u0435\u0440\u0432\u0430 \u0438\u0437 <code>...</code>\n    const codeMatch = str.match(/<code>([^<]+)<\\/code>/i);\n    if (codeMatch && codeMatch[1]) {\n      const trimmed = codeMatch[1].trim();\n      if (/^[A-Za-z0-9+/=]+$/.test(trimmed) && trimmed.length >= 20) {\n        return trimmed;\n      }\n    }\n\n    // \u043e\u0431\u0449\u0438\u0439 fallback: \u0434\u043b\u0438\u043d\u043d\u044b\u0439 base64-\u0431\u043b\u043e\u043a \u0433\u0434\u0435 \u0443\u0433\u043e\u0434\u043d\u043e\n    const m = str.match(/[A-Za-z0-9+/=]{20,}/);\n    return m ? m[0] : null;\n  }\n\n  function appendGeminiParts(s, parts) {\n    if (!Array.isArray(parts)) return;\n    for (const p of parts) {\n      // 1) inlineData (\u0437\u0430\u043f\u0430\u0441\u043d\u043e\u0439 \u0432\u0430\u0440\u0438\u0430\u043d\u0442, \u0435\u0441\u043b\u0438 \u043a\u043e\u0433\u0434\u0430-\u0442\u043e \u043d\u0430\u0447\u043d\u0451\u0442 \u0442\u0430\u043a \u0441\u043b\u0430\u0442\u044c)\n      if (\n        p &&\n        p.inlineData &&\n        typeof p.inlineData.data === \"string\" &&\n        p.inlineData.data.length\n      ) {\n        let mime = p.inlineData.mimeType || \"application/octet-stream\";\n\n        if (s.code_exec) {\n          s.latestFileBase64 = p.inlineData.data;\n          s.latestFileMime = mime;\n        } else {\n          s.latestImageBase64 = p.inlineData.data;\n          s.imageGenTriggered = true;\n        }\n\n        try {\n          console.log(\n            \"[gemini] inlineData captured, len:\",\n            p.inlineData.data.length,\n            \"mime:\",\n            mime\n          );\n        } catch {}\n      }\n\n      // 2) \u0442\u0435\u043a\u0441\u0442 (HTML + \u043e\u0431\u044b\u0447\u043d\u044b\u0439)\n      if (typeof p?.text === \"string\" && p.text) {\n        const maybeB64 = tryExtractBase64(p.text);\n        if (maybeB64 && !s.latestFileBase64 && s.code_exec) {\n          s.latestFileBase64 = maybeB64.trim();\n          s.latestFileMime = \"application/octet-stream\";\n          console.log(\n            \"[gemini] base64 from text captured, len:\",\n            maybeB64.length\n          );\n        }\n        s.text += p.text;\n      }\n\n      // 3) executableCode\n      if (p?.executableCode?.code) {\n        s.thinking += String(p.executableCode.code) + (s.thinking.endsWith(\"\\n\") ? \"\" : \"\\n\");\n      }\n\n      // 4) codeExecutionResult.output \u2014 stdout \u0441 base64 (\u0422\u0412\u041e\u0419 \u0413\u041b\u0410\u0412\u041d\u042b\u0419 \u041a\u0415\u0419\u0421)\n      if (p?.codeExecutionResult?.output) {\n        const out = String(p.codeExecutionResult.output);\n        const outcome = p.codeExecutionResult.outcome\n          ? ` [${p.codeExecutionResult.outcome}]`\n          : \"\";\n        s.thinking += out + outcome + \"\\n\";\n\n        const maybeB64 = tryExtractBase64(out);\n        if (maybeB64 && !s.latestFileBase64 && s.code_exec) {\n          s.latestFileBase64 = maybeB64.trim();\n          s.latestFileMime = \"application/octet-stream\";\n          console.log(\n            \"[gemini] base64 from codeExecutionResult captured, len:\",\n            maybeB64.length\n          );\n        }\n      }\n    }\n  }\n\n  function absorbJSON(s, json) {\n    try {\n      console.log(\"[gemini] RAW JSON CHUNK:\", json);\n\n      const cands = json?.candidates;\n      if (Array.isArray(cands) && cands.length) {\n        appendGeminiParts(s, cands[0]?.content?.parts || []);\n        const fr = cands[0]?.finishReason;\n        if (fr && fr !== \"FINISH_REASON_UNSPECIFIED\") s.finished = true;\n      }\n\n      if (json?.delta?.content) appendGeminiParts(s, json.delta.content);\n      const ch0 = json?.choices?.[0];\n      if (ch0?.delta?.content) appendGeminiParts(s, ch0.delta.content);\n\n      const ot = json?.output_text_delta ?? json?.delta_text;\n      if (typeof ot === \"string\" && ot) s.text += ot;\n      if (typeof json?.text === \"string\" && json.text) s.text += json.text;\n    } catch (err) {\n      console.error(\"absorbJSON error:\", err, json);\n    }\n  }\n\n  let body = {\n    ",
-  "17": arbitrarytext_1,
+  "17": arbitrarytext_2,
   "18": "\n  };\n\n  fetch(LITELLM_URL, {\n    method: \"POST\",\n    headers: {\n      Authorization: \"Bearer \" + LITELLM_KEY,\n      \"Content-Type\": \"application/json\",\n      Accept: \"text/event-stream\",\n      \"X-JWT\": \"",
   "19": {
     "properties": {

@@ -2,13 +2,13 @@ import { Sidebar } from './sidebar/index.js';
 import { Popup_Create_Project_Settings } from './popup_create_project_settings/index.js';
 import { Memory_Knowledge } from './memory_knowledge/index.js';
 import { GF_Chat_Menu } from './gf_chat_menu/index.js';
+import { Element_Copy_Simple_Text } from './element_copy_simple_text/index.js';
 import { Popup_User_Settings } from './popup_user_settings/index.js';
 import { GF_RG_Memory_Menu } from './gf_rg_memory_menu/index.js';
 import { LLM_Model_RG_Cell } from './llm_model_rg_cell/index.js';
 import { Workspace_Settings } from './workspace_settings/index.js';
 import { Library } from './library/index.js';
 import { Subscription_plans } from './subscription_plans/index.js';
-import { Element_Copy_Simple_Text } from './element_copy_simple_text.js';
 import { GF_User_Menu } from './gf_user_menu.js';
 import { Dropdown_subscription_credits } from './dropdown_subscription_credits.js';
 import { Popup_Delete_Memory } from './popup_delete_memory.js';
@@ -25,13 +25,13 @@ export const element_definitions = {
   "bTJjW": Popup_Create_Project_Settings,
   "bTMNU": Memory_Knowledge,
   "bTImm0": GF_Chat_Menu,
+  "bTKXA0": Element_Copy_Simple_Text,
   "bTKhI0": Popup_User_Settings,
   "bTOtF0": GF_RG_Memory_Menu,
   "bTbEn0": LLM_Model_RG_Cell,
   "bTdLl1": Workspace_Settings,
   "bTjPp1": Library,
   "bTxAr1": Subscription_plans,
-  "bTKXA0": Element_Copy_Simple_Text,
   "bTJKn": GF_User_Menu,
   "bTwmR": Dropdown_subscription_credits,
   "bTOHY0": Popup_Delete_Memory,

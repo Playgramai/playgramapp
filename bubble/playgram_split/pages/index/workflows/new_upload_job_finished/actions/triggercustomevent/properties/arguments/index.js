@@ -1,4 +1,8 @@
+import { entry_4 } from './entry_4.js';
+import { entry_5 } from './entry_5.js';
+import { entry_10 } from './entry_10.js';
 import { entry_17 } from './entry_17/index.js';
+import { entry_21 } from './entry_21.js';
 
 export const arguments = {
   "0": {
@@ -77,106 +81,8 @@ export const arguments = {
       "is_slidable": false
     }
   },
-  "4": {
-    "param_id": "bTKsr",
-    "arg_value": {
-      "next": {
-        "next": {
-          "next": {
-            "next": {
-              "type": "Message",
-              "name": "to_lowercase",
-              "is_slidable": false
-            },
-            "type": "Message",
-            "name": "display",
-            "is_slidable": false
-          },
-          "type": "Message",
-          "name": "type_option_chat_type__os_",
-          "is_slidable": false
-        },
-        "type": "Message",
-        "name": "chat_custom_chat",
-        "is_slidable": false
-      },
-      "properties": {
-        "btype_id": "custom.upload_job",
-        "event_id": "bTnXL0",
-        "optional": false,
-        "param_id": "bTTHn",
-        "param_name": "upload_job"
-      },
-      "type": "CurrentWorkflowItem",
-      "is_slidable": false
-    }
-  },
-  "5": {
-    "param_id": "bTKsv",
-    "arg_value": {
-      "next": {
-        "next": {
-          "properties": {
-            "find": {
-              "entries": {
-                "0": "\\\\"
-              },
-              "type": "TextExpression"
-            },
-            "replace": {
-              "entries": {
-                "0": "\\"
-              },
-              "type": "TextExpression"
-            }
-          },
-          "type": "Message",
-          "name": "find_replace",
-          "is_slidable": true
-        },
-        "type": "Message",
-        "name": "format_json_encode",
-        "is_slidable": false
-      },
-      "properties": {
-        "arbitrary_text": {
-          "entries": {
-            "0": "",
-            "1": {
-              "next": {
-                "next": {
-                  "next": {
-                    "type": "Message",
-                    "name": "name_text",
-                    "is_slidable": false
-                  },
-                  "type": "Message",
-                  "name": "project_custom_project",
-                  "is_slidable": false
-                },
-                "type": "Message",
-                "name": "chat_custom_chat",
-                "is_slidable": false
-              },
-              "properties": {
-                "btype_id": "custom.upload_job",
-                "event_id": "bTnXL0",
-                "optional": false,
-                "param_id": "bTTHn",
-                "param_name": "upload_job"
-              },
-              "type": "CurrentWorkflowItem",
-              "is_slidable": false
-            },
-            "2": "\\"
-          },
-          "type": "TextExpression"
-        }
-      },
-      "type": "ArbitraryText",
-      "said": "a2Vsdm8tMzE4ODQ="
-    }
-  },
+  "4": entry_4,
+  "5": entry_5,
   "6": {
     "param_id": "bTPGd",
     "arg_value": {
@@ -253,30 +159,7 @@ export const arguments = {
       "is_slidable": false
     }
   },
-  "10": {
-    "param_id": "bTQSg0",
-    "arg_value": {
-      "next": {
-        "next": {
-          "type": "Message",
-          "name": "organization_workspace_custom_organization",
-          "is_slidable": false
-        },
-        "type": "Message",
-        "name": "workspace_user_custom_workspace",
-        "is_slidable": false
-      },
-      "properties": {
-        "btype_id": "custom.upload_job",
-        "event_id": "bTnXL0",
-        "optional": false,
-        "param_id": "bTTHn",
-        "param_name": "upload_job"
-      },
-      "type": "CurrentWorkflowItem",
-      "is_slidable": false
-    }
-  },
+  "10": entry_10,
   "11": {
     "param_id": "bTVPl",
     "arg_value": {
@@ -449,35 +332,7 @@ export const arguments = {
       "is_slidable": false
     }
   },
-  "21": {
-    "param_id": "bTlhH",
-    "arg_value": {
-      "next": {
-        "next": {
-          "next": {
-            "type": "Message",
-            "name": "jwt_text",
-            "is_slidable": false
-          },
-          "type": "Message",
-          "name": "organization_workspace_custom_organization",
-          "is_slidable": false
-        },
-        "type": "Message",
-        "name": "workspace_user_custom_workspace",
-        "is_slidable": false
-      },
-      "properties": {
-        "btype_id": "custom.upload_job",
-        "event_id": "bTnXL0",
-        "optional": false,
-        "param_id": "bTTHn",
-        "param_name": "upload_job"
-      },
-      "type": "CurrentWorkflowItem",
-      "is_slidable": false
-    }
-  },
+  "21": entry_21,
   "22": {
     "param_id": "bTpbc1",
     "arg_value": {

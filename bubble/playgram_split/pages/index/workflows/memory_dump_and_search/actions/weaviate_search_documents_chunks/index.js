@@ -1,4 +1,4 @@
-import { properties } from './properties.js';
+import { properties } from './properties/index.js';
 
 export const weaviate_search_documents_chunks = {
   "properties": properties,

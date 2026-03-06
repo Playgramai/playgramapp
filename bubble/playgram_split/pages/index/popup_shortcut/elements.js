@@ -1,4 +1,4 @@
-import { RG_Search_Chats } from './rg_search_chats.js';
+import { RG_Search_Chats } from './rg_search_chats/index.js';
 import { G_chat_Search } from './g_chat_search.js';
 import { RG_shortcuts } from './rg_shortcuts.js';
 import { Group_Header } from './group_header.js';
