@@ -2,6 +2,12 @@
 
 *Research conducted: March 6, 2026*
 
+## TL;DR
+
+**We're going with Railway.** Playgram streams LLM responses that run 30-120+ seconds, processes files through chunking/vector pipelines, and needs background job queues — all of which require a long-lived server process. Serverless platforms (Vercel, Cloudflare) impose timeout limits that are fundamentally incompatible with this. Among container-based options, Railway offers the simplest deploy experience (GitHub push-to-deploy, no Dockerfile required), predictable usage-based pricing ($10-25/mo at MVP, scaling linearly), and native multi-service support (app + Redis + workers in one project).
+
+The exit cost is near-zero. Since Railway runs standard Docker containers, migrating to Fly.io (for global reach), DigitalOcean (to co-locate with our LiteLLM proxy), or AWS ECS (for enterprise compliance) is a 1-2 day infrastructure task with zero code changes. We avoid lock-in by keeping all config in env vars and using a Dockerfile.
+
 ## Context
 
 Playgram is a multi-model AI chat platform being rebuilt from Bubble.io to Next.js. The platform has demanding infrastructure requirements: streaming LLM responses (30-120s), file processing pipelines, vector search (Weaviate), real-time collaboration, Stripe billing, and multi-tenant workspace isolation. The choice must scale economically from MVP to production without requiring a mid-stream migration.
