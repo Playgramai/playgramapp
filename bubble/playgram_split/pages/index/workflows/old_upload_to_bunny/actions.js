@@ -1,0 +1,1576 @@
+export const actions = {
+  "0": {
+    "properties": {
+      "params_path": {
+        "entries": {
+          "0": {
+            "next": {
+              "next": {
+                "args": {
+                  "properties": {
+                    "option_set": "option.chat_type__os_",
+                    "option_value": "team"
+                  },
+                  "type": "OneOptionValue",
+                  "is_slidable": false
+                },
+                "next": {
+                  "properties": {
+                    "formatting_for_true": {
+                      "entries": {
+                        "0": "",
+                        "1": {
+                          "next": {
+                            "next": {
+                              "properties": {
+                                "formatting_type": "url_encode",
+                                "replace_space": false
+                              },
+                              "type": "Message",
+                              "name": "format_text",
+                              "is_slidable": true
+                            },
+                            "type": "Message",
+                            "name": "bunny_folder_text",
+                            "is_slidable": false
+                          },
+                          "properties": {
+                            "btype_id": "custom.organization",
+                            "event_id": "bTcKR",
+                            "optional": false,
+                            "param_id": "bTQRX0",
+                            "param_name": "organization"
+                          },
+                          "type": "CurrentWorkflowItem",
+                          "is_slidable": false
+                        },
+                        "2": ""
+                      },
+                      "type": "TextExpression"
+                    },
+                    "formatting_for_false": {
+                      "entries": {
+                        "0": "",
+                        "1": {
+                          "next": {
+                            "next": {
+                              "args": {
+                                "properties": {
+                                  "option_set": "option.chat_type__os_",
+                                  "option_value": "personal"
+                                },
+                                "type": "OneOptionValue",
+                                "is_slidable": false
+                              },
+                              "next": {
+                                "args": {
+                                  "next": {
+                                    "next": {
+                                      "args": {
+                                        "properties": {
+                                          "option_set": "option.chat_type__os_",
+                                          "option_value": "temporary"
+                                        },
+                                        "type": "OneOptionValue",
+                                        "is_slidable": false
+                                      },
+                                      "type": "Message",
+                                      "name": "equals",
+                                      "is_slidable": false
+                                    },
+                                    "type": "Message",
+                                    "name": "type_option_chat_type__os_",
+                                    "is_slidable": false
+                                  },
+                                  "properties": {
+                                    "btype_id": "custom.chat",
+                                    "event_id": "bTcKR",
+                                    "optional": false,
+                                    "param_id": "bTQRj0",
+                                    "param_name": "chat"
+                                  },
+                                  "type": "CurrentWorkflowItem",
+                                  "is_slidable": false
+                                },
+                                "next": {
+                                  "properties": {
+                                    "formatting_for_true": {
+                                      "entries": {
+                                        "0": "",
+                                        "1": {
+                                          "next": {
+                                            "next": {
+                                              "properties": {
+                                                "formatting_type": "url_encode",
+                                                "replace_space": false
+                                              },
+                                              "type": "Message",
+                                              "name": "format_text",
+                                              "is_slidable": true
+                                            },
+                                            "type": "Message",
+                                            "name": "bunny_folder_text",
+                                            "is_slidable": false
+                                          },
+                                          "properties": {
+                                            "btype_id": "user",
+                                            "event_id": "bTcKR",
+                                            "optional": true,
+                                            "param_id": "bTTCp",
+                                            "param_name": "user"
+                                          },
+                                          "type": "CurrentWorkflowItem",
+                                          "is_slidable": false
+                                        },
+                                        "2": ""
+                                      },
+                                      "type": "TextExpression"
+                                    },
+                                    "formatting_for_false": {
+                                      "entries": {
+                                        "0": "",
+                                        "1": {
+                                          "next": {
+                                            "next": {
+                                              "next": {
+                                                "properties": {
+                                                  "formatting_type": "url_encode",
+                                                  "replace_space": false
+                                                },
+                                                "type": "Message",
+                                                "name": "format_text",
+                                                "is_slidable": true
+                                              },
+                                              "type": "Message",
+                                              "name": "bunny_folder_text",
+                                              "is_slidable": false
+                                            },
+                                            "type": "Message",
+                                            "name": "project_custom_project",
+                                            "is_slidable": false
+                                          },
+                                          "properties": {
+                                            "btype_id": "custom.chat",
+                                            "event_id": "bTcKR",
+                                            "optional": false,
+                                            "param_id": "bTQRj0",
+                                            "param_name": "chat"
+                                          },
+                                          "type": "CurrentWorkflowItem",
+                                          "said": "a2Vsdm8tMzE4ODQ=",
+                                          "is_slidable": false
+                                        },
+                                        "2": ""
+                                      },
+                                      "type": "TextExpression"
+                                    }
+                                  },
+                                  "type": "Message",
+                                  "name": "format_boolean",
+                                  "is_slidable": true
+                                },
+                                "type": "Message",
+                                "name": "or_",
+                                "is_slidable": false
+                              },
+                              "type": "Message",
+                              "name": "equals",
+                              "is_slidable": false
+                            },
+                            "type": "Message",
+                            "name": "type_option_chat_type__os_",
+                            "is_slidable": false
+                          },
+                          "properties": {
+                            "btype_id": "custom.chat",
+                            "event_id": "bTcKR",
+                            "optional": false,
+                            "param_id": "bTQRj0",
+                            "param_name": "chat"
+                          },
+                          "type": "CurrentWorkflowItem",
+                          "is_slidable": false
+                        },
+                        "2": ""
+                      },
+                      "type": "TextExpression"
+                    }
+                  },
+                  "type": "Message",
+                  "name": "format_boolean",
+                  "is_slidable": true
+                },
+                "type": "Message",
+                "name": "equals",
+                "is_slidable": false
+              },
+              "type": "Message",
+              "name": "type_option_chat_type__os_",
+              "is_slidable": false
+            },
+            "properties": {
+              "btype_id": "custom.chat",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQRj0",
+              "param_name": "chat"
+            },
+            "type": "CurrentWorkflowItem",
+            "said": "a2Vsdm8tMzE4ODQ=",
+            "is_slidable": false
+          }
+        },
+        "type": "TextExpression"
+      },
+      "params_base64": {
+        "entries": {
+          "0": ""
+        },
+        "type": "TextExpression"
+      },
+      "params_file_url": {
+        "entries": {
+          "0": "",
+          "1": {
+            "next": {
+              "type": "Message",
+              "name": "url",
+              "is_slidable": false
+            },
+            "properties": {
+              "btype_id": "file",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQRY0",
+              "param_name": "file"
+            },
+            "type": "CurrentWorkflowItem",
+            "said": "a2Vsdm8tMzE4ODQ=",
+            "is_slidable": false
+          }
+        },
+        "type": "TextExpression"
+      },
+      "params_file_name": {
+        "entries": {
+          "0": {
+            "properties": {
+              "arbitrary_text": {
+                "entries": {
+                  "0": "",
+                  "1": {
+                    "next": {
+                      "next": {
+                        "next": {
+                          "type": "Message",
+                          "name": "first_element",
+                          "is_slidable": false
+                        },
+                        "properties": {
+                          "separator": {
+                            "entries": {
+                              "0": "."
+                            },
+                            "type": "TextExpression"
+                          }
+                        },
+                        "type": "Message",
+                        "name": "split_by",
+                        "is_slidable": true
+                      },
+                      "type": "Message",
+                      "name": "file_name",
+                      "is_slidable": false
+                    },
+                    "properties": {
+                      "btype_id": "file",
+                      "event_id": "bTcKR",
+                      "optional": false,
+                      "param_id": "bTQRY0",
+                      "param_name": "file"
+                    },
+                    "type": "CurrentWorkflowItem",
+                    "is_slidable": false
+                  },
+                  "2": "_",
+                  "3": {
+                    "next": {
+                      "properties": {
+                        "component_to_extract": "UNIX"
+                      },
+                      "type": "Message",
+                      "name": "extract_from_date",
+                      "is_slidable": true
+                    },
+                    "properties": {
+                      "name": "Current Date/Time"
+                    },
+                    "type": "PageData",
+                    "is_slidable": false
+                  },
+                  "4": ".",
+                  "5": {
+                    "next": {
+                      "next": {
+                        "next": {
+                          "type": "Message",
+                          "name": "last_element",
+                          "is_slidable": false
+                        },
+                        "properties": {
+                          "separator": {
+                            "entries": {
+                              "0": "."
+                            },
+                            "type": "TextExpression"
+                          }
+                        },
+                        "type": "Message",
+                        "name": "split_by",
+                        "is_slidable": true
+                      },
+                      "type": "Message",
+                      "name": "file_name",
+                      "is_slidable": false
+                    },
+                    "properties": {
+                      "btype_id": "file",
+                      "event_id": "bTcKR",
+                      "optional": false,
+                      "param_id": "bTQRY0",
+                      "param_name": "file"
+                    },
+                    "type": "CurrentWorkflowItem",
+                    "is_slidable": false
+                  },
+                  "6": ""
+                },
+                "type": "TextExpression"
+              }
+            },
+            "type": "ArbitraryText",
+            "said": "a2Vsdm8tMzE4ODQ="
+          }
+        },
+        "type": "TextExpression"
+      },
+      "url_params_version": {
+        "entries": {
+          "0": {
+            "next": {
+              "next": {
+                "properties": {
+                  "formatting_for_true": {
+                    "entries": {
+                      "0": "/version-",
+                      "1": {
+                        "properties": {
+                          "name": "AppVersion"
+                        },
+                        "type": "PageData",
+                        "is_slidable": false
+                      },
+                      "2": ""
+                    },
+                    "type": "TextExpression"
+                  },
+                  "formatting_for_false": {
+                    "entries": {
+                      "0": ""
+                    },
+                    "type": "TextExpression"
+                  }
+                },
+                "type": "Message",
+                "name": "format_boolean",
+                "is_slidable": true
+              },
+              "type": "Message",
+              "name": "is_true",
+              "is_slidable": false
+            },
+            "properties": {
+              "name": "AppIsTest"
+            },
+            "type": "PageData",
+            "said": "a2Vsdm8tMzE4ODQ=",
+            "is_slidable": false
+          }
+        },
+        "type": "TextExpression"
+      },
+      "url_params_app version": {
+        "entries": {
+          "0": {
+            "properties": {
+              "name": "AppVersion"
+            },
+            "type": "PageData",
+            "is_slidable": false
+          }
+        },
+        "type": "TextExpression"
+      }
+    },
+    "type": "apiconnector2-bTMBs0.bTrSm0",
+    "id": "bTrTt0"
+  },
+  "1": {
+    "properties": {
+      "condition": {
+        "next": {
+          "args": "yes",
+          "type": "Message",
+          "name": "equals",
+          "is_slidable": false
+        },
+        "properties": {
+          "arbitrary_text": {
+            "entries": {
+              "0": "",
+              "1": {
+                "next": {
+                  "next": {
+                    "args": {
+                      "properties": {
+                        "option_set": "option.chat_type__os_",
+                        "option_value": "team"
+                      },
+                      "type": "OneOptionValue",
+                      "is_slidable": false
+                    },
+                    "next": {
+                      "properties": {
+                        "formatting_for_true": {
+                          "entries": {
+                            "0": "",
+                            "1": {
+                              "next": {
+                                "next": {
+                                  "next": {
+                                    "args": {
+                                      "next": {
+                                        "next": {
+                                          "args": 1,
+                                          "type": "Message",
+                                          "name": "plus_hours",
+                                          "is_slidable": false
+                                        },
+                                        "type": "Message",
+                                        "name": "get_AAV",
+                                        "is_slidable": false
+                                      },
+                                      "properties": {
+                                        "element_id": "bTVPN"
+                                      },
+                                      "type": "GetElement",
+                                      "is_slidable": false
+                                    },
+                                    "type": "Message",
+                                    "name": "less_than",
+                                    "is_slidable": false
+                                  },
+                                  "type": "Message",
+                                  "name": "signed_url_token_date_date",
+                                  "is_slidable": false
+                                },
+                                "type": "Message",
+                                "name": "current_organization_custom_organization",
+                                "is_slidable": false
+                              },
+                              "type": "CurrentUser",
+                              "is_slidable": false
+                            },
+                            "2": ""
+                          },
+                          "type": "TextExpression"
+                        },
+                        "formatting_for_false": {
+                          "entries": {
+                            "0": "",
+                            "1": {
+                              "next": {
+                                "next": {
+                                  "args": {
+                                    "properties": {
+                                      "option_set": "option.chat_type__os_",
+                                      "option_value": "personal"
+                                    },
+                                    "type": "OneOptionValue",
+                                    "is_slidable": false
+                                  },
+                                  "next": {
+                                    "args": {
+                                      "next": {
+                                        "next": {
+                                          "args": {
+                                            "properties": {
+                                              "option_set": "option.chat_type__os_",
+                                              "option_value": "temporary"
+                                            },
+                                            "type": "OneOptionValue",
+                                            "is_slidable": false
+                                          },
+                                          "type": "Message",
+                                          "name": "equals",
+                                          "is_slidable": false
+                                        },
+                                        "type": "Message",
+                                        "name": "type_option_chat_type__os_",
+                                        "is_slidable": false
+                                      },
+                                      "properties": {
+                                        "btype_id": "custom.chat",
+                                        "event_id": "bTcKR",
+                                        "optional": false,
+                                        "param_id": "bTQRj0",
+                                        "param_name": "chat"
+                                      },
+                                      "type": "CurrentWorkflowItem",
+                                      "is_slidable": false
+                                    },
+                                    "next": {
+                                      "properties": {
+                                        "formatting_for_true": {
+                                          "entries": {
+                                            "0": "",
+                                            "1": {
+                                              "next": {
+                                                "next": {
+                                                  "args": {
+                                                    "next": {
+                                                      "next": {
+                                                        "args": 1,
+                                                        "type": "Message",
+                                                        "name": "plus_hours",
+                                                        "is_slidable": false
+                                                      },
+                                                      "type": "Message",
+                                                      "name": "get_AAV",
+                                                      "is_slidable": false
+                                                    },
+                                                    "properties": {
+                                                      "element_id": "bTVPN"
+                                                    },
+                                                    "type": "GetElement",
+                                                    "is_slidable": false
+                                                  },
+                                                  "type": "Message",
+                                                  "name": "less_than",
+                                                  "is_slidable": false
+                                                },
+                                                "type": "Message",
+                                                "name": "signed_url_token_date_date",
+                                                "is_slidable": false
+                                              },
+                                              "type": "CurrentUser",
+                                              "is_slidable": false
+                                            },
+                                            "2": ""
+                                          },
+                                          "type": "TextExpression"
+                                        },
+                                        "formatting_for_false": {
+                                          "entries": {
+                                            "0": "",
+                                            "1": {
+                                              "next": {
+                                                "next": {
+                                                  "next": {
+                                                    "args": {
+                                                      "next": {
+                                                        "next": {
+                                                          "args": 1,
+                                                          "type": "Message",
+                                                          "name": "plus_hours",
+                                                          "is_slidable": false
+                                                        },
+                                                        "type": "Message",
+                                                        "name": "get_AAV",
+                                                        "is_slidable": false
+                                                      },
+                                                      "properties": {
+                                                        "element_id": "bTVPN"
+                                                      },
+                                                      "type": "GetElement",
+                                                      "is_slidable": false
+                                                    },
+                                                    "type": "Message",
+                                                    "name": "less_than",
+                                                    "is_slidable": false
+                                                  },
+                                                  "type": "Message",
+                                                  "name": "signed_url_token_date_date",
+                                                  "is_slidable": false
+                                                },
+                                                "type": "Message",
+                                                "name": "project_custom_project",
+                                                "is_slidable": false
+                                              },
+                                              "properties": {
+                                                "btype_id": "custom.chat",
+                                                "event_id": "bTcKR",
+                                                "optional": false,
+                                                "param_id": "bTQRj0",
+                                                "param_name": "chat"
+                                              },
+                                              "type": "CurrentWorkflowItem",
+                                              "said": "a2Vsdm8tMzE4ODQ=",
+                                              "is_slidable": false
+                                            },
+                                            "2": ""
+                                          },
+                                          "type": "TextExpression"
+                                        }
+                                      },
+                                      "type": "Message",
+                                      "name": "format_boolean",
+                                      "is_slidable": true
+                                    },
+                                    "type": "Message",
+                                    "name": "or_",
+                                    "is_slidable": false
+                                  },
+                                  "type": "Message",
+                                  "name": "equals",
+                                  "is_slidable": false
+                                },
+                                "type": "Message",
+                                "name": "type_option_chat_type__os_",
+                                "is_slidable": false
+                              },
+                              "properties": {
+                                "btype_id": "custom.chat",
+                                "event_id": "bTcKR",
+                                "optional": false,
+                                "param_id": "bTQRj0",
+                                "param_name": "chat"
+                              },
+                              "type": "CurrentWorkflowItem",
+                              "is_slidable": false
+                            },
+                            "2": ""
+                          },
+                          "type": "TextExpression"
+                        }
+                      },
+                      "type": "Message",
+                      "name": "format_boolean",
+                      "is_slidable": true
+                    },
+                    "type": "Message",
+                    "name": "equals",
+                    "is_slidable": false
+                  },
+                  "type": "Message",
+                  "name": "type_option_chat_type__os_",
+                  "is_slidable": false
+                },
+                "properties": {
+                  "btype_id": "custom.chat",
+                  "event_id": "bTcKR",
+                  "optional": false,
+                  "param_id": "bTQRj0",
+                  "param_name": "chat"
+                },
+                "type": "CurrentWorkflowItem",
+                "said": "a2Vsdm8tMzE4ODQ=",
+                "is_slidable": false
+              },
+              "2": ""
+            },
+            "type": "TextExpression"
+          }
+        },
+        "type": "ArbitraryText"
+      },
+      "arguments": {
+        "0": {
+          "param_id": "bTQpF0",
+          "arg_value": {
+            "properties": {
+              "btype_id": "custom.chat",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQRj0",
+              "param_name": "chat"
+            },
+            "type": "CurrentWorkflowItem",
+            "is_slidable": false
+          }
+        },
+        "1": {
+          "param_id": "bTcQp0",
+          "arg_value": {
+            "next": {
+              "type": "Message",
+              "name": "_api_c2_body.response.file_url",
+              "is_slidable": false
+            },
+            "properties": {
+              "action_id": "bTrTt0"
+            },
+            "type": "PreviousStep",
+            "is_slidable": false
+          }
+        }
+      },
+      "custom_event": "bTtkT"
+    },
+    "type": "TriggerCustomEvent",
+    "id": "bTcRX0"
+  },
+  "2": {
+    "properties": {
+      "condition": {
+        "next": {
+          "next": {
+            "next": {
+              "next": {
+                "args": {
+                  "next": {
+                    "next": {
+                      "type": "Message",
+                      "name": "display",
+                      "is_slidable": false
+                    },
+                    "properties": {
+                      "constraints": {
+                        "0": {
+                          "key": "_advanced_search_constraint",
+                          "value": {
+                            "next": {
+                              "next": {
+                                "args": "image",
+                                "type": "Message",
+                                "name": "not_contains",
+                                "is_slidable": false
+                              },
+                              "type": "Message",
+                              "name": "mime_type",
+                              "is_slidable": false
+                            },
+                            "type": "InjectedValue",
+                            "is_slidable": false
+                          },
+                          "constraint_type": {
+                            "type": "Empty"
+                          }
+                        }
+                      }
+                    },
+                    "type": "Message",
+                    "name": "filtered",
+                    "is_slidable": true
+                  },
+                  "properties": {
+                    "option_set": "option.file_types__os_",
+                    "option_value": "all values"
+                  },
+                  "type": "OptionValue"
+                },
+                "type": "Message",
+                "name": "is_contained_by_list",
+                "is_slidable": false
+              },
+              "type": "Message",
+              "name": "last_element",
+              "is_slidable": false
+            },
+            "properties": {
+              "separator": {
+                "entries": {
+                  "0": "."
+                },
+                "type": "TextExpression"
+              }
+            },
+            "type": "Message",
+            "name": "split_by",
+            "is_slidable": true
+          },
+          "type": "Message",
+          "name": "url",
+          "is_slidable": false
+        },
+        "properties": {
+          "btype_id": "file",
+          "event_id": "bTcKR",
+          "optional": false,
+          "param_id": "bTQRY0",
+          "param_name": "file"
+        },
+        "type": "CurrentWorkflowItem",
+        "is_slidable": false
+      },
+      "arguments": {
+        "0": {
+          "param_id": "bTcLL",
+          "arg_value": {
+            "next": {
+              "next": {
+                "next": {
+                  "properties": {
+                    "formatting_for_true": {
+                      "entries": {
+                        "0": "",
+                        "1": {
+                          "next": {
+                            "type": "Message",
+                            "name": "bTcRR0",
+                            "is_slidable": false
+                          },
+                          "properties": {
+                            "action_id": "bTcRX0"
+                          },
+                          "type": "PreviousStep",
+                          "is_slidable": false
+                        },
+                        "2": ""
+                      },
+                      "type": "TextExpression"
+                    },
+                    "formatting_for_false": {
+                      "entries": {
+                        "0": "",
+                        "1": {
+                          "properties": {
+                            "arbitrary_text": {
+                              "entries": {
+                                "0": "",
+                                "1": {
+                                  "next": {
+                                    "properties": {
+                                      "formatting_for_true": {
+                                        "entries": {
+                                          "0": "https://playgram-version-test.b-cdn.net"
+                                        },
+                                        "type": "TextExpression"
+                                      },
+                                      "formatting_for_false": {
+                                        "entries": {
+                                          "0": "https://frala.b-cdn.net"
+                                        },
+                                        "type": "TextExpression"
+                                      }
+                                    },
+                                    "type": "Message",
+                                    "name": "format_boolean",
+                                    "is_slidable": true
+                                  },
+                                  "properties": {
+                                    "name": "AppIsTest"
+                                  },
+                                  "type": "PageData",
+                                  "is_slidable": false
+                                },
+                                "2": "",
+                                "3": {
+                                  "next": {
+                                    "next": {
+                                      "args": {
+                                        "properties": {
+                                          "option_set": "option.chat_type__os_",
+                                          "option_value": "team"
+                                        },
+                                        "type": "OneOptionValue",
+                                        "is_slidable": false
+                                      },
+                                      "next": {
+                                        "properties": {
+                                          "formatting_for_true": {
+                                            "entries": {
+                                              "0": "",
+                                              "1": {
+                                                "next": {
+                                                  "type": "Message",
+                                                  "name": "signed_url_token_text",
+                                                  "is_slidable": false
+                                                },
+                                                "properties": {
+                                                  "btype_id": "custom.organization",
+                                                  "event_id": "bTcKR",
+                                                  "optional": false,
+                                                  "param_id": "bTQRX0",
+                                                  "param_name": "organization"
+                                                },
+                                                "type": "CurrentWorkflowItem",
+                                                "is_slidable": false
+                                              },
+                                              "2": ""
+                                            },
+                                            "type": "TextExpression"
+                                          },
+                                          "formatting_for_false": {
+                                            "entries": {
+                                              "0": "",
+                                              "1": {
+                                                "next": {
+                                                  "next": {
+                                                    "args": {
+                                                      "properties": {
+                                                        "option_set": "option.chat_type__os_",
+                                                        "option_value": "personal"
+                                                      },
+                                                      "type": "OneOptionValue",
+                                                      "is_slidable": false
+                                                    },
+                                                    "next": {
+                                                      "args": {
+                                                        "next": {
+                                                          "next": {
+                                                            "args": {
+                                                              "properties": {
+                                                                "option_set": "option.chat_type__os_",
+                                                                "option_value": "temporary"
+                                                              },
+                                                              "type": "OneOptionValue",
+                                                              "is_slidable": false
+                                                            },
+                                                            "type": "Message",
+                                                            "name": "equals",
+                                                            "is_slidable": false
+                                                          },
+                                                          "type": "Message",
+                                                          "name": "type_option_chat_type__os_",
+                                                          "is_slidable": false
+                                                        },
+                                                        "properties": {
+                                                          "btype_id": "custom.chat",
+                                                          "event_id": "bTcKR",
+                                                          "optional": false,
+                                                          "param_id": "bTQRj0",
+                                                          "param_name": "chat"
+                                                        },
+                                                        "type": "CurrentWorkflowItem",
+                                                        "is_slidable": false
+                                                      },
+                                                      "next": {
+                                                        "properties": {
+                                                          "formatting_for_true": {
+                                                            "entries": {
+                                                              "0": "",
+                                                              "1": {
+                                                                "next": {
+                                                                  "type": "Message",
+                                                                  "name": "signed_url_token_text",
+                                                                  "is_slidable": false
+                                                                },
+                                                                "properties": {
+                                                                  "btype_id": "user",
+                                                                  "event_id": "bTcKR",
+                                                                  "optional": true,
+                                                                  "param_id": "bTTCp",
+                                                                  "param_name": "user"
+                                                                },
+                                                                "type": "CurrentWorkflowItem",
+                                                                "is_slidable": false
+                                                              },
+                                                              "2": ""
+                                                            },
+                                                            "type": "TextExpression"
+                                                          },
+                                                          "formatting_for_false": {
+                                                            "entries": {
+                                                              "0": "",
+                                                              "1": {
+                                                                "next": {
+                                                                  "next": {
+                                                                    "type": "Message",
+                                                                    "name": "signed_url_token_text",
+                                                                    "is_slidable": false
+                                                                  },
+                                                                  "type": "Message",
+                                                                  "name": "project_custom_project",
+                                                                  "is_slidable": false
+                                                                },
+                                                                "properties": {
+                                                                  "btype_id": "custom.chat",
+                                                                  "event_id": "bTcKR",
+                                                                  "optional": false,
+                                                                  "param_id": "bTQRj0",
+                                                                  "param_name": "chat"
+                                                                },
+                                                                "type": "CurrentWorkflowItem",
+                                                                "said": "a2Vsdm8tMzE4ODQ=",
+                                                                "is_slidable": false
+                                                              },
+                                                              "2": ""
+                                                            },
+                                                            "type": "TextExpression"
+                                                          }
+                                                        },
+                                                        "type": "Message",
+                                                        "name": "format_boolean",
+                                                        "is_slidable": true
+                                                      },
+                                                      "type": "Message",
+                                                      "name": "or_",
+                                                      "is_slidable": false
+                                                    },
+                                                    "type": "Message",
+                                                    "name": "equals",
+                                                    "is_slidable": false
+                                                  },
+                                                  "type": "Message",
+                                                  "name": "type_option_chat_type__os_",
+                                                  "is_slidable": false
+                                                },
+                                                "properties": {
+                                                  "btype_id": "custom.chat",
+                                                  "event_id": "bTcKR",
+                                                  "optional": false,
+                                                  "param_id": "bTQRj0",
+                                                  "param_name": "chat"
+                                                },
+                                                "type": "CurrentWorkflowItem",
+                                                "is_slidable": false
+                                              },
+                                              "2": ""
+                                            },
+                                            "type": "TextExpression"
+                                          }
+                                        },
+                                        "type": "Message",
+                                        "name": "format_boolean",
+                                        "is_slidable": true
+                                      },
+                                      "type": "Message",
+                                      "name": "equals",
+                                      "is_slidable": false
+                                    },
+                                    "type": "Message",
+                                    "name": "type_option_chat_type__os_",
+                                    "is_slidable": false
+                                  },
+                                  "properties": {
+                                    "btype_id": "custom.chat",
+                                    "event_id": "bTcKR",
+                                    "optional": false,
+                                    "param_id": "bTQRj0",
+                                    "param_name": "chat"
+                                  },
+                                  "type": "CurrentWorkflowItem",
+                                  "said": "a2Vsdm8tMzE4ODQ=",
+                                  "is_slidable": false
+                                },
+                                "4": "/",
+                                "5": {
+                                  "next": {
+                                    "next": {
+                                      "args": {
+                                        "properties": {
+                                          "option_set": "option.chat_type__os_",
+                                          "option_value": "team"
+                                        },
+                                        "type": "OneOptionValue",
+                                        "is_slidable": false
+                                      },
+                                      "next": {
+                                        "properties": {
+                                          "formatting_for_true": {
+                                            "entries": {
+                                              "0": "",
+                                              "1": {
+                                                "next": {
+                                                  "next": {
+                                                    "properties": {
+                                                      "formatting_type": "url_encode",
+                                                      "replace_space": false
+                                                    },
+                                                    "type": "Message",
+                                                    "name": "format_text",
+                                                    "is_slidable": true
+                                                  },
+                                                  "type": "Message",
+                                                  "name": "bunny_folder_text",
+                                                  "is_slidable": false
+                                                },
+                                                "properties": {
+                                                  "btype_id": "custom.organization",
+                                                  "event_id": "bTcKR",
+                                                  "optional": false,
+                                                  "param_id": "bTQRX0",
+                                                  "param_name": "organization"
+                                                },
+                                                "type": "CurrentWorkflowItem",
+                                                "is_slidable": false
+                                              },
+                                              "2": ""
+                                            },
+                                            "type": "TextExpression"
+                                          },
+                                          "formatting_for_false": {
+                                            "entries": {
+                                              "0": "",
+                                              "1": {
+                                                "next": {
+                                                  "next": {
+                                                    "args": {
+                                                      "properties": {
+                                                        "option_set": "option.chat_type__os_",
+                                                        "option_value": "personal"
+                                                      },
+                                                      "type": "OneOptionValue",
+                                                      "is_slidable": false
+                                                    },
+                                                    "next": {
+                                                      "args": {
+                                                        "next": {
+                                                          "next": {
+                                                            "args": {
+                                                              "properties": {
+                                                                "option_set": "option.chat_type__os_",
+                                                                "option_value": "temporary"
+                                                              },
+                                                              "type": "OneOptionValue",
+                                                              "is_slidable": false
+                                                            },
+                                                            "type": "Message",
+                                                            "name": "equals",
+                                                            "is_slidable": false
+                                                          },
+                                                          "type": "Message",
+                                                          "name": "type_option_chat_type__os_",
+                                                          "is_slidable": false
+                                                        },
+                                                        "properties": {
+                                                          "btype_id": "custom.chat",
+                                                          "event_id": "bTcKR",
+                                                          "optional": false,
+                                                          "param_id": "bTQRj0",
+                                                          "param_name": "chat"
+                                                        },
+                                                        "type": "CurrentWorkflowItem",
+                                                        "is_slidable": false
+                                                      },
+                                                      "next": {
+                                                        "properties": {
+                                                          "formatting_for_true": {
+                                                            "entries": {
+                                                              "0": "",
+                                                              "1": {
+                                                                "next": {
+                                                                  "next": {
+                                                                    "properties": {
+                                                                      "formatting_type": "url_encode",
+                                                                      "replace_space": false
+                                                                    },
+                                                                    "type": "Message",
+                                                                    "name": "format_text",
+                                                                    "is_slidable": true
+                                                                  },
+                                                                  "type": "Message",
+                                                                  "name": "bunny_folder_text",
+                                                                  "is_slidable": false
+                                                                },
+                                                                "properties": {
+                                                                  "btype_id": "user",
+                                                                  "event_id": "bTcKR",
+                                                                  "optional": true,
+                                                                  "param_id": "bTTCp",
+                                                                  "param_name": "user"
+                                                                },
+                                                                "type": "CurrentWorkflowItem",
+                                                                "is_slidable": false
+                                                              },
+                                                              "2": ""
+                                                            },
+                                                            "type": "TextExpression"
+                                                          },
+                                                          "formatting_for_false": {
+                                                            "entries": {
+                                                              "0": "",
+                                                              "1": {
+                                                                "next": {
+                                                                  "next": {
+                                                                    "next": {
+                                                                      "properties": {
+                                                                        "formatting_type": "url_encode",
+                                                                        "replace_space": false
+                                                                      },
+                                                                      "type": "Message",
+                                                                      "name": "format_text",
+                                                                      "is_slidable": true
+                                                                    },
+                                                                    "type": "Message",
+                                                                    "name": "bunny_folder_text",
+                                                                    "is_slidable": false
+                                                                  },
+                                                                  "type": "Message",
+                                                                  "name": "project_custom_project",
+                                                                  "is_slidable": false
+                                                                },
+                                                                "properties": {
+                                                                  "btype_id": "custom.chat",
+                                                                  "event_id": "bTcKR",
+                                                                  "optional": false,
+                                                                  "param_id": "bTQRj0",
+                                                                  "param_name": "chat"
+                                                                },
+                                                                "type": "CurrentWorkflowItem",
+                                                                "said": "a2Vsdm8tMzE4ODQ=",
+                                                                "is_slidable": false
+                                                              },
+                                                              "2": ""
+                                                            },
+                                                            "type": "TextExpression"
+                                                          }
+                                                        },
+                                                        "type": "Message",
+                                                        "name": "format_boolean",
+                                                        "is_slidable": true
+                                                      },
+                                                      "type": "Message",
+                                                      "name": "or_",
+                                                      "is_slidable": false
+                                                    },
+                                                    "type": "Message",
+                                                    "name": "equals",
+                                                    "is_slidable": false
+                                                  },
+                                                  "type": "Message",
+                                                  "name": "type_option_chat_type__os_",
+                                                  "is_slidable": false
+                                                },
+                                                "properties": {
+                                                  "btype_id": "custom.chat",
+                                                  "event_id": "bTcKR",
+                                                  "optional": false,
+                                                  "param_id": "bTQRj0",
+                                                  "param_name": "chat"
+                                                },
+                                                "type": "CurrentWorkflowItem",
+                                                "is_slidable": false
+                                              },
+                                              "2": ""
+                                            },
+                                            "type": "TextExpression"
+                                          }
+                                        },
+                                        "type": "Message",
+                                        "name": "format_boolean",
+                                        "is_slidable": true
+                                      },
+                                      "type": "Message",
+                                      "name": "equals",
+                                      "is_slidable": false
+                                    },
+                                    "type": "Message",
+                                    "name": "type_option_chat_type__os_",
+                                    "is_slidable": false
+                                  },
+                                  "properties": {
+                                    "btype_id": "custom.chat",
+                                    "event_id": "bTcKR",
+                                    "optional": false,
+                                    "param_id": "bTQRj0",
+                                    "param_name": "chat"
+                                  },
+                                  "type": "CurrentWorkflowItem",
+                                  "said": "a2Vsdm8tMzE4ODQ=",
+                                  "is_slidable": false
+                                },
+                                "6": "/",
+                                "7": {
+                                  "next": {
+                                    "next": {
+                                      "next": {
+                                        "type": "Message",
+                                        "name": "last_element",
+                                        "is_slidable": false
+                                      },
+                                      "properties": {
+                                        "separator": {
+                                          "entries": {
+                                            "0": "/"
+                                          },
+                                          "type": "TextExpression"
+                                        }
+                                      },
+                                      "type": "Message",
+                                      "name": "split_by",
+                                      "is_slidable": true
+                                    },
+                                    "type": "Message",
+                                    "name": "url",
+                                    "is_slidable": false
+                                  },
+                                  "properties": {
+                                    "btype_id": "file",
+                                    "event_id": "bTcKR",
+                                    "optional": false,
+                                    "param_id": "bTQRY0",
+                                    "param_name": "file"
+                                  },
+                                  "type": "CurrentWorkflowItem",
+                                  "is_slidable": false
+                                },
+                                "8": ""
+                              },
+                              "type": "TextExpression"
+                            }
+                          },
+                          "type": "ArbitraryText",
+                          "said": "a2Vsdm8tMzE4ODQ="
+                        },
+                        "2": ""
+                      },
+                      "type": "TextExpression"
+                    }
+                  },
+                  "type": "Message",
+                  "name": "format_boolean",
+                  "is_slidable": true
+                },
+                "type": "Message",
+                "name": "is_not_empty",
+                "is_slidable": false
+              },
+              "type": "Message",
+              "name": "bTcRR0",
+              "is_slidable": false
+            },
+            "properties": {
+              "action_id": "bTcRX0"
+            },
+            "type": "PreviousStep",
+            "is_slidable": false
+          }
+        },
+        "1": {
+          "param_id": "bTcLM",
+          "arg_value": {
+            "properties": {
+              "btype_id": "option.llm_providers__os_",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQTz0",
+              "param_name": "provider"
+            },
+            "type": "CurrentWorkflowItem",
+            "is_slidable": false
+          }
+        },
+        "2": {
+          "param_id": "bTcLf",
+          "arg_value": {
+            "properties": {
+              "btype_id": "file",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQRY0",
+              "param_name": "file"
+            },
+            "type": "CurrentWorkflowItem",
+            "is_slidable": false
+          }
+        },
+        "3": {
+          "param_id": "bTcNc",
+          "arg_value": {
+            "next": {
+              "type": "Message",
+              "name": "_api_c2_body.response.file_url",
+              "is_slidable": false
+            },
+            "properties": {
+              "action_id": "bTrTt0"
+            },
+            "type": "PreviousStep",
+            "is_slidable": false
+          }
+        },
+        "4": {
+          "param_id": "bTcNd",
+          "arg_value": {
+            "properties": {
+              "btype_id": "custom.chat",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQRj0",
+              "param_name": "chat"
+            },
+            "type": "CurrentWorkflowItem",
+            "is_slidable": false
+          }
+        }
+      },
+      "custom_event": "bTcLF"
+    },
+    "type": "TriggerCustomEvent",
+    "id": "bTcLA"
+  },
+  "3": {
+    "properties": {
+      "condition": {
+        "next": {
+          "next": {
+            "type": "Message",
+            "name": "is_false",
+            "is_slidable": false
+          },
+          "type": "Message",
+          "name": "_api_c2_returned_an_error",
+          "is_slidable": false
+        },
+        "properties": {
+          "action_id": "bTrTt0"
+        },
+        "type": "PreviousStep",
+        "is_slidable": false
+      },
+      "url_to_delete": {
+        "properties": {
+          "btype_id": "text",
+          "event_id": "bTcKR",
+          "optional": false,
+          "param_id": "bTQRY0",
+          "param_name": "file_link"
+        },
+        "type": "CurrentWorkflowItem",
+        "is_slidable": false
+      }
+    },
+    "type": "DeleteUploadedFile",
+    "id": "bTcKo"
+  },
+  "4": {
+    "properties": {
+      "return_values": {
+        "0": {
+          "return_id": "bTQSO0",
+          "return_value": {
+            "next": {
+              "type": "Message",
+              "name": "bTcNj",
+              "is_slidable": false
+            },
+            "properties": {
+              "action_id": "bTcLA"
+            },
+            "type": "PreviousStep",
+            "is_slidable": false
+          }
+        },
+        "1": {
+          "return_id": "bTcNn",
+          "return_value": {
+            "next": {
+              "next": {
+                "next": {
+                  "next": {
+                    "args": {
+                      "next": {
+                        "next": {
+                          "type": "Message",
+                          "name": "display",
+                          "is_slidable": false
+                        },
+                        "properties": {
+                          "constraints": {
+                            "0": {
+                              "key": "_advanced_search_constraint",
+                              "value": {
+                                "next": {
+                                  "next": {
+                                    "args": "image",
+                                    "type": "Message",
+                                    "name": "contains",
+                                    "is_slidable": false
+                                  },
+                                  "type": "Message",
+                                  "name": "mime_type",
+                                  "is_slidable": false
+                                },
+                                "type": "InjectedValue",
+                                "is_slidable": false
+                              },
+                              "constraint_type": {
+                                "type": "Empty"
+                              }
+                            }
+                          }
+                        },
+                        "type": "Message",
+                        "name": "filtered",
+                        "is_slidable": true
+                      },
+                      "properties": {
+                        "option_set": "option.file_types__os_",
+                        "option_value": "all values"
+                      },
+                      "type": "OptionValue"
+                    },
+                    "next": {
+                      "properties": {
+                        "formatting_for_true": {
+                          "entries": {
+                            "0": {
+                              "next": {
+                                "type": "Message",
+                                "name": "_api_c2_body.response.file_url",
+                                "is_slidable": false
+                              },
+                              "properties": {
+                                "action_id": "bTrTt0"
+                              },
+                              "type": "PreviousStep",
+                              "is_slidable": false
+                            }
+                          },
+                          "type": "TextExpression"
+                        },
+                        "formatting_for_false": {
+                          "entries": {
+                            "0": ""
+                          },
+                          "type": "TextExpression"
+                        }
+                      },
+                      "type": "Message",
+                      "name": "format_boolean",
+                      "is_slidable": true
+                    },
+                    "type": "Message",
+                    "name": "is_contained_by_list",
+                    "is_slidable": false
+                  },
+                  "type": "Message",
+                  "name": "last_element",
+                  "is_slidable": false
+                },
+                "properties": {
+                  "separator": {
+                    "entries": {
+                      "0": "."
+                    },
+                    "type": "TextExpression"
+                  }
+                },
+                "type": "Message",
+                "name": "split_by",
+                "is_slidable": true
+              },
+              "type": "Message",
+              "name": "url",
+              "is_slidable": false
+            },
+            "properties": {
+              "btype_id": "file",
+              "event_id": "bTcKR",
+              "optional": false,
+              "param_id": "bTQRY0",
+              "param_name": "file"
+            },
+            "type": "CurrentWorkflowItem",
+            "said": "a2Vsdm8tMzE4ODQ=",
+            "is_slidable": false
+          }
+        }
+      }
+    },
+    "type": "TerminateWorkflow",
+    "id": "bTcKv"
+  }
+};

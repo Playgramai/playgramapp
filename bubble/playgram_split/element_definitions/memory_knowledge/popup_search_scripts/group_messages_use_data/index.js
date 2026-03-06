@@ -1,0 +1,35 @@
+import { states } from './states.js';
+
+export const Group_Messages_use_data = {
+  "states": states,
+  "properties": {
+    "height": 280,
+    "left": -40,
+    "top": -40,
+    "width": 280,
+    "zindex": 16,
+    "border_color": "var(--color_alert_default)",
+    "border_width": 2,
+    "group_type": "text",
+    "vertical_centering": true,
+    "background_style": "bgcolor",
+    "bgcolor": "var(--color_primary_default)",
+    "border_style": "solid",
+    "order": 16,
+    "fit_width": false,
+    "fit_height": true,
+    "single_width": true,
+    "min_width_css": "40px",
+    "single_height": false,
+    "min_height_css": "40px",
+    "horiz_alignment": "flex-start",
+    "container_layout": "column",
+    "collapse_when_hidden": true
+  },
+  "type": "Group",
+  "id": "bTiIw2",
+  "current_parent": "bTNqg",
+  "default_name": "Group EZ",
+  "name": "Group Messages (use data)",
+  "style": "Group_transparent_",
+};
