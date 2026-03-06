@@ -75,7 +75,10 @@ def jstr(obj):
 
 def writefile(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
+    comment = contd_origin_comment(path)
     with open(path, 'w') as f:
+        if comment:
+            f.write(comment)
         f.write(text)
     size = os.path.getsize(path)
     rel = os.path.relpath(path, OUT)
@@ -110,11 +113,52 @@ def workflow_item_name(key, v):
     return f'{wtype}_{key}' if wtype else key
 
 
+_contd_map = {}       # would-be relpath → contd_N name
+_contd_counter = [0]  # mutable counter in list for closure access
+
+
+def path_too_long(sub_dir):
+    """True if the relative path from OUT would exceed MAX_PATH."""
+    return len(os.path.relpath(sub_dir, OUT)) > MAX_PATH
+
+
+def get_contd_dir(would_be_sub_dir):
+    """Return a short contd/ path for a would-be path that's too long."""
+    rel = os.path.relpath(would_be_sub_dir, OUT)
+    if rel in _contd_map:
+        return os.path.join(OUT, 'contd', _contd_map[rel])
+    _contd_counter[0] += 1
+    name = f'contd_{_contd_counter[0]}'
+    _contd_map[rel] = name
+    return os.path.join(OUT, 'contd', name)
+
+
+def contd_origin_comment(file_path):
+    """Return a JS comment with the original logical path, or empty string."""
+    # Check if file_path is inside a contd_N directory
+    rel = os.path.relpath(file_path, OUT)
+    parts = rel.replace(os.sep, '/').split('/')
+    if len(parts) < 2 or parts[0] != 'contd':
+        return ''
+    contd_name = parts[1]  # e.g. contd_1
+    for orig, name in _contd_map.items():
+        if name == contd_name:
+            return f'// Original path: {orig}\n'
+    return ''
+
+
+def redirect_if_needed(sub_dir):
+    """Redirect sub_dir to contd/ if path is too long. Returns (possibly new) sub_dir."""
+    if path_too_long(sub_dir):
+        return get_contd_dir(sub_dir)
+    return sub_dir
+
+
 def can_recurse(sub_dir, depth):
     """True if we're allowed to create sub_dir and recurse into it."""
     if MAX_DEPTH is not None and depth >= MAX_DEPTH:
         return False
-    return len(os.path.relpath(sub_dir, OUT)) <= MAX_PATH
+    return True
 
 
 def needs_subfolder(v):
@@ -187,6 +231,110 @@ def element_slug(key, value):
 
 
 # ---------------------------------------------------------------------------
+# Range-based inline chunking
+# ---------------------------------------------------------------------------
+
+INLINE_CHUNK_LINES = 300  # max lines per chunk file
+
+
+def chunk_inline_entries(inline, export_name, out_dir):
+    """Split inline dict entries into ≤INLINE_CHUNK_LINES chunk files.
+
+    Returns a list of (chunk_var, chunk_import_line) tuples, and empties
+    `inline` dict (entries moved to chunk files). If total lines ≤ threshold,
+    returns empty list and leaves inline unchanged.
+    """
+    if not inline:
+        return []
+
+    # Estimate total lines
+    total_lines = sum(jstr(v).count('\n') + 1 for v in inline.values()) + 2
+    if total_lines <= INLINE_CHUNK_LINES:
+        return []
+
+    # Sort keys (case-insensitive)
+    sorted_keys = sorted(inline.keys(), key=lambda k: k.lower())
+
+    # Build chunks respecting line limit
+    chunks = []       # list of [(key, value), ...]
+    current_chunk = []
+    current_lines = 0
+    for k in sorted_keys:
+        v = inline[k]
+        item_lines = jstr(v).count('\n') + 1  # +1 for the key: value, line
+        if current_chunk and current_lines + item_lines > INLINE_CHUNK_LINES:
+            chunks.append(current_chunk)
+            current_chunk = []
+            current_lines = 0
+        current_chunk.append((k, v))
+        current_lines += item_lines
+    if current_chunk:
+        chunks.append(current_chunk)
+
+    if len(chunks) <= 1:
+        return []
+
+    # Write chunk files — use full first/last keys as boundary names
+    result = []
+    base_slug = file_slug(export_name)
+    seen_chunk_names = set()
+    for chunk in chunks:
+        from_slug = file_slug(chunk[0][0])
+        to_slug = file_slug(chunk[-1][0])
+        chunk_name = f'{base_slug}_{from_slug}_to_{to_slug}'
+        # Ensure unique chunk names
+        if chunk_name in seen_chunk_names:
+            n = 1
+            while f'{chunk_name}_{n}' in seen_chunk_names:
+                n += 1
+            chunk_name = f'{chunk_name}_{n}'
+        seen_chunk_names.add(chunk_name)
+        chunk_var = ident(chunk_name)
+
+        lines = [f'export const {chunk_var} = {{']
+        for k, v in chunk:
+            v_js = jstr(v).replace('\n', '\n  ')
+            lines.append(f'  {jstr(k)}: {v_js},')
+        lines.append('};')
+
+        writefile(os.path.join(out_dir, f'{chunk_name}.js'),
+                  '\n'.join(lines) + '\n')
+        result.append((chunk_var, f"import {{ {chunk_var} }} from './{chunk_name}.js';"))
+
+    # Clear inline — all entries moved to chunks
+    inline.clear()
+    return result
+
+
+def write_chunked_flat_dict(d, export_name, out_dir):
+    """Write a large flat dict as a directory with chunk files + index.js.
+
+    Used for standalone data files like id_to_path.js that are too large.
+    """
+    d = dict(d)  # copy since chunk_inline_entries clears the dict
+    chunk_imports = chunk_inline_entries(d, export_name, out_dir)
+    if not chunk_imports:
+        # Too small to chunk — write as single file
+        writefile(os.path.join(out_dir, 'index.js'),
+                  f'export const {export_name} = {jstr(d)};\n')
+        return
+
+    lines = []
+    for _, chunk_imp in chunk_imports:
+        lines.append(chunk_imp)
+    lines.append('')
+    lines.append(f'export const {export_name} = {{')
+    # Any remaining entries in d (not cleared by chunking)
+    for k, v in d.items():
+        v_js = jstr(v).replace('\n', '\n  ')
+        lines.append(f'  {jstr(k)}: {v_js},')
+    for chunk_var, _ in chunk_imports:
+        lines.append(f'  ...{chunk_var},')
+    lines.append('};')
+    writefile(os.path.join(out_dir, 'index.js'), '\n'.join(lines) + '\n')
+
+
+# ---------------------------------------------------------------------------
 # Actions splitter
 # ---------------------------------------------------------------------------
 
@@ -219,9 +367,10 @@ def split_actions_dict(d, actions_dir):
         v_json = jstr(v)
         if isinstance(v, dict) and v_json.count('\n') > ENTRIES_LINES_THRESHOLD \
                 and _has_nested_splittable_dict(v):
-            sub_dir = os.path.join(actions_dir, slug)
+            sub_dir = redirect_if_needed(os.path.join(actions_dir, slug))
             split_dict(v, sub_dir, var, depth=0)
-            import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+            rel_import = os.path.relpath(sub_dir, actions_dir).replace(os.sep, '/')
+            import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
         else:
             writefile(os.path.join(actions_dir, f'{slug}.js'),
                       f'export const {var} = {v_json};\n')
@@ -297,10 +446,11 @@ def split_numeric_keyed_dict(d, out_dir, export_name):
             continue
         slug = unique_slug(numeric_entry_slug(k, v), seen_slugs)
         var  = ident(slug)
-        sub_dir = os.path.join(out_dir, slug)
+        sub_dir = redirect_if_needed(os.path.join(out_dir, slug))
         if isinstance(v, dict) and _has_nested_splittable_dict(v):
             split_dict(v, sub_dir, var, depth=0)
-            import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+            rel_import = os.path.relpath(sub_dir, out_dir).replace(os.sep, '/')
+            import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
         else:
             writefile(os.path.join(out_dir, f'{slug}.js'),
                       f'export const {var} = {jstr(v)};\n')
@@ -344,10 +494,11 @@ def split_elements_dict(d, out_dir, export_name):
             continue
         slug = unique_slug(element_slug(k, v), seen_slugs)
         var  = ident(slug)
-        sub_dir = os.path.join(out_dir, slug)
+        sub_dir = redirect_if_needed(os.path.join(out_dir, slug))
         if _has_nested_splittable_dict(v):
             split_dict(v, sub_dir, var, depth=0)
-            import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+            rel_import = os.path.relpath(sub_dir, out_dir).replace(os.sep, '/')
+            import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
         else:
             writefile(os.path.join(out_dir, f'{slug}.js'),
                       f'export const {var} = {jstr(v)};\n')
@@ -371,7 +522,8 @@ def split_elements_dict(d, out_dir, export_name):
 # Recursive splitter
 # ---------------------------------------------------------------------------
 
-def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
+def split_dict(d, out_dir, export_name, depth=0, out_file='index.js',
+               chunk_inline=False):
     """
     Write out_dir/out_file that exports `export_name` by assembling dict d.
     Large dict values get their own file or subfolder (recursively).
@@ -379,6 +531,8 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
     Keys listed in TRANSPARENT_KEYS skip the intermediate subdirectory:
     their aggregator is written as slug.js in the current dir and their
     children are placed as siblings there.
+    If chunk_inline is True, large inline dicts are split into range-based
+    chunk files.
     """
     if not isinstance(d, dict):
         writefile(os.path.join(out_dir, 'index.js'),
@@ -400,10 +554,11 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             name = workflow_item_name(k, v)
             slug = unique_slug(name, seen_slugs)
             var  = ident(name)
-            sub_dir = os.path.join(out_dir, slug)
+            sub_dir = redirect_if_needed(os.path.join(out_dir, slug))
             if (needs_subfolder(v) or _has_nested_splittable_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                rel_import = os.path.relpath(sub_dir, out_dir).replace(os.sep, '/')
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
             else:
                 writefile(os.path.join(out_dir, f'{slug}.js'),
                           f'export const {var} = {jstr(v)};\n')
@@ -415,7 +570,8 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
     for k, v in d.items():
         size = len(jstr(v))
 
-        if size < THRESHOLD and not (isinstance(v, dict) and _has_nested_splittable_dict(v)):
+        if size < THRESHOLD and not (isinstance(v, dict) and _has_nested_splittable_dict(v)) \
+                and not (isinstance(v, dict) and is_workflows_dict(v)):
             inline[k] = v
             continue
 
@@ -429,20 +585,21 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             name = (v.get('name', '') if isinstance(v, dict) else '') or k
             slug = unique_slug(name, seen_slugs)
             var  = ident(name)
-            sub_dir = os.path.join(out_dir, slug)
+            sub_dir = redirect_if_needed(os.path.join(out_dir, slug))
+            rel_import = os.path.relpath(sub_dir, out_dir).replace(os.sep, '/')
             if is_actions_dict(v) and jstr(v).count('\n') > ACTION_LINES_THRESHOLD:
                 split_actions_dict(v, sub_dir)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
                 key_to_var[k] = var
                 continue
             if is_numeric_keyed_dict(v) and has_large_entries(v):
                 split_numeric_keyed_dict(v, sub_dir, var)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
                 key_to_var[k] = var
                 continue
             if is_elements_dict(v) and has_large_entries(v):
                 split_elements_dict(v, sub_dir, var)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
                 key_to_var[k] = var
                 continue
             if k in TRANSPARENT_KEYS and (needs_subfolder(v) or is_workflows_dict(v)):
@@ -451,7 +608,11 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
                 import_lines.append(f"import {{ {var} }} from './{slug}.js';")
             elif (needs_subfolder(v) or is_workflows_dict(v) or _has_nested_splittable_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
+            elif chunk_inline and isinstance(v, dict) and jstr(v).count('\n') > INLINE_CHUNK_LINES:
+                # Large flat dict — write as chunked directory
+                write_chunked_flat_dict(v, var, sub_dir)
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
             else:
                 writefile(os.path.join(out_dir, f'{slug}.js'),
                           f'export const {var} = {jstr(v)};\n')
@@ -492,19 +653,23 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             name = (v.get('name', '') if isinstance(v, dict) else '') or k
             slug = unique_slug(name, seen_slugs)
             var  = ident(name)
-            sub_dir = os.path.join(out_dir, slug)
+            sub_dir = redirect_if_needed(os.path.join(out_dir, slug))
+            rel_import = os.path.relpath(sub_dir, out_dir).replace(os.sep, '/')
             if isinstance(v, dict) and is_actions_dict(v) and jstr(v).count('\n') > ACTION_LINES_THRESHOLD:
                 split_actions_dict(v, sub_dir)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
             elif isinstance(v, dict) and is_numeric_keyed_dict(v) and has_large_entries(v):
                 split_numeric_keyed_dict(v, sub_dir, var)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
             elif isinstance(v, dict) and is_elements_dict(v) and has_large_entries(v):
                 split_elements_dict(v, sub_dir, var)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
             elif isinstance(v, dict) and (needs_subfolder(v) or is_workflows_dict(v) or _has_nested_splittable_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
-                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
+            elif chunk_inline and isinstance(v, dict) and jstr(v).count('\n') > INLINE_CHUNK_LINES:
+                write_chunked_flat_dict(v, var, sub_dir)
+                import_lines.append(f"import {{ {var} }} from './{rel_import}/index.js';")
             else:
                 writefile(os.path.join(out_dir, f'{slug}.js'),
                           f'export const {var} = {jstr(v)};\n')
@@ -513,9 +678,16 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             remaining_size -= item_size
         inline = new_inline
 
+    # Optionally chunk large inline dicts into separate files
+    chunk_imports = []
+    if chunk_inline:
+        chunk_imports = chunk_inline_entries(inline, export_name, out_dir)
+
     # Build index.js
     lines = import_lines[:]
-    if import_lines:
+    for _, chunk_imp in chunk_imports:
+        lines.append(chunk_imp)
+    if lines:
         lines.append('')
     lines.append(f'export const {export_name} = {{')
     for k, var in key_to_var.items():
@@ -523,6 +695,8 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
     for k, v in inline.items():
         v_js = jstr(v).replace('\n', '\n  ')
         lines.append(f'  {jstr(k)}: {v_js},')
+    for chunk_var, _ in chunk_imports:
+        lines.append(f'  ...{chunk_var},')
     lines.append('};')
 
     writefile(os.path.join(out_dir, out_file), '\n'.join(lines) + '\n')
@@ -532,7 +706,7 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
 # Top-level section helpers
 # ---------------------------------------------------------------------------
 
-def handle_section(key, export_name, value, root_out):
+def handle_section(key, export_name, value, root_out, chunk_inline=False):
     """
     Write a top-level section. If the section is a large dict, split it into
     a subfolder and create a shim .js at root_out level. Otherwise inline.
@@ -542,7 +716,7 @@ def handle_section(key, export_name, value, root_out):
     size = len(jstr(value))
     if isinstance(value, dict) and size >= THRESHOLD:
         sec_dir = os.path.join(root_out, key)
-        split_dict(value, sec_dir, export_name)
+        split_dict(value, sec_dir, export_name, chunk_inline=chunk_inline)
         # Shim at root level so root index.js can import cleanly
         writefile(os.path.join(root_out, f'{key}.js'),
                   f"export {{ {export_name} }} from './{key}/index.js';\n")
@@ -574,9 +748,12 @@ def main():
     # ---- Element Definitions ----
     print('\n=== element_definitions/ ===')
     split_dict(data['element_definitions'],
-               os.path.join(OUT, 'element_definitions'), 'element_definitions')
+               os.path.join(OUT, 'element_definitions'), 'element_definitions',
+               chunk_inline=True)
 
     # ---- Other top-level sections ----
+    # Sections whose top-level aggregator index.js should use range-based chunking
+    CHUNKED_SECTIONS = {'styles', 'user_types', 'option_sets', '_index'}
     other = [
         ('api',          'api'),
         ('styles',       'styles'),
@@ -588,7 +765,8 @@ def main():
     ]
     for key, export_name in other:
         print(f'\n=== {key} ===')
-        handle_section(key, export_name, data.get(key), OUT)
+        handle_section(key, export_name, data.get(key), OUT,
+                       chunk_inline=(key in CHUNKED_SECTIONS))
 
     # ---- Root index.js ----
     print('\n=== root index.js ===')
@@ -624,6 +802,18 @@ def main():
     lines.append('};')
 
     writefile(os.path.join(OUT, 'index.js'), '\n'.join(lines) + '\n')
+
+    # Write contd mapping if any paths were redirected
+    if _contd_map:
+        print(f'\n=== contd/ ({len(_contd_map)} redirected paths) ===')
+        mapping_lines = ['// Mapping of contd_N folders back to their original logical paths.\n']
+        mapping_lines.append('export const contd_mapping = {')
+        for orig, name in sorted(_contd_map.items(), key=lambda x: x[1]):
+            mapping_lines.append(f'  {jstr(name)}: {jstr(orig)},')
+        mapping_lines.append('};')
+        writefile(os.path.join(OUT, 'contd', '_mapping.js'),
+                  '\n'.join(mapping_lines) + '\n')
+
     print(f'\nDone -> {OUT}')
 
 

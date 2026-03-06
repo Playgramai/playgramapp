@@ -1,4 +1,4 @@
-import { elements } from './elements/index.js';
+import { elements } from './../../../../../../../../../../../../../../../../../../../../contd/contd_6/index.js';
 
 export const group_generated_image = {
   "elements": elements,

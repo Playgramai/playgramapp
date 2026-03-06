@@ -1,4 +1,4 @@
-import { entries } from './entries/index.js';
+import { entries } from './../../../../../../../../../../../../../../../../../../../../../../../../../../contd/contd_33/index.js';
 
 export const content = {
   "entries": entries,

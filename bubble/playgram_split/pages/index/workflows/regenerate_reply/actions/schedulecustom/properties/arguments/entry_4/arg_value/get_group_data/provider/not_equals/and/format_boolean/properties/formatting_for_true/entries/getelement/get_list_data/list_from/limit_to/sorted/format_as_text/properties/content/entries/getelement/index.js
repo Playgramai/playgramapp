@@ -1,4 +1,4 @@
-import { get_group_data } from './get_group_data.js';
+import { get_group_data } from './../../../../../../../../../../../../../../../../../../../../../../../../../../../../contd/contd_23/index.js';
 
 export const getelement = {
   "next": get_group_data,

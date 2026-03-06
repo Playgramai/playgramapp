@@ -1,4 +1,4 @@
-import { currentworkflowitem } from './currentworkflowitem/index.js';
+import { currentworkflowitem } from './../../../../../../../../../../../../../../../../../../../../../../../../../../contd/contd_31/index.js';
 
 export const entries = {
   "0": "",

@@ -1,4 +1,7 @@
+import { workflows } from './workflows/index.js';
+
 export const Date = {
+  "workflows": workflows,
   "elements": {
     "bTKXH0": {
       "properties": {
@@ -540,64 +543,6 @@ export const Date = {
       },
       "name": "GF Tooltip date",
       "style": "GroupFocus_shadow_"
-    }
-  },
-  "workflows": {
-    "bTmRV3": {
-      "properties": {
-        "condition": {
-          "next": {
-            "type": "Message",
-            "name": "is_hovered",
-            "is_slidable": false
-          },
-          "properties": {
-            "element_id": "bTYRt"
-          },
-          "type": "GetElement",
-          "is_slidable": false
-        },
-        "run_when": "every_time"
-      },
-      "type": "ConditionTrue",
-      "id": "bTmRP3",
-      "actions": {
-        "0": {
-          "properties": {
-            "element_id": "bTmQx3"
-          },
-          "type": "ShowElement",
-          "id": "bTvKd0"
-        }
-      }
-    },
-    "bTmRf3": {
-      "properties": {
-        "condition": {
-          "next": {
-            "type": "Message",
-            "name": "isnt_hovered",
-            "is_slidable": false
-          },
-          "properties": {
-            "element_id": "bTYRt"
-          },
-          "type": "GetElement",
-          "is_slidable": false
-        },
-        "run_when": "every_time"
-      },
-      "type": "ConditionTrue",
-      "id": "bTmRZ3",
-      "actions": {
-        "0": {
-          "properties": {
-            "element_id": "bTmQx3"
-          },
-          "type": "HideElement",
-          "id": "bTmRb3"
-        }
-      }
     }
   },
   "properties": {

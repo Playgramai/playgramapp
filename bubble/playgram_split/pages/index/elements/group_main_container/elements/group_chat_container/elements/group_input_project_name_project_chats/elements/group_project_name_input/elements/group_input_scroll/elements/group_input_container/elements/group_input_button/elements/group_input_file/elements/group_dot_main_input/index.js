@@ -1,4 +1,4 @@
-import { elements } from './elements/index.js';
+import { elements } from './../../../../../../../../../../../../../../../../../../../../contd/contd_1/index.js';
 
 export const group_dot_main_input = {
   "elements": elements,

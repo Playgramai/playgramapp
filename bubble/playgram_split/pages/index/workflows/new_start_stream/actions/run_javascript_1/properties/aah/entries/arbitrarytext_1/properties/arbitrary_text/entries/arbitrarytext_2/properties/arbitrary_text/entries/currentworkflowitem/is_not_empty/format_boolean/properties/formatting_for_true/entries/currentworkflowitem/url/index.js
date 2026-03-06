@@ -1,4 +1,4 @@
-import { contains } from './contains.js';
+import { contains } from './../../../../../../../../../../../../../../../../../../../../../../../../../contd/contd_26/index.js';
 
 export const url = {
   "next": contains,

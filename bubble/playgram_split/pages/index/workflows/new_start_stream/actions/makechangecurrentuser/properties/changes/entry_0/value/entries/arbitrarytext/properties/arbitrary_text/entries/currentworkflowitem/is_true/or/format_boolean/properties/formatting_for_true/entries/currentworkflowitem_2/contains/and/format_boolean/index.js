@@ -1,4 +1,4 @@
-import { properties } from './properties.js';
+import { properties } from './../../../../../../../../../../../../../../../../../../../../../../../../../../contd/contd_30/index.js';
 
 export const format_boolean = {
   "properties": properties,

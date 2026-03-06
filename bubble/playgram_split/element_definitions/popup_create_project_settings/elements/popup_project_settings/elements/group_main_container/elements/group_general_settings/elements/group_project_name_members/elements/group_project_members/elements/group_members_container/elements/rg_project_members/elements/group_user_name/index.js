@@ -1,4 +1,4 @@
-import { elements } from './elements/index.js';
+import { elements } from './../../../../../../../../../../../../../../../../../../contd/contd_52/index.js';
 
 export const group_user_name = {
   "elements": elements,

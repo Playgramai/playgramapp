@@ -1,5 +1,5 @@
-import { id_to_path } from './id_to_path.js';
-import { issues_list } from './issues_list.js';
+import { id_to_path } from './id_to_path/index.js';
+import { issues_list } from './issues_list/index.js';
 
 export const _index = {
   "id_to_path": id_to_path,

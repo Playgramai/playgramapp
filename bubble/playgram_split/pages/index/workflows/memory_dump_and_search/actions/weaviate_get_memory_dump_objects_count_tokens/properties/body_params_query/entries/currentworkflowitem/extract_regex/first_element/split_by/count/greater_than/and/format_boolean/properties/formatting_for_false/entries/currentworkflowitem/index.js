@@ -1,4 +1,4 @@
-import { extract_regex } from './extract_regex.js';
+import { extract_regex } from './../../../../../../../../../../../../../../../../../../../../../contd/contd_13/index.js';
 
 export const currentworkflowitem = {
   "next": extract_regex,

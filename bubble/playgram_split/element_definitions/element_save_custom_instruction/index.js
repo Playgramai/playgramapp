@@ -1,4 +1,7 @@
+import { workflows } from './workflows/index.js';
+
 export const Element_Save_Custom_Instruction = {
+  "workflows": workflows,
   "elements": {
     "bTKXH0": {
       "properties": {
@@ -769,64 +772,6 @@ export const Element_Save_Custom_Instruction = {
       },
       "name": "GF Tooltip Save to custom",
       "style": "GroupFocus_shadow_"
-    }
-  },
-  "workflows": {
-    "bTljR2": {
-      "properties": {
-        "condition": {
-          "next": {
-            "type": "Message",
-            "name": "is_hovered",
-            "is_slidable": false
-          },
-          "properties": {
-            "element_id": "bTliE2"
-          },
-          "type": "GetElement",
-          "is_slidable": false
-        },
-        "run_when": "every_time"
-      },
-      "type": "ConditionTrue",
-      "id": "bTliu2",
-      "actions": {
-        "0": {
-          "properties": {
-            "element_id": "bTliW2"
-          },
-          "type": "ShowElement",
-          "id": "bTtfx"
-        }
-      }
-    },
-    "bTljp2": {
-      "properties": {
-        "condition": {
-          "next": {
-            "type": "Message",
-            "name": "isnt_hovered",
-            "is_slidable": false
-          },
-          "properties": {
-            "element_id": "bTliE2"
-          },
-          "type": "GetElement",
-          "is_slidable": false
-        },
-        "run_when": "every_time"
-      },
-      "type": "ConditionTrue",
-      "id": "bTljj2",
-      "actions": {
-        "0": {
-          "properties": {
-            "element_id": "bTliW2"
-          },
-          "type": "HideElement",
-          "id": "bTljq2"
-        }
-      }
     }
   },
   "properties": {

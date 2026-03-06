@@ -1,6 +1,6 @@
 import { state } from './state.js';
 import { state_1 } from './state_1.js';
-import { state_2 } from './state_2/index.js';
+import { state_2 } from './../../../../../../../../../../../../../../../../../../../../../contd/contd_8/index.js';
 import { state_3 } from './state_3.js';
 
 export const actions = {

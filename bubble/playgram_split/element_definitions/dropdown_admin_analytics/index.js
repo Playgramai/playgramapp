@@ -1,52 +1,9 @@
 import { elements } from './elements/index.js';
+import { workflows } from './workflows/index.js';
 
 export const Dropdown_admin_analytics = {
   "elements": elements,
-  "workflows": {
-    "bTaxG": {
-      "properties": {
-        "element_id": "bTrBX1"
-      },
-      "type": "ButtonClicked",
-      "id": "bTrBo1",
-      "actions": {
-        "0": {
-          "properties": {
-            "element_id": "bTrBd1"
-          },
-          "type": "ShowElement",
-          "id": "bTrBp1"
-        }
-      }
-    },
-    "bTrCr1": {
-      "properties": {
-        "element_id": "bTrBj1"
-      },
-      "type": "ButtonClicked",
-      "id": "bTrCp1",
-      "actions": {
-        "0": {
-          "properties": {
-            "data_source": {
-              "type": "ElementParent",
-              "is_slidable": false
-            },
-            "element_id": "bTrBV1"
-          },
-          "type": "DisplayGroupData",
-          "id": "bTrCv1"
-        },
-        "1": {
-          "properties": {
-            "element_id": "bTrBd1"
-          },
-          "type": "HideElement",
-          "id": "bTrCx1"
-        }
-      }
-    }
-  },
+  "workflows": workflows,
   "properties": {
     "height": 200,
     "width": 200,

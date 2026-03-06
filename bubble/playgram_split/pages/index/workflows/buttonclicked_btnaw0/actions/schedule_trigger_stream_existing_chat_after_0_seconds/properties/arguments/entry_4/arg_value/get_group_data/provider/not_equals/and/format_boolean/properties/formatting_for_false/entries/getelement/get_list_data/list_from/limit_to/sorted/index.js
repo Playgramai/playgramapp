@@ -1,4 +1,4 @@
-import { format_as_text } from './format_as_text.js';
+import { format_as_text } from './../../../../../../../../../../../../../../../../../../../../../../../contd/contd_37/index.js';
 
 export const sorted = {
   "next": format_as_text,

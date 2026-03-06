@@ -1,4 +1,4 @@
-import { formatting_for_true } from './formatting_for_true.js';
+import { formatting_for_true } from './../../../../../../../../../../../../../../../../../../../../../../../../../contd/contd_27/index.js';
 
 export const properties = {
   "formatting_for_true": formatting_for_true,

@@ -1,0 +1,28 @@
+export const ConditionTrue_bTljR2 = {
+  "properties": {
+    "condition": {
+      "next": {
+        "type": "Message",
+        "name": "is_hovered",
+        "is_slidable": false
+      },
+      "properties": {
+        "element_id": "bTliE2"
+      },
+      "type": "GetElement",
+      "is_slidable": false
+    },
+    "run_when": "every_time"
+  },
+  "type": "ConditionTrue",
+  "id": "bTliu2",
+  "actions": {
+    "0": {
+      "properties": {
+        "element_id": "bTliW2"
+      },
+      "type": "ShowElement",
+      "id": "bTtfx"
+    }
+  }
+};

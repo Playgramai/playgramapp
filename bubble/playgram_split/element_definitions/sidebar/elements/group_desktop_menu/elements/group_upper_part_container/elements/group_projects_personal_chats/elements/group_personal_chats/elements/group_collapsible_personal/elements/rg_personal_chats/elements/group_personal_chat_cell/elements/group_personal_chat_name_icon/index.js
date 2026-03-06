@@ -1,4 +1,4 @@
-import { elements } from './elements/index.js';
+import { elements } from './../../../../../../../../../../../../../../../../../../contd/contd_51/index.js';
 
 export const group_personal_chat_name_icon = {
   "elements": elements,
