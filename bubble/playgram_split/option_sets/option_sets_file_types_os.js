@@ -1,4 +1,4 @@
-export const option_sets_file_types_os_to_file_types_os = {
+export const option_sets_file_types_os = {
   "file_types__os_": {
     "display": "File/Image Types (OS)",
     "values": {

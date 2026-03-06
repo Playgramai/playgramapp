@@ -1,4 +1,4 @@
-export const workspace_privacy_role_to_privacy_role = {
+export const workspace_privacy_role = {
   "privacy_role": {
     "admin_": {
       "condition": {

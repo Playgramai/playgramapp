@@ -1,4 +1,4 @@
-export const element_definitions_btlgc_to_btlgc = {
+export const element_definitions_btlgc = {
   "bTLgC": {
     "properties": {
       "height": 200,

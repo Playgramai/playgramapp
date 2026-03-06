@@ -1,4 +1,4 @@
-export const user_types_organization_to_organization = {
+export const user_types_organization = {
   "organization": {
     "display": "Organization Workspace",
     "fields": {

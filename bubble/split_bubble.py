@@ -281,7 +281,10 @@ def chunk_inline_entries(inline, export_name, out_dir):
     for chunk in chunks:
         from_slug = file_slug(chunk[0][0])
         to_slug = file_slug(chunk[-1][0])
-        chunk_name = f'{base_slug}_{from_slug}_to_{to_slug}'
+        if from_slug == to_slug:
+            chunk_name = f'{base_slug}_{from_slug}'
+        else:
+            chunk_name = f'{base_slug}_{from_slug}_to_{to_slug}'
         # Ensure unique chunk names
         if chunk_name in seen_chunk_names:
             n = 1
@@ -802,17 +805,6 @@ def main():
     lines.append('};')
 
     writefile(os.path.join(OUT, 'index.js'), '\n'.join(lines) + '\n')
-
-    # Write contd mapping if any paths were redirected
-    if _contd_map:
-        print(f'\n=== contd/ ({len(_contd_map)} redirected paths) ===')
-        mapping_lines = ['// Mapping of contd_N folders back to their original logical paths.\n']
-        mapping_lines.append('export const contd_mapping = {')
-        for orig, name in sorted(_contd_map.items(), key=lambda x: x[1]):
-            mapping_lines.append(f'  {jstr(name)}: {jstr(orig)},')
-        mapping_lines.append('};')
-        writefile(os.path.join(OUT, 'contd', '_mapping.js'),
-                  '\n'.join(mapping_lines) + '\n')
 
     print(f'\nDone -> {OUT}')
 

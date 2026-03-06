@@ -1,4 +1,4 @@
-export const option_sets_shortcuts_to_shortcuts = {
+export const option_sets_shortcuts = {
   "shortcuts": {
     "display": "Shortcuts (OS)",
     "values": {

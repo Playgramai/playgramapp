@@ -1,4 +1,4 @@
-export const user_types_upload_job_to_upload_job = {
+export const user_types_upload_job = {
   "upload_job": {
     "display": "Upload Job",
     "fields": {

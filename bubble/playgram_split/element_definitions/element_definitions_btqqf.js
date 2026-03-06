@@ -1,4 +1,4 @@
-export const element_definitions_btqqf_to_btqqf = {
+export const element_definitions_btqqf = {
   "bTqqf": {
     "elements": {
       "bTqrV": {

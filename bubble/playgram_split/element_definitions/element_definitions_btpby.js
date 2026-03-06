@@ -1,4 +1,4 @@
-export const element_definitions_btpby_to_btpby = {
+export const element_definitions_btpby = {
   "bTPBy": {
     "elements": {
       "bTHEc": {

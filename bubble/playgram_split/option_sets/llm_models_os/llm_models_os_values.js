@@ -1,4 +1,4 @@
-export const llm_models_os_values_to_values = {
+export const llm_models_os_values = {
   "values": {
     "bTHfV": {
       "display": "Claude Haiku 3.5",

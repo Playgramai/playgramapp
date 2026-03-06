@@ -1,4 +1,4 @@
-export const user_types_file_to_file = {
+export const user_types_file = {
   "file": {
     "display": "Chat File",
     "fields": {

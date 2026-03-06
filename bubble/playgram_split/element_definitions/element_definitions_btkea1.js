@@ -1,4 +1,4 @@
-export const element_definitions_btkea1_to_btkea1 = {
+export const element_definitions_btkea1 = {
   "bTkEa1": {
     "elements": {
       "bTsaH": {

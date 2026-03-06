@@ -1,4 +1,4 @@
-export const user_types_project_to_project = {
+export const user_types_project = {
   "project": {
     "display": "Project",
     "fields": {

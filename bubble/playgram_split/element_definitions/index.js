@@ -21,11 +21,11 @@ import { Element_Regenerate } from './element_regenerate/index.js';
 import { Dropdown_admin_analytics } from './dropdown_admin_analytics/index.js';
 import { Subscription_plans } from './subscription_plans/index.js';
 import { element_definitions_btapm_to_btjzu } from './element_definitions_btapm_to_btjzu.js';
-import { element_definitions_btkea1_to_btkea1 } from './element_definitions_btkea1_to_btkea1.js';
-import { element_definitions_btlgc_to_btlgc } from './element_definitions_btlgc_to_btlgc.js';
+import { element_definitions_btkea1 } from './element_definitions_btkea1.js';
+import { element_definitions_btlgc } from './element_definitions_btlgc.js';
 import { element_definitions_btmrm1_to_btohl } from './element_definitions_btmrm1_to_btohl.js';
-import { element_definitions_btpby_to_btpby } from './element_definitions_btpby_to_btpby.js';
-import { element_definitions_btqqf_to_btqqf } from './element_definitions_btqqf_to_btqqf.js';
+import { element_definitions_btpby } from './element_definitions_btpby.js';
+import { element_definitions_btqqf } from './element_definitions_btqqf.js';
 import { element_definitions_btqyx0_to_length } from './element_definitions_btqyx0_to_length.js';
 
 export const element_definitions = {
@@ -52,10 +52,10 @@ export const element_definitions = {
   "bTrCT1": Dropdown_admin_analytics,
   "bTxAr1": Subscription_plans,
   ...element_definitions_btapm_to_btjzu,
-  ...element_definitions_btkea1_to_btkea1,
-  ...element_definitions_btlgc_to_btlgc,
+  ...element_definitions_btkea1,
+  ...element_definitions_btlgc,
   ...element_definitions_btmrm1_to_btohl,
-  ...element_definitions_btpby_to_btpby,
-  ...element_definitions_btqqf_to_btqqf,
+  ...element_definitions_btpby,
+  ...element_definitions_btqqf,
   ...element_definitions_btqyx0_to_length,
 };

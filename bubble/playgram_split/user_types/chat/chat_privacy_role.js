@@ -1,4 +1,4 @@
-export const chat_privacy_role_to_privacy_role = {
+export const chat_privacy_role = {
   "privacy_role": {
     "everyone": {
       "display": "everyone",
