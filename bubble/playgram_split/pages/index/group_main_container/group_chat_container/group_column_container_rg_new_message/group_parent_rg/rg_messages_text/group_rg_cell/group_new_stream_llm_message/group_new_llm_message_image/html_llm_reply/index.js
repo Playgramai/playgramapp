@@ -1,4 +1,4 @@
-import { states } from './states.js';
+import { states } from './states/index.js';
 
 export const HTML_LLM_reply = {
   "states": states,

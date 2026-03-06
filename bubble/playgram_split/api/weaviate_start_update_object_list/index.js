@@ -1,4 +1,4 @@
-import { actions } from './actions.js';
+import { actions } from './actions/index.js';
 
 export const weaviate_start_update_object_list = {
   "actions": actions,

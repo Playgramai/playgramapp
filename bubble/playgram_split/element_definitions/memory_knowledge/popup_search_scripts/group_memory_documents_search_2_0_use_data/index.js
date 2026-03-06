@@ -1,4 +1,4 @@
-import { states } from './states.js';
+import { states } from './states/index.js';
 
 export const Group_Memory_Documents_Search_2_0_use_data = {
   "states": states,

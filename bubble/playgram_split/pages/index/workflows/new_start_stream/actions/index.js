@@ -1,54 +1,15 @@
-import { Run_javascript } from './run_javascript/index.js';
-import { Run_javascript } from './run_javascript_1/index.js';
-import { Run_javascript } from './run_javascript_2/index.js';
-import { _3 } from './_3/index.js';
+import { _1488796042609x768734193128308700_aag } from './_1488796042609x768734193128308700_aag.js';
+import { _1488796042609x768734193128308700_aag_1 } from './_1488796042609x768734193128308700_aag_1.js';
+import { _1488796042609x768734193128308700_aag_2 } from './_1488796042609x768734193128308700_aag_2.js';
+import { makechangecurrentuser } from './makechangecurrentuser.js';
+import { changething } from './changething.js';
+import { _1488796042609x768734193128308700_aag_3 } from './_1488796042609x768734193128308700_aag_3.js';
 
 export const actions = {
-  "0": Run_javascript,
-  "1": Run_javascript,
-  "2": Run_javascript,
-  "3": _3,
-  "4": {
-    "properties": {
-      "changes": {
-        "0": {
-          "key": "uploaded_input_file_text",
-          "value": {
-            "entries": {
-              "0": {
-                "type": "Empty"
-              }
-            },
-            "type": "TextExpression"
-          },
-          "action": {
-            "type": "Empty"
-          }
-        }
-      },
-      "to_change": {
-        "next": {
-          "type": "Message",
-          "name": "current_workspace_custom_workspace",
-          "is_slidable": false
-        },
-        "type": "CurrentUser",
-        "is_slidable": false
-      }
-    },
-    "type": "ChangeThing",
-    "id": "bTuGD0"
-  },
-  "5": {
-    "properties": {
-      "AAh": {
-        "entries": {
-          "0": "window.striming=true"
-        },
-        "type": "TextExpression"
-      }
-    },
-    "type": "1488796042609x768734193128308700-AAg",
-    "id": "bTwWO2"
-  },
+  "0": _1488796042609x768734193128308700_aag,
+  "1": _1488796042609x768734193128308700_aag_1,
+  "2": _1488796042609x768734193128308700_aag_2,
+  "3": makechangecurrentuser,
+  "4": changething,
+  "5": _1488796042609x768734193128308700_aag_3,
 };

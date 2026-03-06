@@ -24,6 +24,7 @@ MAX_PATH       = 300      # max relative path length (chars) before falling
 TRANSPARENT_KEYS = {'elements'}
 
 REDACTED = '***REDACTED***'
+ACTION_LINES_THRESHOLD = 300  # lines; actions dicts larger get per-action files
 
 
 # ---------------------------------------------------------------------------
@@ -140,6 +141,58 @@ def is_workflows_dict(d):
     return hits / len(vals) >= 0.7
 
 
+def is_actions_dict(d):
+    """True if d looks like a Bubble numeric-keyed actions collection."""
+    if not isinstance(d, dict) or not d:
+        return False
+    if not all(isinstance(k, str) and k.isdigit() for k in d.keys()):
+        return False
+    vals = [v for v in d.values() if v is not None]
+    if not vals:
+        return False
+    hits = sum(1 for v in vals if isinstance(v, dict) and 'type' in v)
+    return hits / len(vals) >= 0.7
+
+
+# ---------------------------------------------------------------------------
+# Actions splitter
+# ---------------------------------------------------------------------------
+
+def action_type_slug(action):
+    """Derive a filename slug from an action's type field."""
+    t = action.get('type', '') if isinstance(action, dict) else ''
+    return file_slug(t) if t else 'action'
+
+
+def split_actions_dict(d, actions_dir):
+    """Split a numeric-keyed actions dict into per-action files under actions_dir.
+
+    Each action gets its own file named by its type (with a counter suffix for
+    duplicates). actions_dir/index.js imports all files and re-exports the
+    assembled dict as `export const actions = { "0": ..., "1": ..., ... }`.
+    """
+    import_lines = []
+    key_to_var = {}
+    seen_slugs = set()
+    for k in sorted(d.keys(), key=lambda x: int(x)):
+        v = d[k]
+        slug = unique_slug(action_type_slug(v), seen_slugs)
+        var  = ident(slug)
+        writefile(os.path.join(actions_dir, f'{slug}.js'),
+                  f'export const {var} = {jstr(v)};\n')
+        import_lines.append(f"import {{ {var} }} from './{slug}.js';")
+        key_to_var[k] = var
+
+    lines = import_lines[:]
+    if import_lines:
+        lines.append('')
+    lines.append('export const actions = {')
+    for k, var in sorted(key_to_var.items(), key=lambda x: int(x[0])):
+        lines.append(f'  {jstr(k)}: {var},')
+    lines.append('};')
+    writefile(os.path.join(actions_dir, 'index.js'), '\n'.join(lines) + '\n')
+
+
 # ---------------------------------------------------------------------------
 # Recursive splitter
 # ---------------------------------------------------------------------------
@@ -203,6 +256,11 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             slug = unique_slug(name, seen_slugs)
             var  = ident(name)
             sub_dir = os.path.join(out_dir, slug)
+            if is_actions_dict(v) and jstr(v).count('\n') > ACTION_LINES_THRESHOLD:
+                split_actions_dict(v, sub_dir)
+                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+                key_to_var[k] = var
+                continue
             if k in TRANSPARENT_KEYS and (needs_subfolder(v) or is_workflows_dict(v)):
                 # Flatten: write slug.js in current dir, children go here too.
                 split_dict(v, out_dir, var, depth + 1, out_file=f'{slug}.js')
@@ -251,7 +309,10 @@ def split_dict(d, out_dir, export_name, depth=0, out_file='index.js'):
             slug = unique_slug(name, seen_slugs)
             var  = ident(name)
             sub_dir = os.path.join(out_dir, slug)
-            if isinstance(v, dict) and (needs_subfolder(v) or is_workflows_dict(v)) and can_recurse(sub_dir, depth):
+            if isinstance(v, dict) and is_actions_dict(v) and jstr(v).count('\n') > ACTION_LINES_THRESHOLD:
+                split_actions_dict(v, sub_dir)
+                import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
+            elif isinstance(v, dict) and (needs_subfolder(v) or is_workflows_dict(v)) and can_recurse(sub_dir, depth):
                 split_dict(v, sub_dir, var, depth + 1)
                 import_lines.append(f"import {{ {var} }} from './{slug}/index.js';")
             else:

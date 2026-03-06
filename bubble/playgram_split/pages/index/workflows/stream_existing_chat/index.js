@@ -1,4 +1,4 @@
-import { actions } from './actions.js';
+import { actions } from './actions/index.js';
 
 export const stream_existing_chat = {
   "actions": actions,

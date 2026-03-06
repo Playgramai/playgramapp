@@ -1,4 +1,4 @@
-import { actions } from './actions.js';
+import { actions } from './actions/index.js';
 
 export const OLD_upload_to_bunny = {
   "actions": actions,

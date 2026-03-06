@@ -1,4 +1,4 @@
-import { actions } from './actions.js';
+import { actions } from './actions/index.js';
 
 export const OLD_STEP_2_create_chunks_for_uploaded_file = {
   "actions": actions,

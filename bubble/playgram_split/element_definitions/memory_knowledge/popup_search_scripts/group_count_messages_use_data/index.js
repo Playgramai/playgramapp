@@ -1,4 +1,4 @@
-import { states } from './states.js';
+import { states } from './states/index.js';
 
 export const Group_Count_Messages_use_data = {
   "states": states,

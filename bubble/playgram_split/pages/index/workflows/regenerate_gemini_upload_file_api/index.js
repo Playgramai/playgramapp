@@ -1,4 +1,4 @@
-import { actions } from './actions.js';
+import { actions } from './actions/index.js';
 
 export const regenerate_gemini_upload_file_api = {
   "actions": actions,

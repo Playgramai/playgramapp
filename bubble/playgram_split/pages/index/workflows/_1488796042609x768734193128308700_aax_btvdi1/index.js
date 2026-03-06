@@ -1,4 +1,4 @@
-import { actions } from './actions.js';
+import { actions } from './actions/index.js';
 
 export const _1488796042609x768734193128308700_AAX_bTvDi1 = {
   "actions": actions,

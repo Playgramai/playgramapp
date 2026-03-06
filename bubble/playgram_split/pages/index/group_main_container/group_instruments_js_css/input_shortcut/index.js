@@ -1,4 +1,4 @@
-import { states } from './states.js';
+import { states } from './states/index.js';
 
 export const Input_shortcut = {
   "states": states,
