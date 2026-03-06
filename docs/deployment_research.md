@@ -220,6 +220,101 @@ Before committing to Railway:
 
 ---
 
+## Migration Paths from Railway
+
+If we start on Railway and later need to move, here's how hard each realistic migration would be and when it would make sense.
+
+### Railway -> Fly.io (Easy | 1-2 days)
+
+**When it makes sense**: Users are global and latency matters. Railway's 4 regions aren't cutting it.
+
+| What changes | Effort |
+|---|---|
+| Add a `Dockerfile` (Railway auto-detects, Fly requires one) | Trivial — Next.js has official Docker examples |
+| Add `fly.toml` config | Simple — define app name, region list, health checks |
+| Move Redis to Fly (Upstash or Fly Redis) | Config swap (env vars) |
+| Move background workers to Fly Machines | Same Docker image, new deploy target |
+| DNS cutover | Minutes |
+
+**What stays the same**: All application code, all external services (Supabase, Weaviate, Bunny, Stripe, LiteLLM). Zero code changes needed — it's container-to-container.
+
+**Risk**: Low. Both are container-based. The mental model is identical. Main learning curve is `flyctl` CLI and multi-region config.
+
+---
+
+### Railway -> DigitalOcean App Platform (Easy | 1-2 days)
+
+**When it makes sense**: Want to co-locate with LiteLLM (already on DO) to reduce latency and egress costs. Or if Railway has reliability/support issues.
+
+| What changes | Effort |
+|---|---|
+| Add `Dockerfile` or use DO buildpacks | Trivial |
+| Configure App Spec (YAML) or use DO dashboard | Simple |
+| Move Redis to DO Managed Redis ($15/mo) | Config swap (env vars) |
+| Move workers to DO Worker component | Same code, new deploy target |
+| DNS cutover | Minutes |
+
+**What stays the same**: All code, all external services. Same container model.
+
+**Risk**: Low. Very similar to Railway. Slightly less polished DX but more mature platform. Bonus: same-network calls to LiteLLM.
+
+---
+
+### Railway -> AWS (Moderate | 1-2 weeks)
+
+**When it makes sense**: Enterprise customers require AWS compliance (SOC2, HIPAA, specific regions). Or you need AWS-native services (SQS, Step Functions, Bedrock) for complex orchestration.
+
+| What changes | Effort |
+|---|---|
+| Choose deployment method: ECS/Fargate (container) or Amplify or SST (serverless) | Architectural decision |
+| Infrastructure-as-code (CDK, SST, or Terraform) | Significant setup |
+| Move Redis to ElastiCache | Config swap, but need VPC setup |
+| Background jobs -> SQS + Lambda or ECS tasks | May require refactoring Bull queues |
+| Load balancer, auto-scaling, VPC config | New infra to manage |
+| DNS cutover | Minutes (but cert setup takes longer) |
+
+**What stays the same**: Application code mostly unchanged if using ECS/Fargate (container-based). External services unchanged. If going serverless (Lambda), some refactoring needed for streaming and job queue patterns.
+
+**Risk**: Medium. The container path (ECS) keeps code changes minimal. The serverless path requires more refactoring. Main cost is operational complexity — you're now managing AWS infrastructure.
+
+**Tip**: Use SST (open-source) to reduce AWS complexity. It wraps CDK with sensible defaults for Next.js.
+
+---
+
+### Railway -> Coolify on VPS (Easy-Moderate | 1-3 days)
+
+**When it makes sense**: Costs are too high and you want to cut hosting to near-zero. You have someone comfortable with basic server ops.
+
+| What changes | Effort |
+|---|---|
+| Provision VPS (Hetzner/DO droplet) + install Coolify | 1-2 hours |
+| Point Coolify at GitHub repo | Auto-builds Docker, same as Railway |
+| Set up Redis on same VPS or managed | Simple |
+| Workers run as separate Coolify services | Same Docker image |
+| SSL, firewall, monitoring setup | 1-2 hours initial, ongoing maintenance |
+| DNS cutover | Minutes |
+
+**What stays the same**: All code (Docker-based, same as Railway). All external services.
+
+**Risk**: Low for the migration itself. The ongoing risk is operational — you own uptime, security patches, backups, and scaling. No auto-scaling unless you set up multiple VPS nodes behind a load balancer.
+
+---
+
+### Migrations that DON'T make sense
+
+| Target | Why not |
+|---|---|
+| **Vercel** | Would require rearchitecting background jobs (Bull/Redis queues don't run on Vercel). Streaming timeouts need expensive Fluid Compute. Moving backwards in capability |
+| **Cloudflare** | 30s CPU timeout is still a dealbreaker. Would require fundamentally different architecture for LLM streaming |
+
+---
+
+### Key takeaway
+
+**Railway is a safe starting point because the exit cost is near-zero.** As long as we containerize properly (Dockerfile + env vars for all config), any migration to Fly.io, DigitalOcean, or Coolify is a 1-2 day infrastructure task with zero code changes. Even AWS is manageable via the container path (ECS/Fargate). The riskier migrations (Vercel, Cloudflare) are ones we'd never want to make anyway given our streaming requirements.
+
+---
+
 ## Sources
 
 - [10 Best Next.js Hosting Providers in 2026](https://makerkit.dev/blog/tutorials/best-hosting-nextjs)
