@@ -80,3 +80,5 @@ Use semantic commit prefixes:
 - `test:` — adding or updating tests
 - `ci:` — CI/CD changes
 - `perf:` — performance improvements
+
+Write descriptive commit messages: the subject line should summarize the change, and the body should explain what was changed and why in enough detail that someone reading the log understands the commit without looking at the diff.
